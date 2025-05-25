@@ -42,18 +42,18 @@
             overflow-x: auto;
             white-space: nowrap;
             scroll-behavior: auto;
-            -ms-overflow-style: none;  /* Hide scrollbar IE and Edge */
-            scrollbar-width: none;     /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
         .scroll-wrapper::-webkit-scrollbar {
-            display: none;             /* Hide scrollbar Chrome, Safari, Opera */
+            display: none;
         }
 
         .scroll-content > .company-card {
             display: inline-block;
             margin-right: 10px;
             vertical-align: top;
-            width: 180px;              /* Ukuran kartu bisa disesuaikan */
+            width: 180px;
         }
 
         .card-img-top {
@@ -63,7 +63,7 @@
         }
 
         .company-card {
-            width: 190px;
+            width: 160px;
             flex: 0 0 auto;
         }
         .footer{
