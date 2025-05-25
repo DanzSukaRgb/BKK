@@ -10,6 +10,8 @@ class Lowongan extends Model
 {
     use HasFactory;
 
+    protected $table = 'lowongan'; // tambahkan baris ini
+
     protected $fillable = [
         'perusahaan_id',
         'judul',
