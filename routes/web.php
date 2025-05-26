@@ -23,6 +23,11 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/alumni', function () {
+    return view('pendaftaran-alumni');
+});
+
 // Public routes
 // Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/lowongan', [LowonganController::class, 'publicIndex'])->name('lowongan.public');
