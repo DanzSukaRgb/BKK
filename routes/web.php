@@ -24,7 +24,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/alumni', function () {
+Route::get('/pendaftaran', function () {
     return view('pendaftaran-alumni');
 });
 
