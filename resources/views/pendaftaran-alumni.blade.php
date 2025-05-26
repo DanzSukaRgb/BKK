@@ -69,18 +69,19 @@
                                         <input type="text" class="form-control" id="fullName" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="nim" class="form-label">NIM</label>
+                                        <label for="nim" class="form-label">NISN</label>
                                         <input type="text" class="form-control" id="nim" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="faculty" class="form-label">Fakultas</label>
+                                        <label for="faculty" class="form-label">Jurusan</label>
                                         <select class="form-select" id="faculty" required>
-                                            <option value="" selected disabled>Pilih Fakultas</option>
-                                            <option>Teknik</option>
-                                            <option>Ekonomi</option>
-                                            <option>Kedokteran</option>
-                                            <option>Hukum</option>
-                                            <option>FMIPA</option>
+                                            <option value="" selected disabled>Pilih Jurusan</option>
+                                            <option>RPL</option>
+                                            <option>DKV</option>
+                                            <option>Manajemen Perkantoran</option>
+                                            <option>Akuntansi</option>
+                                            <option>KKBT</option>
+                                            <option>Bisnis Digital</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
