@@ -20,9 +20,11 @@ use App\Http\Controllers\ProfileController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/', function () {
+    return view('home');
+});
 // Public routes
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/lowongan', [LowonganController::class, 'publicIndex'])->name('lowongan.public');
 Route::get('/lowongan/{slug}', [LowonganController::class, 'publicShow'])->name('lowongan.show.public');
 Route::get('/kegiatan', [KegiatanBkkController::class, 'publicIndex'])->name('kegiatan.public');
