@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Pendaftaran Alumni</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+@extends('layouts.app')
+@section('konten')
     <style>
         body {
             background-color: #f8f9fa;
@@ -47,17 +39,16 @@
             border-color: #224abe;
         }
     </style>
-</head>
-<body>
+    <br>
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="form-container">
                     <div class="header-section">
                         <h1 class="display-6 fw-bold mb-2"><i class="bi bi-mortarboard-fill me-2"></i>Pendaftaran Alumni</h1>
-                        <p class="lead mb-0">Silakan lengkapi formulir berikut untuk mendaftar sebagai alumni</p>
+                        <p class="lead mb-0">Formulir ini bertujuan untuk mempermudah alumni SMKN 6 Jember mendapatkan pekerjaan sesuai kompetensi mereka.</p>
                     </div>
-                    
+
                     <div class="form-section">
                         <form>
                             <!-- Biodata Section -->
@@ -109,7 +100,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- CV Upload Section -->
                             <div class="mb-4">
                                 <h4 class="mb-3"><i class="bi bi-file-earmark-text me-2"></i>Upload CV</h4>
@@ -124,7 +115,7 @@
                                     <p class="mt-2 mb-0 small text-muted" id="selectedFile">Belum ada file yang dipilih</p>
                                 </div>
                             </div>
-                            
+
                             <!-- Job Interest Section -->
                             <div class="mb-4">
                                 <h4 class="mb-3"><i class="bi bi-briefcase me-2"></i>Minat Pekerjaan</h4>
@@ -167,7 +158,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <button type="reset" class="btn btn-light px-4">Reset</button>
                                 <button type="submit" class="btn btn-primary px-4">
@@ -177,7 +168,7 @@
                         </form>
                     </div>
                 </div>
-                
+
                 <div class="text-center mt-4">
                     <p class="text-muted small">© 2025 Sistem Pendaftaran Alumni. Hak Cipta Dilindungi.</p>
                 </div>
@@ -193,7 +184,7 @@
             const fileName = this.files[0] ? this.files[0].name : 'Belum ada file yang dipilih';
             document.getElementById('selectedFile').textContent = fileName;
         });
-        
+
         // Script untuk klik area upload
         document.getElementById('uploadArea').addEventListener('click', function(e) {
             if (e.target.tagName !== 'BUTTON') {
@@ -201,5 +192,4 @@
             }
         });
     </script>
-</body>
-</html>
+@endsection

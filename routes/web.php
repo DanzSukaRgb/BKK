@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\LamaranController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LowonganController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\KegiatanBkkController;
-use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,16 +21,12 @@ use App\Http\Controllers\ProfileController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/pendaftaran', function () {
-    return view('pendaftaran-alumni');
-});
 
 // Public routes
-// Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/pendaftaran', function () {
+//     return view('pendaftaran-alumni');
+// });
 Route::get('/lowongan', [LowonganController::class, 'publicIndex'])->name('lowongan.public');
 Route::get('/lowongan/{slug}', [LowonganController::class, 'publicShow'])->name('lowongan.show.public');
 Route::get('/kegiatan', [KegiatanBkkController::class, 'publicIndex'])->name('kegiatan.public');
@@ -37,6 +34,10 @@ Route::get('/kegiatan/{id}', [KegiatanBkkController::class, 'publicShow'])->name
 Route::get('/perusahaan', [PerusahaanController::class, 'publicIndex'])->name('perusahaan.public');
 Route::get('/perusahaan/{id}', [PerusahaanController::class, 'publicShow'])->name('perusahaan.show.public');
 
+// Authentication routes
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Notifikasi routes
 Route::prefix('notifikasi')->middleware('auth')->group(function () {
@@ -62,16 +63,13 @@ Route::middleware('auth')->group(function () {
 
 // Admin routes
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::resource('perusahaan', PerusahaanController::class)->except(['show']);
     Route::resource('alumni', AlumniController::class)->except(['show']);
+    Route::get('/alumni/{alumni}', [AlumniController::class, 'show'])->name('alumni.show');
+    Route::resource('perusahaan', PerusahaanController::class)->except(['show']);
     Route::resource('lowongan', LowonganController::class)->except(['show']);
     Route::resource('lamaran', LamaranController::class);
     Route::resource('kegiatan', KegiatanBkkController::class)->except(['show']);
-
-    // Verifikasi perusahaan
     Route::post('/perusahaan/{id}/verify', [PerusahaanController::class, 'verify'])->name('perusahaan.verify');
-
-    // Dashboard route
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 });
 

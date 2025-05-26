@@ -11,6 +11,7 @@ return new class extends Migration
         // Tabel perusahaan
         Schema::create('perusahaan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('nama');
             $table->text('alamat');
             $table->string('telepon');
@@ -18,6 +19,8 @@ return new class extends Migration
             $table->string('website')->nullable();
             $table->text('deskripsi')->nullable();
             $table->string('logo')->nullable();
+            $table->string('industri');
+            $table->integer('jumlah_karyawan');
             $table->timestamps();
         });
 
