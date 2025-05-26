@@ -38,6 +38,34 @@
             margin-left: 60px;
             text-align: justify;
         }
+        .scroll-wrapper {
+            overflow-x: auto;
+            white-space: nowrap;
+            scroll-behavior: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scroll-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scroll-content > .company-card {
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: top;
+            width: 180px;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+        }
+
+        .company-card {
+            width: 160px;
+            flex: 0 0 auto;
+        }
         .footer{
                 background-color:#333e49;
                 padding: 70px 0;
@@ -116,8 +144,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link fw-bold" href="#">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link fw-bold" href="#">Profil</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="#beranda">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="#tentang">Profil</a></li>
                 <li class="nav-item"><a class="nav-link fw-bold" href="#">Perusahaan</a></li>
                 <li class="nav-item"><a class="nav-link fw-bold" href="#">Informasi</a></li>
                 <li class="nav-item"><a class="nav-link fw-bold" href="#">Lowongan</a></li>
@@ -128,7 +156,7 @@
         </div>
       </nav>
 
-      <section class="bg-light text-start py-5 hero-80">
+      <section class="bg-light text-start py-5 hero-80" id="beranda">
         <div class="container">
           <h1 class="display-4 fw-bold h1">BURSA KERJA KHUSUS <br>SMKN 6 JEMBER</h1>
           <p class="lead mb-4">Temukan pekerjaan sesuai kompetensi anda.</p>
@@ -138,7 +166,7 @@
       </section>
 <br>
 <br>
-<h2 class="text-center">Tentang Kami</h2>
+<h2 class="text-center" id="tentang">Tentang Kami</h2>
 <section class="about d-flex align-items-start mt-4" style="display: flex; gap: 30px; max-width: 1100px; margin: auto; padding: 20px;">
     <div class="text" style="text-align: justify; max-width: 700px; line-height: 1.8; font-size: 16px;">
         <p>
@@ -152,45 +180,31 @@
   <br>
   <br>
   <br>
-  <section class="company py-5" style="background-color: #f8f9fa; height:320px;">
-    <div class="container">
-        <h2 class="text-center">Perusahaan</h2>
-        <br>
-        <div class="row justify-content-center g-3">
-            <div class="col-auto">
-                <div class="card" style="width: 120px;">
-                    <img src="{{ asset('assets/per1.jpg') }}" class="card-img-top" alt="Perusahaan 1" style="border-radius: 8px;">
+  <section class="company py-5" style="background-color: #f8f9fa;" id="perusahaan">
+    <div class="container-fluid">
+        <h2 class="text-center mb-4">Perusahaan</h2>
+        <div id="scrollContainer" class="scroll-wrapper">
+            <div class="scroll-content">
+                <div class="card company-card">
+                    <img src="{{ asset('assets/per1.jpg') }}" class="card-img-top" alt="Perusahaan 1">
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card" style="width: 120px;">
-                    <img src="{{ asset('assets/per2.png') }}" class="card-img-top" alt="Perusahaan 2" style="border-radius: 8px;">
+                <div class="card company-card">
+                    <img src="{{ asset('assets/per2.png') }}" class="card-img-top" alt="Perusahaan 2">
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card" style="width: 120px;">
-                    <img src="{{ asset('assets/per3.png') }}" class="card-img-top" alt="Perusahaan 3" style="border-radius: 8px;">
+                <div class="card company-card">
+                    <img src="{{ asset('assets/per3.png') }}" class="card-img-top" alt="Perusahaan 3">
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card" style="width: 120px; height:120px;">
-                    <img src="{{ asset('assets/per4.png') }}" class="card-img-top" alt="Perusahaan 4" style="border-radius: 8px;">
+                <div class="card company-card">
+                    <img src="{{ asset('assets/per4.png') }}" class="card-img-top" alt="Perusahaan 4">
                 </div>
-            </div>
-
-            <div class="col-auto">
-                <div class="card" style="width: 120px;">
-                    <img src="{{ asset('assets/per5.jpg') }}" class="card-img-top" alt="Perusahaan 5" style="border-radius: 8px;">
+                <div class="card company-card">
+                    <img src="{{ asset('assets/per5.jpg') }}" class="card-img-top" alt="Perusahaan 5">
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card" style="width: 120px;">
-                    <img src="{{ asset('assets/per6.jpg') }}" class="card-img-top" alt="Perusahaan 6" style="border-radius: 8px;">
+                <div class="card company-card">
+                    <img src="{{ asset('assets/per6.jpg') }}" class="card-img-top" alt="Perusahaan 6">
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card" style="width: 120px; height:120px;">
-                    <img src="{{ asset('assets/per7.png') }}" class="card-img-top" alt="Perusahaan 7" style="border-radius: 8px;">
+                <div class="card company-card">
+                    <img src="{{ asset('assets/per7.png') }}" class="card-img-top" alt="Perusahaan 7">
                 </div>
             </div>
         </div>
@@ -324,5 +338,53 @@
         </div>
     </footer>
 </section>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('scrollContainer');
+        const content = container.querySelector('.scroll-content');
+
+        // Gandakan konten untuk efek scroll infinite
+        content.innerHTML += content.innerHTML;
+
+        const scrollSpeed = 3; // kecepatan scroll pixel per tick
+        const tickInterval = 15; // ms per tick
+        const pauseDuration = 1500; // lama berhenti dalam ms
+
+        let scrolling = true;
+
+        function autoScroll() {
+            if (!scrolling) return;
+
+            if (container.scrollLeft >= content.scrollWidth / 2) {
+                container.scrollLeft = 0;
+            } else {
+                container.scrollLeft += scrollSpeed;
+            }
+        }
+
+        let intervalId = setInterval(autoScroll, tickInterval);
+
+        // Fungsi toggle jalan dan berhenti
+        function toggleScroll() {
+            if (scrolling) {
+                // Berhenti scroll
+                scrolling = false;
+                clearInterval(intervalId);
+                setTimeout(() => {
+                    // Mulai scroll lagi setelah pauseDuration
+                    scrolling = true;
+                    intervalId = setInterval(autoScroll, tickInterval);
+                }, pauseDuration);
+            }
+        }
+
+        // Jalankan toggle bergantian jalan dan berhenti setiap (pauseDuration + scrollDuration)
+        // Tapi biar simple, kita pakai interval yang bergantian jalan dan berhenti setiap pauseDuration + scrollDuration
+        // Kita buat toggle jalan dan berhenti dengan interval 3 detik
+
+        setInterval(toggleScroll, pauseDuration + 1500); // contoh 3 detik total, 1.5 detik scroll, 1.5 detik pause
+    });
+    </script>
+
 </body>
 </html>
