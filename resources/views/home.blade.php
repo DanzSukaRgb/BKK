@@ -144,7 +144,7 @@
                     <li class="nav-item"><a class="nav-link fw-bold" href="#kegiatan">Informasi</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="#lowongan">Lowongan</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="#kontak">Kontak</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="#">Login</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="{{route('login')}}">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -179,7 +179,7 @@
                 <div class="scroll-content">
                     @foreach([1,2,3,4,5,6,7] as $index)
                         <div class="card company-card">
-                            <img src="{{ asset('assets/per' . $index . '.jpg') }}" class="card-img-top" alt="Perusahaan {{ $index }}">
+                            <img src="{{ asset('assets/per' . $index . '.png') }}" class="card-img-top" alt="Perusahaan {{ $index }}">
                         </div>
                     @endforeach
                 </div>
@@ -188,7 +188,7 @@
     </section>
 
     <br><br><br><br>
-    <section class="bg-gray-50 py-12" id="lowongan">
+    <section class="bg-gray-50 py-12" id="lowongan  ">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-800">Lowongan Kerja</h2>
