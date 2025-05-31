@@ -61,6 +61,9 @@
             width: 160px;
             flex: 0 0 auto;
         }
+        .shadow-blue {
+            box-shadow: 0 0.5rem 1rem rgba(33, 109, 190, 0.4);
+        }
         .footer {
             background-color: #333e49;
             padding: 70px 0;
@@ -170,7 +173,6 @@
         </div>
         <img src="{{ asset('assets/logo.png') }}" alt="Gambar PKK" style="width: 270px; height: auto; border-radius: 8px; margin-left:90px;" />
     </section>
-
     <br><br><br><br>
     <section class="company py-5" style="background-color: #f8f9fa;" id="perusahaan">
         <div class="container-fluid">
@@ -188,7 +190,63 @@
     </section>
 
     <br><br><br><br>
-    <section class="bg-gray-50 py-12" id="lowongan  ">
+    <h3 class="text-center">Info Singkat BKK</h3>
+    <section class="text-white py-5">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-4 mb-4">
+              <div class="card bg-light text-dark shadow-blue border-0">
+                <div class="card-body">
+                  <h3 class="display-5 fw-bold">1,200+</h3>
+                  <p class="mb-0">Alumni Terdaftar</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card bg-light text-dark shadow-blue border-0">
+                <div class="card-body">
+                  <h3 class="display-5 fw-bold">85+</h3>
+                  <p class="mb-0">Perusahaan Mitra</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card bg-light text-dark shadow-blue border-0">
+                <div class="card-body">
+                  <h3 class="display-5 fw-bold">120</h3>
+                  <p class="mb-0">Lowongan Aktif</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card bg-light text-dark shadow-blue border-0">
+                <div class="card-body">
+                  <h3 class="display-5 fw-bold">1,200+</h3>
+                  <p class="mb-0">Alumni Bekerja</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card bg-light text-dark shadow-blue border-0">
+                <div class="card-body">
+                  <h3 class="display-5 fw-bold">85+</h3>
+                  <p class="mb-0">Alumni Wirausaha</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card bg-light text-dark shadow-blue border-0">
+                <div class="card-body">
+                  <h3 class="display-5 fw-bold">120</h3>
+                  <p class="mb-0">Kegiatan Rekruitmen</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section class="bg-gray-50 py-12" id="lowongan">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-800">Lowongan Kerja</h2>
