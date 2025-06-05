@@ -60,13 +60,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::resource('lowongan', LowonganController::class)->except(['show']);
 
 // Admin routes
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('alumni', AlumniController::class)->except(['show']);
     Route::get('/alumni/{alumni}', [AlumniController::class, 'show'])->name('alumni.show');
     Route::resource('perusahaan', PerusahaanController::class)->except(['show']);
-    Route::resource('lowongan', LowonganController::class)->except(['show']);
     Route::resource('lamaran', LamaranController::class);
     Route::resource('kegiatan', KegiatanBkkController::class)->except(['show']);
     Route::post('/perusahaan/{id}/verify', [PerusahaanController::class, 'verify'])->name('perusahaan.verify');
@@ -74,14 +74,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 // Alumni routes
+Route::post('/lowongan/{id}/lamar', [LamaranController::class, 'store'])->name('lamaran.store');
 Route::middleware(['auth', 'alumni'])->group(function () {
     Route::get('/alumni/dashboard', [AlumniController::class, 'dashboard'])->name('alumni.dashboard');
-    Route::post('/lowongan/{id}/lamar', [LamaranController::class, 'store'])->name('lamaran.store');
     Route::get('/alumni/profile', [AlumniController::class, 'profile'])->name('alumni.profile');
     Route::put('/alumni/profile', [AlumniController::class, 'updateProfile'])->name('alumni.profile.update');
+    // Perusahaan routes
 });
 
-// Perusahaan routes
 Route::middleware(['auth', 'perusahaan'])->group(function () {
     Route::get('/perusahaan/dashboard', [PerusahaanController::class, 'dashboard'])->name('perusahaan.dashboard');
     Route::get('/perusahaan/profile', [PerusahaanController::class, 'profile'])->name('perusahaan.profile');

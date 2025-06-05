@@ -145,7 +145,7 @@
                     <li class="nav-item"><a class="nav-link fw-bold" href="#tentang">Profil</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="#perusahaan">Perusahaan</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="#kegiatan">Informasi</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="#lowongan">Lowongan</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="{{route('lowongan.index')}}">Lowongan</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="#kontak">Kontak</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="{{route('login')}}">Login</a></li>
                 </ul>
@@ -245,32 +245,7 @@
           </div>
         </div>
       </section>
-
-    <section class="bg-gray-50 py-12" id="lowongan">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800">Lowongan Kerja</h2>
-                <p class="mt-2 text-gray-600">Gabung bersama tim kami dan kembangkan kariermu.</p>
-            </div>
-            <div class="container my-4">
-                <div class="row">
-                    @foreach($lowongan as $job)
-                        <div class="col-md-4 mb-4">
-                            <div class="card shadow-sm h-100">
-                                <img src="{{ $job->logo ?? asset('assets/per2.png') }}" class="card-img-top" alt="Logo {{ $job->company_name ?? 'Perusahaan' }}" style="width:120px; padding-left:20px; padding-top:20px;">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $job->company_name ?? 'PT Teknologi Hebat' }}</h5>
-                                    <p class="card-text">Posisi: {{ $job->position ?? 'Full Stack Developer' }}</p>
-                                    <a href="#" class="btn btn-primary">Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </section>
-
+      
     <br><br><br><br>
     <section class="bg-light py-12" id="kegiatan">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
