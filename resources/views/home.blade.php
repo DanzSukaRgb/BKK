@@ -143,7 +143,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link fw-bold" href="#beranda">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="#tentang">Profil</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="#perusahaan">Perusahaan</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="{{route('company')}}">Perusahaan</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="#kegiatan">Informasi</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="#lowongan">Lowongan</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="#kontak">Kontak</a></li>
@@ -350,7 +350,7 @@
 
             const scrollSpeed = 3; // kecepatan scroll pixel per tick
             const tickInterval = 15; // ms per tick
-            const pauseDuration = 1500; // lama berhenti dalam ms
+         // lama berhenti dalam ms
 
             let scrolling = true;
 

@@ -73,10 +73,12 @@
                     Remember Me
                 </label>
             </div>
-
-            <div class="d-grid">
+            <div class="d-grid mt-3 mb-3">
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
+            <a href="{{ route('register') }}" class="small">
+                Belum Punya Akun? Silahkan Registrasi di sini
+            </a>
 
             @if (Route::has('password.request'))
                 <div class="mt-3 text-center">

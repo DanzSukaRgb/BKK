@@ -44,4 +44,7 @@ class HomeController extends Controller
 
         return view('dashboard', $data);
     }
+    public function company(){
+        return view('company');
+    }
 }

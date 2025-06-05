@@ -24,6 +24,7 @@ use App\Http\Controllers\KegiatanBkkController;
 
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/company', [HomeController::class, 'company'])->name('company');
 // Route::get('/pendaftaran', function () {
 //     return view('pendaftaran-alumni');
 // });
@@ -38,6 +39,9 @@ Route::get('/perusahaan/{id}', [PerusahaanController::class, 'publicShow'])->nam
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
 
 // Notifikasi routes
 Route::prefix('notifikasi')->middleware('auth')->group(function () {
