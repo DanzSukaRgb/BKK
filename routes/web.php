@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\LamaranController;
 use App\Http\Controllers\ProfileController;
@@ -35,9 +35,9 @@ Route::get('/perusahaan', [PerusahaanController::class, 'publicIndex'])->name('p
 Route::get('/perusahaan/{id}', [PerusahaanController::class, 'publicShow'])->name('perusahaan.show.public');
 
 // Authentication routes
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Notifikasi routes
 Route::prefix('notifikasi')->middleware('auth')->group(function () {
