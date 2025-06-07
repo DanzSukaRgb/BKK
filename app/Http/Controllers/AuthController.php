@@ -72,9 +72,9 @@ class AuthController extends Controller
         if ($user->isAdmin()) {
             return redirect()->route('dashboard');
         } elseif ($user->isAlumni()) {
-            return redirect()->route('alumni.dashboard');
+            return redirect()->route('home');
         } elseif ($user->isPerusahaan()) {
-            return redirect()->route('perusahaan.dashboard');
+            return redirect()->route('home');
         }
 
         return redirect()->intended('/');
