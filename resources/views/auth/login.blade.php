@@ -4,26 +4,76 @@
 
 @section('styles')
 <style>
+    :root {
+        --navbar-height: 56px; /* Default navbar height, adjustable */
+    }
+
     body, html {
         height: 100%;
+        margin: 0;
     }
 
     .login-page-wrapper {
-        min-height: calc(100vh - 56px); /* 56px untuk tinggi navbar (standar Bootstrap) */
+        min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: #f8f9fa;
-        padding: 20px;
+        padding: clamp(10px, 5vw, 20px);
+        padding-top: calc(var(--navbar-height) + clamp(10px, 5vw, 20px)); /* Account for fixed navbar */
     }
 
     .login-card {
         width: 100%;
-        max-width: 400px;
-        padding: 30px;
+        max-width: clamp(300px, 80vw, 400px); /* Responsive max-width */
+        padding: clamp(15px, 5vw, 25px); /* Smaller padding on small screens */
         background: #ffffff;
         border-radius: 12px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-card h4 {
+        font-size: clamp(1.5rem, 5vw, 1.75rem); /* Responsive heading */
+    }
+
+    .form-control, .btn {
+        min-height: 44px; /* Touch-friendly height */
+        font-size: clamp(0.9rem, 4vw, 1rem);
+    }
+
+    .alert-danger {
+        max-height: 150px; /* Prevent overflow on small screens */
+        overflow-y: auto;
+        font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+    }
+
+    .form-check-label, .small, .text-decoration-none {
+        font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+    }
+
+    @media (max-width: 576px) {
+        .login-card {
+            padding: 15px;
+        }
+        .login-card h4 {
+            margin-bottom: 15px;
+        }
+        .mb-3 {
+            margin-bottom: 12px !important; /* Tighter spacing */
+        }
+        .d-grid {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .login-card {
+            padding: 10px;
+        }
+        .form-control, .btn {
+            min-height: 40px; /* Slightly smaller for tiny screens */
+        }
     }
 </style>
 @endsection
@@ -73,10 +123,12 @@
                     Remember Me
                 </label>
             </div>
+
             <div class="d-grid mt-3 mb-3">
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
-            <a href="{{ route('register') }}" class="small">
+
+            <a href="{{ route('register') }}" class="small d-block text-center">
                 Belum Punya Akun? Silahkan Registrasi di sini
             </a>
 
