@@ -58,4 +58,5 @@ class Perusahaan extends Model
                     ->orWhere('industri', 'like', "%$keyword%")
                     ->orWhere('alamat', 'like', "%$keyword%");
     }
+    
 }

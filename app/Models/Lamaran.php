@@ -21,6 +21,18 @@ class Lamaran extends Model
     protected $casts = [
         'tanggal_interview' => 'datetime',
     ];
+    public function scopeFilter($query, array $filters)
+{
+    if (!empty($filters['status'])) {
+        $query->where('status', $filters['status']);
+    }
+
+    if (!empty($filters['lowongan_id'])) {
+        $query->where('lowongan_id', $filters['lowongan_id']);
+    }
+
+    return $query;
+}
 
     // Status constants
     const STATUS_MENUNGGU  = 'Menunggu';

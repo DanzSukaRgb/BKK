@@ -9,7 +9,7 @@ class PerusahaanController extends Controller
 {
     public function index()
     {
-        $perusahaan = Perusahaan::orderBy('nama')->get();
+        $perusahaan = Perusahaan::with('user')->orderBy('nama')->get();
         return view('perusahaan.index', compact('perusahaan'));
     }
 
@@ -21,18 +21,23 @@ class PerusahaanController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama'      => 'required',
-            'alamat'    => 'required',
-            'telepon'   => 'required',
-            'email'     => 'required|email',
-            'website'   => 'nullable|url',
-            'deskripsi' => 'nullable',
-            'logo'      => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'nama' => 'required|string|max:255',
+            'alamat' => 'required|string',
+            'telepon' => 'required|string|max:20',
+            'email' => 'required|email|unique:perusahaan,email',
+            'website' => 'nullable|url',
+            'deskripsi' => 'nullable|string',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'industri' => 'required|string|max:255',
+            'jumlah_karyawan' => 'required|integer|min:0',
         ]);
 
         if ($request->hasFile('logo')) {
             $validated['logo'] = $request->file('logo')->store('perusahaan', 'public');
         }
+
+        $validated['user_id'] = auth()->id();
+        $validated['status_verifikasi'] = 'Belum Diverifikasi';
 
         Perusahaan::create($validated);
 
@@ -52,13 +57,15 @@ class PerusahaanController extends Controller
     public function update(Request $request, Perusahaan $perusahaan)
     {
         $validated = $request->validate([
-            'nama'      => 'required',
-            'alamat'    => 'required',
-            'telepon'   => 'required',
-            'email'     => 'required|email',
-            'website'   => 'nullable|url',
-            'deskripsi' => 'nullable',
-            'logo'      => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'nama' => 'required|string|max:255',
+            'alamat' => 'required|string',
+            'telepon' => 'required|string|max:20',
+            'email' => 'required|email|unique:perusahaan,email,'.$perusahaan->id,
+            'website' => 'nullable|url',
+            'deskripsi' => 'nullable|string',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'industri' => 'required|string|max:255',
+            'jumlah_karyawan' => 'required|integer|min:0',
         ]);
 
         if ($request->hasFile('logo')) {
@@ -80,5 +87,28 @@ class PerusahaanController extends Controller
         }
         $perusahaan->delete();
         return redirect()->route('perusahaan.index')->with('success', 'Perusahaan berhasil dihapus');
+    }
+
+    public function verify($id)
+    {
+        $perusahaan = Perusahaan::findOrFail($id);
+        $perusahaan->update(['status_verifikasi' => 'Terverifikasi']);
+        return back()->with('success', 'Perusahaan berhasil diverifikasi');
+    }
+
+    // Public methods
+    public function publicIndex()
+    {
+        $perusahaan = Perusahaan::where('status_verifikasi', 'Terverifikasi')
+                        ->orderBy('nama')
+                        ->paginate(10);
+        return view('perusahaan.publicIndex', compact('perusahaan'));
+    }
+
+    public function publicShow($id)
+    {
+        $perusahaan = Perusahaan::where('status_verifikasi', 'Terverifikasi')
+                        ->findOrFail($id);
+        return view('perusahaan.publicShow', compact('perusahaan'));
     }
 }

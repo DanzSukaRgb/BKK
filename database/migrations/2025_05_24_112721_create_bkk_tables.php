@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->string('industri');
             $table->integer('jumlah_karyawan');
+            $table->string('status_verifikasi')->default('Belum Diverifikasi');
             $table->timestamps();
         });
 
@@ -56,6 +57,7 @@ return new class extends Migration
             $table->string('jenis_pekerjaan');
             $table->string('pendidikan');
             $table->string('pengalaman')->nullable();
+            $table->json('skill_dibutuhkan')->nullable();
             $table->date('tanggal_buka');
             $table->date('tanggal_tutup');
             $table->integer('kuota')->default(1);
@@ -69,7 +71,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('alumni_id')->constrained('alumni')->onDelete('cascade');
             $table->foreignId('lowongan_id')->constrained('lowongan')->onDelete('cascade');
-            $table->text('surat_lamaran');
+            $table->text('pesan');
+            $table->string('dokumen');
             $table->string('status')->default('Menunggu');
             $table->text('catatan')->nullable();
             $table->timestamps();
@@ -84,6 +87,11 @@ return new class extends Migration
             $table->time('waktu');
             $table->string('tempat');
             $table->string('gambar')->nullable();
+            $table->string('tipe_kegiatan')->nullable();
+            $table->json('peserta')->nullable();
+            $table->string('narasumber')->nullable();
+            $table->string('biaya')->nullable();
+            $table->string('status')->default('Berlangsung');
             $table->timestamps();
         });
 

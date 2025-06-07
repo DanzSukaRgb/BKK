@@ -2,20 +2,23 @@
 
 namespace Database\Seeders;
 
+use App\Models\Perusahaan;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class PerusahaanSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        User::factory()
-            ->count(3)
-            ->create([
-                'role' => 'perusahaan',
-            ]);
+        $users = User::factory()
+            ->count(5)
+            ->asPerusahaan()
+            ->create();
+
+        foreach ($users as $user) {
+            Perusahaan::factory()
+                ->for($user)
+                ->create();
+        }
     }
 }

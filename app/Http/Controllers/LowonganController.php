@@ -30,13 +30,14 @@ class LowonganController extends Controller
     {
         $request->validate([
             'perusahaan_id' => 'required|exists:perusahaan,id',
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'posisi' => 'required',
-            'gaji' => 'nullable',
-            'jenis_pekerjaan' => 'required',
-            'pendidikan' => 'required',
-            'pengalaman' => 'nullable',
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'posisi' => 'required|string|max:100',
+            'gaji' => 'nullable|string|max:100',
+            'jenis_pekerjaan' => 'required|in:Full-time,Part-time,Kontrak,Freelance',
+            'pendidikan' => 'required|in:SMA/SMK,D3,S1,S2',
+            'pengalaman' => 'nullable|string',
+            'skill_dibutuhkan' => 'nullable|string',
             'tanggal_buka' => 'required|date',
             'tanggal_tutup' => 'required|date|after:tanggal_buka',
             'kuota' => 'required|integer|min:1',
@@ -46,15 +47,13 @@ class LowonganController extends Controller
         $lowonganData['slug'] = Str::slug($request->judul) . '-' . Str::random(6);
         $lowonganData['status'] = 'Aktif';
 
+        $lowonganData['skill_dibutuhkan'] = $request->skill_dibutuhkan
+            ? array_map('trim', explode(',', $request->skill_dibutuhkan))
+            : [];
+
         Lowongan::create($lowonganData);
 
         return redirect()->route('lowongan.index')->with('success', 'Lowongan berhasil ditambahkan');
-    }
-
-    public function show(Lowongan $lowongan)
-    {
-        $lowongan->load('perusahaan');
-        return view('lowongan.show', compact('lowongan'));
     }
 
     public function edit(Lowongan $lowongan)
@@ -67,25 +66,29 @@ class LowonganController extends Controller
     {
         $request->validate([
             'perusahaan_id' => 'required|exists:perusahaan,id',
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'posisi' => 'required',
-            'gaji' => 'nullable',
-            'jenis_pekerjaan' => 'required',
-            'pendidikan' => 'required',
-            'pengalaman' => 'nullable',
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'posisi' => 'required|string|max:100',
+            'gaji' => 'nullable|string|max:100',
+            'jenis_pekerjaan' => 'required|in:Full-time,Part-time,Kontrak,Freelance',
+            'pendidikan' => 'required|in:SMA/SMK,D3,S1,S2',
+            'pengalaman' => 'nullable|string',
+            'skill_dibutuhkan' => 'nullable|string',
             'tanggal_buka' => 'required|date',
             'tanggal_tutup' => 'required|date|after:tanggal_buka',
             'kuota' => 'required|integer|min:1',
             'status' => 'required|in:Aktif,Nonaktif',
         ]);
 
-        $lowonganData = $request->all();
+        $lowonganData = $request->except('slug');
 
-        // Only update slug if title changed
         if ($lowongan->judul != $request->judul) {
             $lowonganData['slug'] = Str::slug($request->judul) . '-' . Str::random(6);
         }
+
+        $lowonganData['skill_dibutuhkan'] = $request->skill_dibutuhkan
+            ? array_map('trim', explode(',', $request->skill_dibutuhkan))
+            : [];
 
         $lowongan->update($lowonganData);
 
@@ -105,5 +108,27 @@ class LowonganController extends Controller
         ]);
 
         return back()->with('success', 'Status lowongan berhasil diubah');
+    }
+
+    public function publicIndex()
+    {
+        $lowongan = Lowongan::with('perusahaan')
+            ->where('status', 'Aktif')
+            ->where('tanggal_tutup', '>=', Carbon::today())
+            ->filter(request(['search', 'jenis_pekerjaan', 'pendidikan', 'industri']))
+            ->latest()
+            ->paginate(12);
+
+        return view('lowongan.publicIndex', compact('lowongan'));
+    }
+
+    public function publicShow($slug)
+    {
+        $lowongan = Lowongan::where('slug', $slug)
+            ->where('status', 'Aktif')
+            ->where('tanggal_tutup', '>=', Carbon::today())
+            ->firstOrFail();
+
+        return view('lowongan.publicShow', compact('lowongan'));
     }
 }

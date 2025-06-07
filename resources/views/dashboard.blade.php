@@ -120,8 +120,14 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $lowongan->judul }}</h5>
                                 <p class="card-text">{{ Str::limit($lowongan->deskripsi, 100) }}</p>
-                                <p class="card-text"><small>Dibuat {{ $lowongan->created_at->diffForHumans() }}</small></p>
-                                <a href="{{ route('admin.lowongan.show', $lowongan->id) }}" class="btn btn-light btn-sm">Lihat Detail</a>
+                                <p class="card-text">
+                                    <small>
+                                        Dibuat
+                                        {{ $lowongan->created_at ? $lowongan->created_at->diffForHumans() : 'Tanggal tidak tersedia' }}
+                                    </small>
+                                </p>
+
+                                {{-- <a href="{{ route('lowongan.show', $lowongan->id) }}" class="btn btn-light btn-sm">Lihat Detail</a> --}}
                             </div>
                         </div>
                     </div>
@@ -141,7 +147,7 @@
                                 <h5 class="card-title">{{ $lamaran->nama_pelamar }}</h5>
                                 <p class="card-text">Posisi: {{ $lamaran->lowongan->judul ?? '-' }}</p>
                                 <p class="card-text"><small>Dikirim {{ $lamaran->created_at->diffForHumans() }}</small></p>
-                                <a href="{{ route('admin.lamaran.show', $lamaran->id) }}" class="btn btn-light btn-sm">Lihat Detail</a>
+                                <a href="{{ route('lamaran.show', $lamaran->id) }}" class="btn btn-light btn-sm">Lihat Detail</a>
                             </div>
                         </div>
                     </div>

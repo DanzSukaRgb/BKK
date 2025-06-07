@@ -2,13 +2,14 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
 
 class Lowongan extends Model
 {
-    use HasFactory;
+    use HasFactory,HasTimestamps;
 
     protected $table = 'lowongan'; // tambahkan baris ini
 
@@ -33,6 +34,8 @@ class Lowongan extends Model
         'tanggal_buka'     => 'date',
         'tanggal_tutup'    => 'date',
         'skill_dibutuhkan' => 'array',
+        'created_at' => 'datetime', // Ditambahkan
+        'updated_at' => 'datetime', // Ditambahkan
     ];
 
     // Relasi dengan Perusahaan

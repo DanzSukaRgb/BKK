@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Alumni;
 use App\Models\Lamaran;
 use App\Models\Lowongan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class LamaranController extends Controller
@@ -21,7 +23,7 @@ class LamaranController extends Controller
 
     public function create()
     {
-        $alumni   = Alumni::orderBy('nama_lengkap')->get();
+        $alumni = Alumni::where('user_id', Auth::id())->firstOrFail();
         $lowongan = Lowongan::where('status', 'Aktif')
             ->where('tanggal_tutup', '>=', now())
             ->orderBy('judul')
@@ -30,31 +32,41 @@ class LamaranController extends Controller
         return view('lamaran.create', compact('alumni', 'lowongan'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $request->validate([
-            'alumni_id'     => 'required|exists:alumni,id',
-            'lowongan_id'   => 'required|exists:lowongan,id',
-            'surat_lamaran' => 'required',
+            'lowongan_id' => 'required|exists:lowongan,id',
+            'pesan' => 'required|string',
+            'dokumen' => 'required|file|mimes:pdf,doc,docx|max:5120', // 5MB max
         ]);
 
-        // Check if alumni already applied for this job
-        $existingLamaran = Lamaran::where('alumni_id', $request->alumni_id)
-            ->where('lowongan_id', $request->lowongan_id)
-            ->first();
-
-        if ($existingLamaran) {
-            return back()->with('error', 'Alumni sudah melamar di lowongan ini sebelumnya');
+        $lowongan = Lowongan::findOrFail($id);
+        if ($lowongan->status !== 'Aktif' || $lowongan->tanggal_tutup < now()) {
+            return back()->with('error', 'Lowongan ini sudah tidak menerima lamaran.');
         }
 
-        Lamaran::create([
-            'alumni_id'     => $request->alumni_id,
-            'lowongan_id'   => $request->lowongan_id,
-            'surat_lamaran' => $request->surat_lamaran,
-            'status'        => 'Menunggu',
-        ]);
+        $hasApplied = Lamaran::where('alumni_id', auth()->user()->alumni->id)
+            ->where('lowongan_id', $lowongan->id)
+            ->exists();
 
-        return redirect()->route('lamaran.index')->with('success', 'Lamaran berhasil dikirim');
+        if ($hasApplied) {
+            return back()->with('error', 'Anda sudah melamar lowongan ini.');
+        }
+
+        $lamaran = new Lamaran();
+        $lamaran->alumni_id = auth()->user()->alumni->id;
+        $lamaran->lowongan_id = $request->lowongan_id;
+        $lamaran->pesan = $request->pesan;
+        $lamaran->status = 'Menunggu';
+
+        if ($request->hasFile('dokumen')) {
+            $path = $request->file('dokumen')->store('dokumen', 'public');
+            $lamaran->dokumen = $path;
+        }
+
+        $lamaran->save();
+
+        return redirect()->back()->with('success', 'Lamaran berhasil dikirim.');
     }
 
     public function show(Lamaran $lamaran)
@@ -65,38 +77,46 @@ class LamaranController extends Controller
 
     public function edit(Lamaran $lamaran)
     {
-        $alumni   = Alumni::orderBy('nama_lengkap')->get();
         $lowongan = Lowongan::orderBy('judul')->get();
-        return view('lamaran.edit', compact('lamaran', 'alumni', 'lowongan'));
+        return view('lamaran.edit', compact('lamaran', 'lowongan'));
     }
 
     public function update(Request $request, Lamaran $lamaran)
     {
         $request->validate([
-            'status'  => 'required|in:Menunggu,Diterima,Ditolak',
-            'catatan' => 'nullable',
+            'status' => 'required|in:Menunggu,Diterima,Ditolak',
+            'catatan' => 'nullable|string',
         ]);
 
         $lamaran->update([
-            'status'  => $request->status,
+            'status' => $request->status,
             'catatan' => $request->catatan,
         ]);
 
-        return redirect()->route('lamaran.index')->with('success', 'Status lamaran berhasil diperbarui');
+        return redirect()->route('lamaran.index')
+            ->with('success', 'Status lamaran berhasil diperbarui');
     }
 
     public function destroy(Lamaran $lamaran)
     {
+        // Delete associated file
+        Storage::disk('public')->delete($lamaran->dokumen);
+
         $lamaran->delete();
-        return redirect()->route('lamaran.index')->with('success', 'Lamaran berhasil dihapus');
+
+        return redirect()->route('lamaran.index')
+            ->with('success', 'Lamaran berhasil dihapus');
     }
 
-    public function downloadCv(Alumni $alumni)
+    public function downloadDokumen(Lamaran $lamaran)
     {
-        if (! $alumni->cv || ! Storage::disk('public')->exists($alumni->cv)) {
+        if (!Storage::disk('public')->exists($lamaran->dokumen)) {
             abort(404);
         }
 
-        return Storage::disk('public')->download($alumni->cv, 'CV_' . $alumni->nama_lengkap . '.pdf');
+        return Storage::disk('public')->download(
+            $lamaran->dokumen,
+            'Lamaran_' . $lamaran->alumni->nama_lengkap . '_' . $lamaran->lowongan->judul . '.' . pathinfo($lamaran->dokumen, PATHINFO_EXTENSION)
+        );
     }
 }

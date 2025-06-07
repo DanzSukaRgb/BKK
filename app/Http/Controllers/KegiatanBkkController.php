@@ -27,6 +27,10 @@ class KegiatanBkkController extends Controller
             'waktu'     => 'required',
             'tempat'    => 'required',
             'gambar'    => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'tipe_kegiatan' => 'nullable|in:Pelatihan,Seminar,Lokakarya,Rekrutmen',
+            'narasumber' => 'nullable|string|max:255',
+            'biaya' => 'nullable|string|max:100',
+            'status' => 'nullable|in:Terlaksana,Ditunda,Berlangsung',
         ]);
 
         $kegiatanData = $request->all();
@@ -59,6 +63,10 @@ class KegiatanBkkController extends Controller
             'waktu'     => 'required',
             'tempat'    => 'required',
             'gambar'    => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'tipe_kegiatan' => 'nullable|in:Pelatihan,Seminar,Lokakarya,Rekrutmen',
+            'narasumber' => 'nullable|string|max:255',
+            'biaya' => 'nullable|string|max:100',
+            'status' => 'nullable|in:Terlaksana,Ditunda,Berlangsung',
         ]);
 
         $kegiatanData = $request->all();
@@ -84,5 +92,31 @@ class KegiatanBkkController extends Controller
         $kegiatan->delete();
 
         return redirect()->route('kegiatan.index')->with('success', 'Kegiatan berhasil dihapus');
+    }
+
+    // Public methods
+    public function publicIndex()
+    {
+        $kegiatan = KegiatanBkk::where('status', 'Berlangsung')
+            ->where('tanggal', '>=', now()->subDay())
+            ->orderBy('tanggal')
+            ->paginate(9);
+
+        return view('kegiatan.public-index', compact('kegiatan'));
+    }
+
+    public function publicShow($id)
+    {
+        $kegiatan = KegiatanBkk::where('status', '!=', 'Ditunda')
+            ->findOrFail($id);
+
+        $kegiatanLain = KegiatanBkk::where('id', '!=', $id)
+            ->where('status', 'Berlangsung')
+            ->where('tanggal', '>=', now())
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+
+        return view('kegiatan.public-show', compact('kegiatan', 'kegiatanLain'));
     }
 }
