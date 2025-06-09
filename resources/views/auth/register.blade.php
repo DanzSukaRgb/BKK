@@ -2,32 +2,6 @@
 
 @section('title', 'Register')
 
-@section('styles')
-<style>
-    body, html {
-        height: 100%;
-    }
-
-    .register-page-wrapper {
-        min-height: calc(100vh - 56px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f8f9fa;
-        padding: 20px;
-    }
-
-    .register-card {
-        width: 100%;
-        max-width: 500px;
-        padding: 30px;
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-</style>
-@endsection
-
 @section('content')
 <div class="register-page-wrapper">
     <div class="register-card">

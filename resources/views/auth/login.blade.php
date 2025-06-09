@@ -1,33 +1,6 @@
 @extends('layouts.app')
 
 @section('title', 'Login')
-
-@section('styles')
-<style>
-    body, html {
-        height: 100%;
-    }
-
-    .login-page-wrapper {
-        min-height: calc(100vh - 56px); /* 56px untuk tinggi navbar (standar Bootstrap) */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f8f9fa;
-        padding: 20px;
-    }
-
-    .login-card {
-        width: 100%;
-        max-width: 400px;
-        padding: 30px;
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-</style>
-@endsection
-
 @section('content')
 <div class="login-page-wrapper">
     <div class="login-card">
@@ -76,8 +49,8 @@
             <div class="d-grid mt-3 mb-3">
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
-            <a href="{{ route('register') }}" class="small">
-                Belum Punya Akun? Silahkan Registrasi di sini
+            Belum Punya Akun?
+            <a href="{{ route('register') }}" class="small">Register di sini
             </a>
 
             @if (Route::has('password.request'))

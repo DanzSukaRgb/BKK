@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LowonganController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\PerusahaanController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\KegiatanBkkController;
 
 // Public routes
@@ -24,6 +25,7 @@ Route::get('/perusahaan/create', [PerusahaanController::class, 'create'])->name(
 Route::get('/perusahaan', [PerusahaanController::class, 'publicIndex'])->name('perusahaan.public');
 Route::get('/perusahaan/{id}', [PerusahaanController::class, 'publicShow'])->name('perusahaan.show.public');
 
+Route::get('contact',[ContactController::class,'index'])->name('contact');
 // Authentication routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);

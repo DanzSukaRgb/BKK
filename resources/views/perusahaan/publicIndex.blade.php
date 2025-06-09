@@ -17,7 +17,7 @@
                 <div class="input-group">
                     <input type="text" name="search" class="form-control" placeholder="Cari perusahaan..." value="{{ request('search') }}">
                     <button class="btn btn-primary" type="submit">
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-search" style="position: relative; z-index:1;"></i>
                     </button>
                     @if(request('search'))
                     <a href="{{ route('perusahaan.public') }}" class="btn btn-outline-secondary">

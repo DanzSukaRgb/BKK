@@ -4,9 +4,9 @@
     <section class="bg-light text-start py-5 hero-80" id="beranda">
         <div class="container">
             <h1 class="display-4 fw-bold h1">BURSA KERJA KHUSUS <br>SMKN 6 JEMBER</h1>
-            <p class="lead mb-4">Temukan pekerjaan sesuai kompetensi anda.</p>
+            <p class="lead mb-4 p">Temukan pekerjaan sesuai kompetensi anda.</p>
             <a href="#" class="btn btn-primary">Alumni</a>
-            <a href="#" class="btn btn-success">Perusahaan</a>
+            <a href="{{route("perusahaan.public")}}" class="btn btn-success">Perusahaan</a>
         </div>
     </section>
 

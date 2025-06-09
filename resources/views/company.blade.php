@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-</head>
 <style>
     body {
         font-family: 'Poppins', sans-serif;
@@ -28,8 +27,12 @@
     .logo {
             width: 50px;
             margin-right: 17px;
-        }
+    }
+    .card-title{
+        color: rgb(42, 75, 223);
+    }
     </style>
+</head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container">
@@ -51,6 +54,151 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav><br>
+<!-- Content -->
+<div class="container py-5" style="margin-top: 80px;">
+    <h2 class="text-center mb-4">Data Perusahaan</h2>
+    <div class="row">
+        <!-- Card 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="company-icon me-3"><i class="fas fa-building fa-2x"></i></div>
+                        <div>
+                            <h5 class="card-title mb-0">PT. Tech Solutions</h5>
+                            <p class="text-muted small mb-0">Technology & Software</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-1"><i class="fas fa-users me-2"></i>250+ Employees</p>
+                        <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>Jakarta, Indonesia</p>
+                        <p class="mb-1"><i class="fas fa-phone me-2"></i>+62 21 5555 8888</p>
+                        <p class="mb-1"><i class="fas fa-envelope me-2"></i>contact@techsolutions.com</p>
+                    </div>
+                    <button class="btn btn-primary w-100">
+                        View Details <i class="fas fa-chevron-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 (copy & modify as needed) -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="company-icon me-3"><i class="fas fa-building fa-2x"></i></div>
+                        <div>
+                            <h5 class="card-title mb-0">PT. Media Nusantara</h5>
+                            <p class="text-muted small mb-0">Media & Broadcasting</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-1"><i class="fas fa-users me-2"></i>500+ Employees</p>
+                        <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>Surabaya, Indonesia</p>
+                        <p class="mb-1"><i class="fas fa-phone me-2"></i>+62 31 9999 1234</p>
+                        <p class="mb-1"><i class="fas fa-envelope me-2"></i>info@medianusantara.com</p>
+                    </div>
+                    <button class="btn btn-primary w-100">
+                        View Details <i class="fas fa-chevron-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="company-icon me-3"><i class="fas fa-building fa-2x"></i></div>
+                        <div>
+                            <h5 class="card-title mb-0">PT. Green Energy</h5>
+                            <p class="text-muted small mb-0">Energy & Environment</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-1"><i class="fas fa-users me-2"></i>120+ Employees</p>
+                        <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>Bandung, Indonesia</p>
+                        <p class="mb-1"><i class="fas fa-phone me-2"></i>+62 22 4444 5678</p>
+                        <p class="mb-1"><i class="fas fa-envelope me-2"></i>support@greenenergy.co.id</p>
+                    </div>
+                    <button class="btn btn-primary w-100">
+                        View Details <i class="fas fa-chevron-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="company-icon me-3"><i class="fas fa-building fa-2x"></i></div>
+                        <div>
+                            <h5 class="card-title mb-0">PT. Green Energy</h5>
+                            <p class="text-muted small mb-0">Energy & Environment</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-1"><i class="fas fa-users me-2"></i>120+ Employees</p>
+                        <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>Bandung, Indonesia</p>
+                        <p class="mb-1"><i class="fas fa-phone me-2"></i>+62 22 4444 5678</p>
+                        <p class="mb-1"><i class="fas fa-envelope me-2"></i>support@greenenergy.co.id</p>
+                    </div>
+                    <button class="btn btn-primary w-100">
+                        View Details <i class="fas fa-chevron-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="company-icon me-3"><i class="fas fa-building fa-2x"></i></div>
+                        <div>
+                            <h5 class="card-title mb-0">PT. Green Energy</h5>
+                            <p class="text-muted small mb-0">Energy & Environment</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-1"><i class="fas fa-users me-2"></i>120+ Employees</p>
+                        <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>Bandung, Indonesia</p>
+                        <p class="mb-1"><i class="fas fa-phone me-2"></i>+62 22 4444 5678</p>
+                        <p class="mb-1"><i class="fas fa-envelope me-2"></i>support@greenenergy.co.id</p>
+                    </div>
+                    <button class="btn btn-primary w-100">
+                        View Details <i class="fas fa-chevron-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="company-icon me-3"><i class="fas fa-building fa-2x"></i></div>
+                        <div>
+                            <h5 class="card-title mb-0">PT. Green Energy</h5>
+                            <p class="text-muted small mb-0">Energy & Environment</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-1"><i class="fas fa-users me-2"></i>120+ Employees</p>
+                        <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>Bandung, Indonesia</p>
+                        <p class="mb-1"><i class="fas fa-phone me-2"></i>+62 22 4444 5678</p>
+                        <p class="mb-1"><i class="fas fa-envelope me-2"></i>support@greenenergy.co.id</p>
+                    </div>
+                    <button class="btn btn-primary w-100">
+                        View Details <i class="fas fa-chevron-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tambah card lain jika diperlukan -->
+    </div>
+</div>
 </body>
 </html>

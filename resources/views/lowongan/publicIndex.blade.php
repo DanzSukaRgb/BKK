@@ -5,10 +5,10 @@
 
 <div class="container mt-4">
     <div class="row mb-4">
-        <div class="col-md-8">
+        <div class="col-md-8"><br>
             <h2 class="mb-4 text-primary">Lowongan Pekerjaan Terbaru</h2>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4"><br>
             <form action="{{ route('lowongan.public') }}" method="GET">
                 <div class="input-group">
                     <input type="text" name="search" class="form-control" placeholder="Cari lowongan..." value="{{ request('search') }}">

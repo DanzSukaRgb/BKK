@@ -13,20 +13,27 @@
             font-family: 'Poppins', sans-serif;
         }
         .hero-80 {
-            min-height: 91vh;
-            background-image: url('{{ asset('assets/bg.webp') }}');
+            min-height:99vh;
+            background-image: url('{{ asset('assets/bg.jpg') }}');
+            background-size:cover;
+            background-repeat: no-repeat;
         }
         .navbar {
             position: fixed;
             width: 100%;
-            z-index: 1;
+            z-index: 1000;
         }
         .nav-link:hover {
             color: rgb(29, 87, 212);
         }
         .h1 {
-            padding-top: 160px;
+            padding-top: 180px;
             font-size: 50px;
+            color:#f8f9fa;
+        }
+        .p{
+            color: #e4e4e4;
+            font-weight: 500;
         }
         .logo {
             width: 50px;
@@ -128,6 +135,40 @@
             font-size: 14px;
             text-align: start;
         }
+        .login-page-wrapper {
+            min-height: calc(100vh - 56px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+            padding:150px;
+        }
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .register-page-wrapper {
+            min-height: calc(100vh - 56px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+            padding:150px;
+        }
+
+        .register-card {
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -141,12 +182,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link fw-bold" href="/#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="{{route('home')}}">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="/#tentang">Profil</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="/#kegiatan">Informasi</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="{{ route('lowongan.public') }}">Lowongan</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="/#kontak">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="{{route('contact')}}">Kontak</a></li>
                     @guest
         <li class="nav-item"><a class="nav-link fw-bold" href="{{ route('login') }}">Login</a></li>
     @endguest
@@ -196,7 +237,7 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/smkn6jember/"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
