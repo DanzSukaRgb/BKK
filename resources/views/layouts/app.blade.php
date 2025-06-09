@@ -170,6 +170,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
     </style>
+    @yield('styles')
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
@@ -186,6 +187,7 @@
                     <li class="nav-item"><a class="nav-link fw-bold" href="/#tentang">Profil</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="/#kegiatan">Informasi</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="{{route('kegiatan.public')}}">Kegiatan</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="{{ route('lowongan.public') }}">Lowongan</a></li>
                     <li class="nav-item"><a class="nav-link fw-bold" href="{{route('contact')}}">Kontak</a></li>
                     @guest

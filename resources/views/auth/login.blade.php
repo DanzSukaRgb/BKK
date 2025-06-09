@@ -2,7 +2,7 @@
 
 @section('title', 'Login')
 @section('content')
-<div class="login-page-wrapper">
+<div class="login-page-wrapper"><br><br>
     <div class="login-card">
         <h4 class="mb-4 text-center text-primary">Login</h4>
 
