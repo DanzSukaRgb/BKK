@@ -9,7 +9,7 @@
             <a href="{{route("perusahaan.public")}}" class="btn btn-success">Perusahaan</a>
         </div>
     </section>
-
+{{--  --}}
     <br><br>
     <h2 class="text-center" id="tentang">Tentang Kami</h2>
     <section class="about d-flex align-items-start mt-4" style="display: flex; gap: 30px; max-width: 1100px; margin: auto; padding: 20px;">

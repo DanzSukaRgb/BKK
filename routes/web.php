@@ -12,7 +12,7 @@ use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\KegiatanBkkController;
 
-// Public routes
+// Public routess
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Public lowongan routes

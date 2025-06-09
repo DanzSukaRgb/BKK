@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Register')
-
+{{--  --}}
 @section('content')
 <div class="register-page-wrapper">
     <div class="register-card">

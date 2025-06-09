@@ -173,6 +173,7 @@
     @yield('styles')
 </head>
 <body>
+    {{--  --}}
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold text-primary mt-1" href="#">
