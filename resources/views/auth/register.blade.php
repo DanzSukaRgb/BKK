@@ -3,7 +3,6 @@
 @section('title', 'Register')
 
 @section('content')
-<br><br><br>
 <div class="register-page-wrapper">
     <div class="register-card">
         <h4 class="mb-4 text-center text-primary">Register</h4>
