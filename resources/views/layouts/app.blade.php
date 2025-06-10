@@ -9,110 +9,318 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>BKK | SMKN 6 JEMBER</title>
     <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #198754;
+            --dark-color: #333e49;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --text-light: #e4e4e4;
+            --shadow-blue: 0 0.5rem 1rem rgba(33, 109, 190, 0.4);
+            --transition: all 0.3s ease;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
         }
-        .hero-80 {
-            min-height:99vh;
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
             background-image: url('{{ asset('assets/bg.jpg') }}');
-            background-size:cover;
+            background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+            position: relative;
         }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--light-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            line-height: 1.8;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .about-image {
+            flex: 0 0 auto;
+            max-width: 270px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Company Section */
+        .company-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+
+        .company-scroller {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            padding: 20px 0;
+        }
+
+        .company-scroller::-webkit-scrollbar {
+            display: none;
+        }
+
+        .company-track {
+            display: flex;
+            gap: 15px;
+            width: max-content;
+            animation: scroll 30s linear infinite;
+        }
+
+        .company-card {
+            flex: 0 0 180px;
+            padding: 15px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .company-logo {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            color: var(--text-color);
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow-blue);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Activities Section */
+        .activities-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .activity-card .card-body {
+            padding: 25px;
+        }
+
+        .activity-card .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .activity-card .card-text {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Navbar */
         .navbar {
             position: fixed;
             width: 100%;
             z-index: 1000;
-            transition: all 0.3s ease-in-out;
+            transition: var(--transition);
             background-color: transparent !important;
             padding: 20px 0;
         }
+
         .navbar.scrolled {
             background-color: white !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 10px 0;
         }
+
         .nav-link {
-            color: white !important;
-            transition: all 0.3s ease;
-        }
-        .navbar.scrolled .nav-link {
-            color: #333 !important;
-        }
-        .navbar-brand {
-            color: white !important;
-            transition: all 0.3s ease;
-        }
-        .navbar.scrolled .navbar-brand {
-            color: #0d6efd !important;
-        }
-        .nav-link:hover {
-            color: rgb(29, 87, 212) !important;
-        }
-        .navbar.scrolled .nav-link:hover {
-            color: rgb(29, 87, 212) !important;
-        }
-        .h1 {
-            padding-top: 180px;
-            font-size: 50px;
-            color:#f8f9fa;
-        }
-        .p{
-            color: #e4e4e4;
+            color: rgba(41, 41, 41, 0.8) !important;
+            transition: var(--transition);
             font-weight: 500;
+            padding: 8px 15px !important;
         }
+
+        .navbar.scrolled .nav-link {
+            color: rgba(0, 0, 0, 0.7) !important;
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar.scrolled .navbar-brand {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link:hover {
+            color: white !important;
+        }
+
+        .navbar.scrolled .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
         .logo {
-            width: 50px;
-            margin-right: 17px;
-        }
-        .about {
-            margin-left: 60px;
-            text-align: justify;
-        }
-        .scroll-wrapper {
-            overflow-x: auto;
-            white-space: nowrap;
-            scroll-behavior: auto;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .scroll-wrapper::-webkit-scrollbar {
-            display: none;
-        }
-        .scroll-content > .company-card {
-            display: inline-block;
-            margin-right: 10px;
-            vertical-align: top;
-            width: 180px;
-        }
-        .card-img-top {
-            width: 100%;
+            width: 40px;
             height: auto;
-            border-radius: 14px;
+            margin-right: 10px;
+            transition: var(--transition);
         }
-        .company-card {
-            width: 160px;
-            flex: 0 0 auto;
-        }
-        .shadow-blue {
-            box-shadow: 0 0.5rem 1rem rgba(33, 109, 190, 0.4);
-        }
+
+        .navbar.scrolled .logo {
+    filter: none;
+}
+
+        /* Footer */
         .footer {
-            background-color: #333e49;
-            padding: 70px 0;
-        }
-        .footer-col {
-            width: 25%;
-            padding: 0 15px;
+            background-color: var(--dark-color);
+            padding: 70px 0 30px;
             color: #e0e0e0;
         }
+
+        .footer-col {
+            margin-bottom: 40px;
+        }
+
         .footer-col h4 {
-            font-size: 18px;
+            font-size: 1.125rem;
             color: #ffffff;
             text-transform: capitalize;
             margin-bottom: 30px;
             font-weight: 500;
             position: relative;
         }
+
         .footer-col h4::before {
             content: '';
             position: absolute;
@@ -120,26 +328,33 @@
             bottom: -10px;
             background-color: #beccd6;
             height: 2px;
-            box-sizing: border-box;
             width: 50px;
         }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
         .footer-col ul li:not(:last-child) {
             margin-bottom: 10px;
         }
+
         .footer-col ul li a {
-            font-size: 16px;
+            font-size: 0.875rem;
             text-transform: capitalize;
-            color: #ffffff;
+            color: #bbbbbb;
             text-decoration: none;
             font-weight: 300;
-            color: #bbbbbb;
             display: block;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
+
         .footer-col ul li a:hover {
             color: #ffffff;
             padding-left: 8px;
         }
+
         .footer-col .social-links a {
             display: inline-block;
             height: 40px;
@@ -150,43 +365,40 @@
             line-height: 40px;
             border-radius: 50%;
             color: #ffffff;
-            transition: all 0.5s ease;
+            transition: var(--transition);
         }
+
         .footer-col .social-links a:hover {
-            color: #24262b;
+            color: var(--dark-color);
             background-color: #ffffff;
         }
+
         .contact-info {
-            font-size: 14px;
-            text-align: start;
+            font-size: 0.875rem;
         }
-        .login-page-wrapper {
-            min-height: calc(100vh - 56px);
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        /* Login/Register Cards */
+        .auth-page-wrapper {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #f8f9fa;
-            padding:150px;
-        }
-        .login-card {
-            width: 100%;
-            max-width: 400px;
-            padding: 30px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background-color: var(--light-color);
+            padding: 20px;
         }
 
-        .register-page-wrapper {
-            min-height: calc(100vh - 56px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f8f9fa;
-            padding:150px;
-        }
-
-        .register-card {
+        .auth-card {
             width: 100%;
             max-width: 500px;
             padding: 30px;
@@ -194,34 +406,141 @@
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
+
+        /* Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.2rem;
+                padding-top: 120px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-text {
+                min-width: 100%;
+                order: 2;
+            }
+
+            .about-image {
+                order: 1;
+                margin-bottom: 30px;
+            }
+
+            .navbar-collapse {
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .navbar-collapse .nav-link {
+                color: #333 !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .footer-col {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+                padding-top: 100px;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-col {
+                width: 100%;
+            }
+
+            .company-card {
+                flex: 0 0 150px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
     @yield('styles')
 </head>
 <body>
-    {{--  --}}
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand fw-bold mt-1" href="#">
+            <a class="navbar-brand" href="#">
                 <img src="{{ asset('assets/logo.png') }}" alt="logo" class="logo">SMKN 6 JEMBER
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link fw-bold" href="{{route('home')}}">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="/#tentang">Profil</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="/#kegiatan">Informasi</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="{{route('kegiatan.public')}}">Kegiatan</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="{{ route('lowongan.public') }}">Lowongan</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="{{route('contact')}}">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#tentang">Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#kegiatan">Informasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('kegiatan.public')}}">Kegiatan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('lowongan.public') }}">Lowongan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Kontak</a></li>
                     @guest
-        <li class="nav-item"><a class="nav-link fw-bold" href="{{ route('login') }}">Login</a></li>
-    @endguest
-    @auth
-
-    @endauth
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                    @endguest
                 </ul>
             </div>
         </div>
@@ -234,7 +553,7 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="footer-col">
+                <div class="col-lg-3 col-md-6 footer-col">
                     <h4>Tautan Cepat</h4>
                     <ul>
                         <li><a href="#beranda">Beranda</a></li>
@@ -243,16 +562,16 @@
                         <li><a href="#kegiatan">Informasi</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Get Help</h4>
+                <div class="col-lg-3 col-md-6 footer-col">
+                    <h4>Bantuan</h4>
                     <ul>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Order Status</a></li>
-                        <li><a href="#">Payment Option</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Panduan</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
+                <div class="col-lg-3 col-md-6 footer-col">
                     <h4>Informasi Kontak</h4>
                     <div class="contact-info">
                         <p><i class="fas fa-map-marker-alt"></i> JL. PB. SUDIRMAN NO. 114 TANGGUL-JEMBER, Tanggul Kulon, Kec. Tanggul, Kab. Jember Prov. Jawa Timur</p>
@@ -260,14 +579,19 @@
                         <p><i class="fas fa-envelope"></i> smkn6.jember@yahoo.com</p>
                     </div>
                 </div>
-                <div class="footer-col">
+                <div class="col-lg-3 col-md-6 footer-col">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/facebook/?locale=id_ID"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.instagram.com/smkn6jember/"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://id.linkedin.com/"><i class="fab fa-linkedin"></i></a>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mt-4">
+                    <p class="mb-0">&copy; 2023 BKK SMKN 6 Jember. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -285,43 +609,50 @@
             }
         });
 
+        // Mobile menu close when clicked
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            });
+        });
+
+        // Auto-scrolling for company logos
         document.addEventListener('DOMContentLoaded', () => {
-            const container = document.getElementById('scrollContainer');
-            const content = container.querySelector('.scroll-content');
+            const track = document.querySelector('.company-track');
+            if (track) {
+                // Duplicate content for seamless looping
+                track.innerHTML += track.innerHTML;
 
-            // Gandakan konten untuk efek scroll infinite
-            content.innerHTML += content.innerHTML;
+                // Animation for auto-scrolling
+                let animation;
+                const speed = 1;
+                let position = 0;
 
-            const scrollSpeed = 3; // kecepatan scroll pixel per tick
-            const tickInterval = 15; // ms per tick
-            // const pauseDuration = 3000; // lama berhenti dalam ms
-
-            let scrolling = true;
-
-            function autoScroll() {
-                if (!scrolling) return;
-
-                if (container.scrollLeft >= content.scrollWidth / 2) {
-                    container.scrollLeft = 0;
-                } else {
-                    container.scrollLeft += scrollSpeed;
+                function animate() {
+                    position -= speed;
+                    if (position <= -track.scrollWidth / 2) {
+                        position = 0;
+                    }
+                    track.style.transform = `translateX(${position}px)`;
+                    animation = requestAnimationFrame(animate);
                 }
+
+                animate();
+
+                // Pause on hover
+                track.addEventListener('mouseenter', () => {
+                    cancelAnimationFrame(animation);
+                });
+
+                track.addEventListener('mouseleave', () => {
+                    animate();
+                });
             }
-
-            let intervalId = setInterval(autoScroll, tickInterval);
-
-            function toggleScroll() {
-                if (scrolling) {
-                    scrolling = false;
-                    clearInterval(intervalId);
-                    setTimeout(() => {
-                        scrolling = true;
-                        intervalId = setInterval(autoScroll, tickInterval);
-                    }, pauseDuration);
-                }
-            }
-
-            setInterval(toggleScroll, pauseDuration + 1500);
         });
     </script>
 </body>

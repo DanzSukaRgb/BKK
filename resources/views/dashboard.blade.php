@@ -305,9 +305,9 @@
                                             <i class="fas fa-clock me-1"></i>
                                             {{ $lowongan->created_at ? $lowongan->created_at->diffForHumans() : 'N/A' }}
                                         </span>
-                                        {{-- <a href="{{ route('lowongan.show', $lowongan->id) }}" class="btn btn-light btn-sm">
+                                        {{-- <a href="{{ route('lowongan.show', $lowongan->id) }}" class="btn btn-light btn-sm"> --}}
                                             <i class="fas fa-eye me-1"></i>Detail
-                                        </a> --}}
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -461,15 +461,15 @@
                                 Quick Actions
                             </h5>
                             <div class="d-grid gap-2 mt-3">
-                                <button class="btn btn-light text-start">
+                                <a href="{{ route('lowongan.create') }}" class="btn btn-light text-start">
                                     <i class="fas fa-plus-circle me-2"></i>Tambah Lowongan
-                                </button>
-                                <button class="btn btn-light text-start">
+                                </a>
+                                <a href="{{ route('kegiatan.create') }}" class="btn btn-light text-start">
                                     <i class="fas fa-calendar-plus me-2"></i>Jadwalkan Kegiatan
-                                </button>
-                                <button class="btn btn-light text-start">
+                                </a>
+                                {{-- <a href="{{ route('analytics') }}" class="btn btn-light text-start"> --}}
                                     <i class="fas fa-chart-line me-2"></i>Lihat Analitik
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

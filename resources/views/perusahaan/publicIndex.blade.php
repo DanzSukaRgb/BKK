@@ -2,7 +2,6 @@
 
 @section('content')
 <br><br><br>
-{{--  --}}
 <div class="container py-5">
     <div class="row mb-4">
         <div class="col-12">

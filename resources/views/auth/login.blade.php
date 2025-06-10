@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Login')
+
 @section('content')
-<div class="login-page-wrapper"><br><br>
-    <div class="login-card">
+<div class="auth-page-wrapper">
+    <div class="auth-card">
         <h4 class="mb-4 text-center text-primary">Login</h4>
 
         @if ($errors->any())
@@ -15,7 +16,7 @@
                 </ul>
             </div>
         @endif
-{{--  --}}
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -46,15 +47,18 @@
                     Remember Me
                 </label>
             </div>
-            <div class="d-grid mt-3 mb-3">
+
+            <div class="d-grid mb-3">
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
-            Belum Punya Akun?
-            <a href="{{ route('register') }}" class="small">Register di sini
-            </a>
+
+            <div class="text-center mb-3">
+                Belum Punya Akun?
+                <a href="{{ route('register') }}" class="text-decoration-none">Register di sini</a>
+            </div>
 
             @if (Route::has('password.request'))
-                <div class="mt-3 text-center">
+                <div class="text-center">
                     <a class="text-decoration-none" href="{{ route('password.request') }}">
                         Lupa Password?
                     </a>

@@ -451,8 +451,8 @@
       }
     }
 
+    </style>
     @yield('styles')
-  </style>
 </head>
 <body>
   <!-- Top Navbar -->

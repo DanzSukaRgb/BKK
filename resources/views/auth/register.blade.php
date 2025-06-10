@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('title', 'Register')
-{{--  --}}
+
 @section('content')
-<div class="register-page-wrapper">
-    <div class="register-card">
+<br><br><br><br><br>
+<div class="auth-page-wrapper">
+    <div class="auth-card">
         <h4 class="mb-4 text-center text-primary">Register</h4>
 
         @if ($errors->any())
@@ -53,11 +54,14 @@
             <div class="mb-3">
                 <label for="password-confirm" class="form-label">Konfirmasi Password</label>
                 <input id="password-confirm" type="password"
-                       class="form-control"
+                       class="form-control @error('password_confirmation') is-invalid @enderror"
                        name="password_confirmation" required>
+                @error('password_confirmation')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
 
-            <div class="d-grid">
+            <div class="d-grid mb-3">
                 <button type="submit" class="btn btn-primary">Daftar</button>
             </div>
 
