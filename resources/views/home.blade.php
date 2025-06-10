@@ -19,7 +19,7 @@
                 Melalui website ini, siswa dapat mengakses materi pembelajaran, video tutorial, informasi lomba, serta mempublikasikan karya dan inovasi mereka guna meningkatkan semangat berwirausaha dan kesiapan menghadapi dunia kerja atau membangun usaha mandiri.
             </p>
         </div>
-        <img src="{{ asset('assets/logo.png') }}" alt="Gambar PKK" style="width: 270px; height: auto; border-radius: 8px; margin-left:90px;" />
+        <img src="{{ asset('assets/logo2.png') }}" alt="Gambar PKK" style="width: 270px; height: auto; border-radius: 8px; margin-left:90px;" />
     </section>
     <br><br><br><br>
     <section class="company py-5" style="background-color: #f8f9fa;" id="perusahaan">

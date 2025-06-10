@@ -12,28 +12,38 @@ use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\KegiatanBkkController;
 
-// Public routess
+// Root-level routes (accessible to all users, no prefix for simplicity)
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-// Public lowongan routes
-Route::get('/lowongan', [LowonganController::class, 'publicIndex'])->name('lowongan.public');
-Route::get('/lowongan/{slug}', [LowonganController::class, 'publicShow'])->name('lowongan.show.public');
-Route::get('/kegiatan', [KegiatanBkkController::class, 'publicIndex'])->name('kegiatan.public');
-Route::get('/kegiatan/{id}', [KegiatanBkkController::class, 'publicShow'])->name('kegiatan.show.public');
+// Public resource routes (grouped by resource for clarity)
+Route::prefix('lowongan')->group(function () {
+    Route::get('/', [LowonganController::class, 'publicIndex'])->name('lowongan.public');
+    Route::get('/{slug}', [LowonganController::class, 'publicShow'])->name('lowongan.show.public');
+});
 
-Route::get('/perusahaan/create', [PerusahaanController::class, 'create'])->name('perusahaan.create');
-Route::get('/perusahaan', [PerusahaanController::class, 'publicIndex'])->name('perusahaan.public');
-Route::get('/perusahaan/{id}', [PerusahaanController::class, 'publicShow'])->name('perusahaan.show.public');
+Route::prefix('kegiatan')->group(function () {
+    Route::get('/', [KegiatanBkkController::class, 'publicIndex'])->name('kegiatan.public');
+    Route::get('/{id}', [KegiatanBkkController::class, 'publicShow'])->name('kegiatan.show.public');
+});
 
-Route::get('contact',[ContactController::class,'index'])->name('contact');
-// Authentication routes
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+Route::prefix('perusahaan')->group(function () {
+    Route::get('/', [PerusahaanController::class, 'publicIndex'])->name('perusahaan.public');
+    Route::get('/{id}', [PerusahaanController::class, 'publicShow'])->name('perusahaan.show.public');
+    Route::get('/create', [PerusahaanController::class, 'create'])->name('perusahaan.create');
+});
 
-// Notifikasi routes
+// Authentication routes (grouped under /auth)
+Route::prefix('auth')->group(function () {
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+    // Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+    Route::post('/register', [AuthController::class, 'register']);
+});
+
+// Authenticated routes (require auth middleware)
 Route::prefix('notifikasi')->middleware('auth')->group(function () {
     Route::get('/', [NotifikasiController::class, 'index'])->name('notifikasi.index');
     Route::post('/mark-as-read/{id}', [NotifikasiController::class, 'markAsRead'])->name('notifikasi.read');
@@ -42,20 +52,20 @@ Route::prefix('notifikasi')->middleware('auth')->group(function () {
     Route::delete('/clear-read', [NotifikasiController::class, 'clearRead'])->name('notifikasi.clear.read');
 });
 
-// API Routes untuk notifikasi
+// API routes (grouped under /api, authenticated)
 Route::prefix('api')->middleware('auth')->group(function () {
-    Route::get('/notifikasi/unread-count', [NotifikasiController::class, 'unreadCount']);
-    Route::get('/notifikasi/terbaru', [NotifikasiController::class, 'latestNotifications']);
+    Route::get('/notifikasi/unread-count', [NotifikasiController::class, 'unreadCount'])->name('notifikasi.unread-count');
+    Route::get('/notifikasi/terbaru', [NotifikasiController::class, 'latestNotifications'])->name('notifikasi.latest');
 });
 
-// Profile routes
+// Profile routes (authenticated)
 Route::prefix('profile')->middleware('auth')->group(function () {
     Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Admin routes
+// Admin routes (authenticated, admin role)
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
@@ -105,13 +115,14 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/', [KegiatanBkkController::class, 'index'])->name('kegiatan.index');
         Route::get('/create', [KegiatanBkkController::class, 'create'])->name('kegiatan.create');
         Route::post('/', [KegiatanBkkController::class, 'store'])->name('kegiatan.store');
-        Route::get('/{kegiatan}', [KegiatanBkkController::class, 'show'])->name('kegiatan.show'); // <- tambahkan ini
+        Route::get('/{kegiatan}', [KegiatanBkkController::class, 'show'])->name('kegiatan.show');
         Route::get('/{kegiatan}/edit', [KegiatanBkkController::class, 'edit'])->name('kegiatan.edit');
         Route::put('/{kegiatan}', [KegiatanBkkController::class, 'update'])->name('kegiatan.update');
         Route::delete('/{kegiatan}', [KegiatanBkkController::class, 'destroy'])->name('kegiatan.destroy');
     });
 });
 
+// Alumni routes (authenticated, alumni role)
 Route::prefix('alumni')->middleware(['auth', 'alumni'])->group(function () {
     Route::get('/dashboard', [AlumniController::class, 'dashboard'])->name('alumni.dashboard');
     Route::get('/profile', [AlumniController::class, 'profile'])->name('alumni.profile');
@@ -119,6 +130,7 @@ Route::prefix('alumni')->middleware(['auth', 'alumni'])->group(function () {
     Route::post('/lowongan/{id}/lamar', [LamaranController::class, 'store'])->name('lamaran.store');
 });
 
+// Perusahaan routes (authenticated, perusahaan role)
 Route::prefix('perusahaan')->middleware(['auth', 'perusahaan'])->group(function () {
     Route::get('/dashboard', [PerusahaanController::class, 'dashboard'])->name('perusahaan.dashboard');
     Route::get('/profile', [PerusahaanController::class, 'profile'])->name('perusahaan.profile');
