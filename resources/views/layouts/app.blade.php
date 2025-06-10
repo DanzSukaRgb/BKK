@@ -22,9 +22,34 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
+            transition: all 0.3s ease-in-out;
+            background-color: transparent !important;
+            padding: 20px 0;
+        }
+        .navbar.scrolled {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+        .nav-link {
+            color: white !important;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled .nav-link {
+            color: #333 !important;
+        }
+        .navbar-brand {
+            color: white !important;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled .navbar-brand {
+            color: #0d6efd !important;
         }
         .nav-link:hover {
-            color: rgb(29, 87, 212);
+            color: rgb(29, 87, 212) !important;
+        }
+        .navbar.scrolled .nav-link:hover {
+            color: rgb(29, 87, 212) !important;
         }
         .h1 {
             padding-top: 180px;
@@ -174,9 +199,9 @@
 </head>
 <body>
     {{--  --}}
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand fw-bold text-primary mt-1" href="#">
+            <a class="navbar-brand fw-bold mt-1" href="#">
                 <img src="{{ asset('assets/logo.png') }}" alt="logo" class="logo">SMKN 6 JEMBER
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -250,6 +275,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('scrollContainer');
             const content = container.querySelector('.scroll-content');
