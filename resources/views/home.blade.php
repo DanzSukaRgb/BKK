@@ -83,12 +83,9 @@
     </section>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Galeri Kegiatan BKK</h1>
-            <p class="hero-subtitle">Dokumentasi berbagai kegiatan pelatihan, job fair, dan kesuksesan alumni kami dalam dunia kerja</p>
-        </div>
-    </section>
+
+            <h1 class="hero-title" style="text-align: center;">Galeri Kegiatan BKK</h1>
+            <p class="hero-subtitle" style="text-align: center">Dokumentasi berbagai kegiatan pelatihan, job fair, dan kesuksesan alumni kami dalam dunia kerja</p>
 
     <!-- Filter Section -->
     <section class="filter-section">
@@ -315,11 +312,12 @@
         }
 
         /* Header Section */
-        .hero-section {
-            background: white;
+        .hero-section1 {
+            /* background: linear-gradient(135deg,rgb(255, 255, 255) 0%, #e2e8f0 100%);? */
             padding: 4rem 0;
             position: relative;
             overflow: hidden;
+            height: 0;
         }
 
         .hero-section::before {
@@ -337,7 +335,7 @@
             position: relative;
             z-index: 1;
             text-align: center;
-            max-width: 600px;
+
             margin: 0 auto;
             padding: 0 1.5rem;
         }
