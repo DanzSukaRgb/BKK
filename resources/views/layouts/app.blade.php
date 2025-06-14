@@ -29,7 +29,7 @@
         /* Hero Section */
         .hero-section {
             min-height: 100vh;
-            background-image: url('{{ asset('assets/bg.jpg') }}');
+            background-image: url('assets/bg.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -55,7 +55,7 @@
 
         .hero-title {
             font-size: 3rem;
-            font-weight: 700;
+            font-weight:700;
             color: var(--light-color);
             margin-bottom: 1.5rem;
             line-height: 1.2;
@@ -157,7 +157,6 @@
         .stats-section {
             padding: 80px 0;
             background-color: var(--light-color);
-            color: white;
         }
 
         .stats-grid {
@@ -242,6 +241,185 @@
             margin-bottom: 20px;
         }
 
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .filter-section {
+            padding: 0 0 40px 0;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            color: #64748b;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-item {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .gallery-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+            border-color: rgba(13, 110, 253, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card:hover .card-image {
+            transform: scale(1.02);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-category {
+            display: inline-block;
+            background: rgba(13, 110, 253, 0.1);
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .card-description {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-date {
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .card-action {
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .card-action:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .load-more-btn {
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .load-more-btn:hover {
+            background: #0b5ed7;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
         /* Navbar */
         .navbar {
             position: fixed;
@@ -259,7 +437,7 @@
         }
 
         .nav-link {
-            color: rgba(41, 41, 41, 0.8) !important;
+            color: rgba(255, 255, 255, 0.8) !important;
             transition: var(--transition);
             font-weight: 500;
             padding: 8px 15px !important;
@@ -270,7 +448,7 @@
         }
 
         .navbar-brand {
-            color: var(--primary-color) !important;
+            color: white !important;
             font-weight: 700;
             transition: var(--transition);
             display: flex;
@@ -297,8 +475,8 @@
         }
 
         .navbar.scrolled .logo {
-    filter: none;
-}
+            filter: none;
+        }
 
         /* Footer */
         .footer {
@@ -387,25 +565,6 @@
             margin-top: 3px;
         }
 
-        /* Login/Register Cards */
-        .auth-page-wrapper {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--light-color);
-            padding: 20px;
-        }
-
-        .auth-card {
-            width: 100%;
-            max-width: 500px;
-            padding: 30px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
         /* Animation */
         @keyframes scroll {
             0% { transform: translateX(0); }
@@ -451,6 +610,10 @@
             .navbar-collapse .nav-link {
                 color: #333 !important;
             }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
@@ -477,6 +640,10 @@
 
             .footer-col {
                 width: 50%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
         }
 
@@ -505,15 +672,15 @@
             .company-card {
                 flex: 0 0 150px;
             }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 400px) {
             .hero-title {
                 font-size: 1.5rem;
-            }
-
-            .activities-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -554,16 +721,16 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 footer-col">
                     <h4>Tautan Cepat</h4>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Beranda</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#tentang">Profil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#kegiatan">Informasi</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('kegiatan.public')}}">Kegiatan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('lowongan.public') }}">Lowongan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Kontak</a></li>
+                    <ul>
+                        <li><a href="{{route('home')}}">Beranda</a></li>
+                        <li><a href="/#tentang">Profil</a></li>
+                        <li><a href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
+                        <li><a href="/#kegiatan">Informasi</a></li>
+                        <li><a href="{{route('kegiatan.public')}}">Kegiatan</a></li>
+                        <li><a href="{{ route('lowongan.public') }}">Lowongan</a></li>
+                        <li><a href="{{route('contact')}}">Kontak</a></li>
                         @guest
-                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('login') }}">Login</a></li>
                         @endguest
                     </ul>
                 </div>
@@ -659,6 +826,34 @@
                 });
             }
         });
+
+        // Gallery filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Filter items with smooth animation
+                    galleryItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                                item.classList.remove('hidden');
+                            } else {
+                                item.classList.add('hidden');
+                            }
+                        }, index * 50);
+                    });
+                });
+            });
+        });
     </script>
+    @yield('scripts')
 </body>
 </html>

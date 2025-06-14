@@ -83,16 +83,17 @@
     </section>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Galeri Kegiatan BKK</h1>
-            <p class="hero-subtitle">Dokumentasi berbagai kegiatan pelatihan, job fair, dan kesuksesan alumni kami dalam dunia kerja</p>
-        </div>
-    </section>
+
 
     <!-- Filter Section -->
-    <section class="filter-section">
+    <section class="hero-section">
+        <div class="hero-content">
+
+        </div>
+        <h1 class="hero-title">Galeri Kegiatan BKK</h1>
+        <p class="hero-subtitle">Dokumentasi berbagai kegiatan pelatihan, job fair, dan kesuksesan alumni kami dalam dunia kerja</p>
         <div class="filter-container">
+    <section class="filter-section">
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">Semua</button>
                 <button class="filter-btn" data-filter="jobfair">Job Fair</button>
@@ -101,6 +102,7 @@
             </div>
         </div>
     </section>
+</section>
 
     <!-- Gallery Section -->
     <section class="gallery-section">
