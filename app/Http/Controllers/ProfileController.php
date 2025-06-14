@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-// use Nette\Utils\Image;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
-use Intervention\Image\Facades\Image; // ✅ pastikan ini
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
@@ -23,9 +22,10 @@ class ProfileController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . auth()->id()],
-            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120'],
+            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
             'phone' => ['nullable', 'string', 'max:20'],
             'bio' => ['nullable', 'string', 'max:500'],
+            'remove_avatar' => ['nullable', 'boolean'],
             'current_password' => ['nullable', 'required_with:password', 'current_password'],
             'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -33,8 +33,12 @@ class ProfileController extends Controller
         $user = auth()->user();
         $data = $request->only(['name', 'email', 'phone', 'bio']);
 
-        // Handle avatar upload with compression
-        if ($request->hasFile('avatar')) {
+        // Handle avatar removal
+        if ($request->remove_avatar) {
+            $this->removeAvatar($user);
+        }
+        // Handle avatar upload
+        elseif ($request->hasFile('avatar')) {
             $this->updateAvatar($user, $request->file('avatar'));
         }
 
@@ -67,6 +71,15 @@ class ProfileController extends Controller
 
         $user->avatar = $filename;
         $user->save();
+    }
+
+    protected function removeAvatar($user)
+    {
+        if ($user->avatar) {
+            Storage::disk('public')->delete($user->avatar);
+            $user->avatar = null;
+            $user->save();
+        }
     }
 
     public function destroy(Request $request)

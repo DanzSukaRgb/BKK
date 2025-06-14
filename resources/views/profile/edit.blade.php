@@ -3,7 +3,7 @@
 @section('title', 'Profile Settings')
 
 @section('content')
-<div class="container-fluid pt-4">
+<div class="container-fluid pt-4" x-data="profile">
     <div class="row">
         <div class="col-12">
             <div class="card shadow-sm rounded-lg mb-4">
@@ -18,15 +18,28 @@
                         <div class="row">
                             <div class="col-md-4 text-center mb-4 mb-md-0">
                                 <div class="avatar-upload mx-auto" style="max-width: 200px;">
-                                    <div class="avatar-preview mb-3">
-                                        <div id="avatar-preview"
-                                             style="background-image: url('{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('images/default-avatar.webp') }}');">
-                                        </div>
+                                    <div class="avatar-edit">
+                                        <input type="file" id="avatar-upload" name="avatar"
+                                               accept=".png, .jpg, .jpeg, .webp"
+                                               class="d-none"
+                                               x-ref="avatarInput"
+                                               @change="previewAvatar">
+                                        <label for="avatar-upload" class="btn btn-circle btn-primary avatar-upload-label">
+                                            <i class="fas fa-camera"></i>
+                                        </label>
                                     </div>
-                                    <label for="avatar-upload" class="btn btn-primary rounded-pill">
-                                        <i class="fas fa-camera me-2"></i> Change Photo
-                                    </label>
-                                    <input type="file" id="avatar-upload" name="avatar" accept=".png, .jpg, .jpeg, .webp" class="d-none"/>
+                                    <div class="avatar-preview mb-3 position-relative">
+                                        <div id="avatar-preview"
+                                             :style="'background-image: url(' + (avatarPreview || '{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('images/default-avatar.webp') }}') + ')'">
+                                        </div>
+                                        <template x-if="avatarPreview || {{ $user->avatar ? 'true' : 'false' }}">
+                                            <button type="button" class="btn btn-circle btn-danger avatar-remove"
+                                                    @click="removeAvatar">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </template>
+                                    </div>
+                                    <small class="text-muted d-block">Allowed JPG, PNG or WEBP. Max 2MB.</small>
                                     @error('avatar')
                                         <span class="invalid-feedback d-block" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -211,6 +224,24 @@
     .avatar-upload {
         position: relative;
     }
+
+    .avatar-edit {
+        position: absolute;
+        right: 30px;
+        top: 10px;
+        z-index: 1;
+    }
+
+    .avatar-upload-label {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
     .avatar-preview {
         width: 150px;
         height: 150px;
@@ -220,6 +251,7 @@
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
         margin: 0 auto;
     }
+
     .avatar-preview > div {
         width: 100%;
         height: 100%;
@@ -228,39 +260,101 @@
         background-repeat: no-repeat;
         background-position: center;
     }
+
+    .avatar-remove {
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    .btn-circle {
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
 </style>
 @endpush
 
 @push('scripts')
 <script>
-    // Avatar preview
-    document.getElementById('avatar-upload').addEventListener('change', function(e) {
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            document.getElementById('avatar-preview').style.backgroundImage = 'url(' + event.target.result + ')';
-        };
-        reader.readAsDataURL(e.target.files[0]);
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('profile', () => ({
+            avatarPreview: null,
+            removeAvatarFlag: false,
+
+            previewAvatar(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+
+                // Validate file size (max 2MB)
+                if (file.size / 1024 / 1024 > 2) {
+                    alert('File size exceeds 2MB');
+                    this.$refs.avatarInput.value = '';
+                    return;
+                }
+
+                // Create preview
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    this.avatarPreview = e.target.result;
+                    this.removeAvatarFlag = false;
+
+                    // Add hidden input for avatar update
+                    this.removeHiddenRemoveInput();
+                };
+                reader.readAsDataURL(file);
+            },
+
+            removeAvatar() {
+                this.avatarPreview = null;
+                this.$refs.avatarInput.value = '';
+                this.removeAvatarFlag = true;
+
+                // Add hidden input to indicate removal
+                this.addHiddenRemoveInput();
+            },
+
+            addHiddenRemoveInput() {
+                // Remove existing if any
+                this.removeHiddenRemoveInput();
+
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'remove_avatar';
+                input.value = '1';
+                document.getElementById('profile-form').appendChild(input);
+            },
+
+            removeHiddenRemoveInput() {
+                const existingInput = document.querySelector('input[name="remove_avatar"]');
+                if (existingInput) {
+                    existingInput.remove();
+                }
+            }
+        }));
     });
 
     // Bio character counter
-    document.getElementById('bio').addEventListener('input', function(e) {
-        document.getElementById('bio-counter').textContent = e.target.value.length;
+    document.addEventListener('DOMContentLoaded', function() {
+        const bioField = document.getElementById('bio');
+        if (bioField) {
+            bioField.addEventListener('input', function(e) {
+                document.getElementById('bio-counter').textContent = e.target.value.length;
+            });
+            // Initialize counter
+            document.getElementById('bio-counter').textContent = bioField.value.length;
+        }
     });
-    // Initialize counter
-    document.getElementById('bio-counter').textContent = document.getElementById('bio').value.length;
-
-    // Password validation
-    const passwordForm = document.querySelector('form[action="{{ route('profile.update') }}"]');
-    if (passwordForm) {
-        passwordForm.addEventListener('submit', function(e) {
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('password_confirmation').value;
-
-            if (password && password !== confirmPassword) {
-                e.preventDefault();
-                alert('The new password and confirmation password do not match.');
-            }
-        });
-    }
 </script>
 @endpush

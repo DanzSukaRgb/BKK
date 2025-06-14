@@ -33,14 +33,11 @@ Route::prefix('perusahaan')->group(function () {
     Route::get('/create', [PerusahaanController::class, 'create'])->name('perusahaan.create');
 });
 
-// Authentication routes (grouped under /auth)
-// Route::prefix('auth')->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
     Route::post('/register', [AuthController::class, 'register']);
-// });
 
 // Authenticated routes (require auth middleware)
 Route::prefix('notifikasi')->middleware('auth')->group(function () {

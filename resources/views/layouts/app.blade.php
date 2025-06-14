@@ -48,7 +48,6 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
         }
-
         .hero-section .container {
             position: relative;
             z-index: 1;
@@ -555,11 +554,17 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 footer-col">
                     <h4>Tautan Cepat</h4>
-                    <ul>
-                        <li><a href="#beranda">Beranda</a></li>
-                        <li><a href="#lowongan">Lowongan</a></li>
-                        <li><a href="#kontak">Kontak</a></li>
-                        <li><a href="#kegiatan">Informasi</a></li>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#tentang">Profil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#kegiatan">Informasi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('kegiatan.public')}}">Kegiatan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('lowongan.public') }}">Lowongan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Kontak</a></li>
+                        @guest
+                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                        @endguest
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 footer-col">
