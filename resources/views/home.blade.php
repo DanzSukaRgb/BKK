@@ -238,15 +238,15 @@
             // Filter functionality
             const filterButtons = document.querySelectorAll('.filter-btn');
             const galleryItems = document.querySelectorAll('.gallery-item');
-            
+
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     // Update active button
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
-                    
+
                     const filterValue = this.getAttribute('data-filter');
-                    
+
                     // Filter items with smooth animation
                     galleryItems.forEach((item, index) => {
                         setTimeout(() => {
@@ -259,13 +259,13 @@
                     });
                 });
             });
-            
+
             // Modal functionality
             const galleryModal = new bootstrap.Modal(document.getElementById('galleryModal'));
             const modalTitle = document.getElementById('galleryModalLabel');
             const modalImage = document.getElementById('modalImage');
             const modalDescription = document.getElementById('modalDescription');
-            
+
             document.querySelectorAll('.card-image').forEach(img => {
                 img.addEventListener('click', function() {
                     const card = this.closest('.gallery-card');
@@ -316,7 +316,7 @@
 
         /* Header Section */
         .hero-section {
-            /* background: linear-gradient(135deg,rgb(255, 255, 255) 0%, #e2e8f0 100%); */
+            background: white;
             padding: 4rem 0;
             position: relative;
             overflow: hidden;
@@ -645,5 +645,5 @@
         }
     </style>
 
-    
+
 @endsection
