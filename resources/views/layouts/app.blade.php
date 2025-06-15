@@ -452,7 +452,7 @@
         }
 
         .navbar-brand {
-            color: rgb(21, 72, 139) !important;
+            color: var(--primary-color) !important;
             font-weight: 700;
             transition: var(--transition);
             display: flex;
