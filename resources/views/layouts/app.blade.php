@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <title>BKK | SMKN 6 JEMBER</title>
     <style>
         :root {
@@ -439,7 +441,7 @@
         }
 
         .nav-link {
-            color: rgba(255, 255, 255, 0.8) !important;
+            color: rgba(41, 41, 41, 0.8) !important;
             transition: var(--transition);
             font-weight: 500;
             padding: 8px 15px !important;
@@ -450,7 +452,7 @@
         }
 
         .navbar-brand {
-            color: white !important;
+            color: rgb(21, 72, 139) !important;
             font-weight: 700;
             transition: var(--transition);
             display: flex;
@@ -462,7 +464,7 @@
         }
 
         .nav-link:hover {
-            color: white !important;
+            color: rgb(0, 0, 0) !important;
         }
 
         .navbar.scrolled .nav-link:hover {
@@ -569,7 +571,7 @@
 
         /* Filter Section */
         .filter-section {
-            padding: 3rem 0 2rem;
+            margin-top:50px;
             background: #ffffff;
         }
 
@@ -809,6 +811,72 @@
             border-radius: 8px;
             font-weight: 500;
         }
+        .auth-page-wrapper {
+            min-height: 100vh;
+            background: linear-gradient(to right, #e0ecff, #f7f9fc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 15px;
+        }
+
+        .auth-card {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .auth-card h4 {
+            font-weight: 600;
+            color: #0d6efd;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: #084cd6;
+            border-color: #084cd6;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #842029;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+        }
+
+        .invalid-feedback {
+            font-size: 0.9rem;
+            color: #dc3545;
+        }
+
+        .text-decoration-none {
+            color: #0d6efd;
+            transition: 0.2s;
+        }
+
+        .text-decoration-none:hover {
+            color: #063aab;
+            text-decoration: underline;
+        }
+
+        .form-check-label {
+            color: #555;
+        }
+
         /* Animation */
         @keyframes scroll {
             0% { transform: translateX(0); }
@@ -950,8 +1018,39 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('lowongan.public') }}">Lowongan</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Kontak</a></li>
                     @guest
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                    @endguest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <i class="fas fa-sign-in-alt me-1"></i> Login
+                        </a>
+                    </li>
+                @else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            {{-- Link ke Dashboard Admin --}}
+                            <li>
+                                <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                    <i class="fas fa-user-tie me-2"></i> Admin
+                                </a>
+                            </li>
+
+                            {{-- Tombol Logout --}}
+                            <li>
+                                <a class="dropdown-item" href="#"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+
+                    </li>
+                @endguest
                 </ul>
             </div>
         </div>
@@ -974,9 +1073,6 @@
                         <li><a href="{{route('kegiatan.public')}}">Kegiatan</a></li>
                         <li><a href="{{ route('lowongan.public') }}">Lowongan</a></li>
                         <li><a href="{{route('contact')}}">Kontak</a></li>
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                        @endguest
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 footer-col">

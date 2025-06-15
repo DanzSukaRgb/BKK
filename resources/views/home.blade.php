@@ -83,13 +83,9 @@
     </section>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Galeri Kegiatan BKK</h1>
-            <p class="hero-subtitle">Dokumentasi berbagai kegiatan pelatihan, job fair, dan kesuksesan alumni kami dalam dunia kerja</p>
-        </div>
-    </section>
-
+<br><br>
+            <h1 class="hero-title1" style="text-align: center; color:#4b4b4b; font-weight:bold;">Galeri Kegiatan BKK</h1>
+            <p class="hero-subtitle1" style="text-align: center; color:#4b4b4b; font-weight:500;">Dokumentasi berbagai kegiatan pelatihan, job fair, dan kesuksesan alumni kami dalam dunia kerja</p>
     <!-- Filter Section -->
     <section class="filter-section">
         <div class="filter-container">
