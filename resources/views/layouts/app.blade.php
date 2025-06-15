@@ -452,7 +452,7 @@
         }
 
         .navbar-brand {
-            color: var(--primary-color) !important;
+            color: rgb(21, 72, 139) !important;
             font-weight: 700;
             transition: var(--transition);
             display: flex;
@@ -641,9 +641,7 @@
         }
 
         .gallery-item.hidden {
-            opacity: 0;
-            transform: translateY(20px);
-            pointer-events: none;
+            display: none !important;
         }
 
         .gallery-card {
@@ -1036,7 +1034,7 @@
                                     <i class="fas fa-user-tie me-2"></i> Admin
                                 </a>
                             </li>
-{{--  --}}
+
                             {{-- Tombol Logout --}}
                             <li>
                                 <a class="dropdown-item" href="#"

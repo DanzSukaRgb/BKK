@@ -155,10 +155,10 @@
                 <!-- Item 4 -->
                 <div class="gallery-item" data-category="jobfair">
                     <div class="gallery-card">
-                        <img src="https://source.unsplash.com/random/600x400/?job,fair,2" class="card-image" alt="Job Fair BKK 2022">
+                        <img src="{{asset('assets/bg.jpg')}}" class="card-image" alt="Job Fair BKK 2022">
                         <div class="card-content">
                             <span class="card-category">Job Fair</span>
-                            <h3 class="card-title">Job Fair BKK 2022</h3>
+                            <h3 class="card-title">Gelar Karya</h3>
                             <p class="card-description">Kegiatan job fair tahunan dengan tingkat penyerapan kerja mencapai 75% dari total peserta.</p>
                             <div class="card-footer">
                                 <span class="card-date">20 Maret 2022</span>
@@ -203,7 +203,7 @@
 
             <!-- Load More Button -->
             <div class="load-more-container">
-                <button class="load-more-btn">Muat Lebih Banyak</button>
+                <a href="{{route('kegiatan.public')}}" class="load-more-btn" style="text-decoration: none;">Muat Lebih Banyak</a>
             </div>
         </div>
     </section>
