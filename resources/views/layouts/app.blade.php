@@ -1011,7 +1011,6 @@
                     <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="/#tentang">Profil</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#kegiatan">Informasi</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('kegiatan.public')}}">Kegiatan</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('lowongan.public') }}">Lowongan</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Kontak</a></li>
@@ -1067,7 +1066,6 @@
                         <li><a href="{{route('home')}}">Beranda</a></li>
                         <li><a href="/#tentang">Profil</a></li>
                         <li><a href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
-                        <li><a href="/#kegiatan">Informasi</a></li>
                         <li><a href="{{route('kegiatan.public')}}">Kegiatan</a></li>
                         <li><a href="{{ route('lowongan.public') }}">Lowongan</a></li>
                         <li><a href="{{route('contact')}}">Kontak</a></li>
