@@ -7,7 +7,7 @@
             <p class="hero-subtitle">Temukan pekerjaan sesuai kompetensi anda.</p>
             <div class="hero-buttons">
                 <a href="#" class="btn btn-primary">Alumni</a>
-                <a href="{{route("perusahaan.public")}}" class="btn btn-success">Perusahaan</a>
+                <a href="{{ route('perusahaan.public') }}" class="btn btn-success">Perusahaan</a>
             </div>
         </div>
     </section>
@@ -215,8 +215,170 @@
 
             <div class="text-center mt-5">
                 <a href="#testimoni" class="btn btn-primary btn-lg px-4">
-                    <i class="fas fa-comments me-2"></i> Lihat Testimoni
+                    <i class="fas fa-comments me-2"></i> Lihat Pertanyaan (FAQ)
                 </a>
+            </div>
+        </div>
+    </section>
+    <section class="faq-section py-5 bg-white">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+                <p class="section-subtitle">Temukan jawaban atas pertanyaan umum seputar BKK SMKN 6 Jember</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed fw-semibold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    <i class="fas fa-question-circle text-primary me-3"></i>
+                                    Apa itu BKK dan apa manfaatnya untuk siswa?
+                                </button>
+                            </h3>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body pt-0">
+                                    <p>Bursa Kerja Khusus (BKK) adalah unit kerja di SMKN 6 Jember yang berfungsi sebagai mediator antara alumni dengan dunia kerja. Manfaatnya meliputi:</p>
+                                    <ul>
+                                        <li>Memperoleh informasi lowongan kerja terpercaya</li>
+                                        <li>Pelatihan keterampilan kerja dan wawancara</li>
+                                        <li>Koneksi dengan perusahaan mitra</li>
+                                        <li>Bimbingan karier setelah lulus</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed fw-semibold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <i class="fas fa-user-graduate text-primary me-3"></i>
+                                    Bagaimana cara mendaftar sebagai peserta BKK?
+                                </button>
+                            </h3>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body pt-0">
+                                    <p>Pendaftaran bisa dilakukan dengan cara:</p>
+                                    <ol>
+                                        <li>Kunjungi kantor BKK SMKN 6 Jember dengan membawa:
+                                            <ul>
+                                                <li>Fotokopi ijazah terakhir</li>
+                                                <li>Pas foto 3x4 (2 lembar)</li>
+                                                <li>CV sederhana</li>
+                                            </ul>
+                                        </li>
+                                        <li>Isi formulir pendaftaran</li>
+                                        <li>Ikuti orientasi singkat tentang program BKK</li>
+                                    </ol>
+                                    <p class="mb-0">Pendaftaran online juga tersedia melalui <a href="#">website ini</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed fw-semibold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <i class="fas fa-briefcase text-primary me-3"></i>
+                                    Apakah ada biaya untuk mengikuti program BKK?
+                                </button>
+                            </h3>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body pt-0">
+                                    <p><strong>Tidak ada biaya</strong> untuk mengikuti program inti BKK. Semua layanan dasar seperti:</p>
+                                    <ul>
+                                        <li>Konsultasi karier</li>
+                                        <li>Akses lowongan kerja</li>
+                                        <li>Workshop dasar</li>
+                                    </ul>
+                                    <p>disediakan gratis untuk seluruh alumni SMKN 6 Jember. Untuk pelatihan sertifikasi khusus mungkin ada biaya tambahan yang sudah disubsidi.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 4 -->
+                        <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed fw-semibold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <i class="fas fa-building text-primary me-3"></i>
+                                    Perusahaan apa saja yang menjadi mitra BKK?
+                                </button>
+                            </h3>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body pt-0">
+                                    <p>BKK SMKN 6 Jember bekerja sama dengan 85+ perusahaan dari berbagai sektor:</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6 class="fw-semibold mt-3">Industri Teknologi:</h6>
+                                            <ul>
+                                                <li>PT Telkom Indonesia</li>
+                                                <li>PT Astra Otoparts</li>
+                                                <li>PT Jatim Autocomp Indonesia</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="fw-semibold mt-3">Hospitality & Retail:</h6>
+                                            <ul>
+                                                <li>Hotel Santika Premiere</li>
+                                                <li>PT Ramayana Lestari</li>
+                                                <li>PT Matahari Department Store</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <p class="mb-0">Lihat daftar lengkapnya di halaman <a href="#">Perusahaan Mitra</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 5 -->
+                        <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed fw-semibold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <i class="fas fa-calendar-check text-primary me-3"></i>
+                                    Kapan biasanya ada job fair atau rekrutmen khusus?
+                                </button>
+                            </h3>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body pt-0">
+                                    <p>BKK menyelenggarakan berbagai event rekrutmen sepanjang tahun:</p>
+                                    <table class="table table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Periode</th>
+                                                <th>Jenis Event</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Januari-Februari</td>
+                                                <td>Job Fair Nasional</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Juni-Juli</td>
+                                                <td>Rekrutmen Massal Alumni Baru</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Oktober</td>
+                                                <td>Company Visit Day</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p>Jadwal lengkap bisa dilihat di <a href="#">kalender kegiatan</a> kami.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <div class="alert alert-info d-inline-flex align-items-center">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Masih ada pertanyaan? Hubungi kami di <a href="mailto:bkk@smkn6jember.sch.id" class="alert-link">bkk@smkn6jember.sch.id</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -76,7 +76,6 @@
             position: relative;
             z-index: 1;
         }
-
         .hero-title {
             font-size: 3rem;
             font-weight:700;
@@ -389,6 +388,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+            z-index: 1;
         }
 
         .gallery-card:hover .card-image {
@@ -614,7 +614,7 @@
 
         /* Footer */
         .footer {
-            background-color: var(--dark-color);
+            background: linear-gradient(to top, #1e293b, #2d4975);
             color: #e2e8f0;
             padding: 5rem 0 2rem;
         }
@@ -686,6 +686,7 @@
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             color: white;
+            text-decoration: none;
             transition: var(--transition);
         }
 
@@ -845,7 +846,7 @@
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(16, 32, 170, 0.05);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
             border: 1px solid rgba(0, 0, 0, 0.03);
@@ -882,6 +883,7 @@
             border-radius: 5px;
             text-decoration: none;
             opacity: 0;
+            z-index: 2;
             transition: opacity 0.3s ease, transform 0.3s ease;
             transform: translateY(10px);
             font-size: 0.9rem;
@@ -1180,7 +1182,6 @@
         }
 
         .benefit-card:hover {
-
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
@@ -1214,7 +1215,7 @@
             margin: 15px auto;
         }
         .career-cta-section {
-            background-image: url('assets/karer.png'); /* Ganti dengan path gambar kamu */
+            background-image: url('assets/karer.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -1235,6 +1236,59 @@
             position: relative;
             z-index: 2;
         }
+            /* FAQ Section Styles */
+        .faq-section {
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .accordion-button {
+            font-size: 1.05rem;
+            background-color: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #f1f5f9;
+            color: #1e40af;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .accordion-body {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .accordion-body ul,
+        .accordion-body ol {
+            padding-left: 1.2rem;
+        }
+
+        .accordion-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .table {
+            font-size: 0.9rem;
+        }
 
         /* Animation */
         @keyframes scroll {
@@ -1254,7 +1308,9 @@
                 font-size: 2.2rem;
                 padding-top: 120px;
             }
-
+            .section-title {
+                font-size: 2rem;
+             }
             .about-content {
                 flex-direction: column;
                 align-items: center;
@@ -1288,6 +1344,14 @@
         }
 
         @media (max-width: 768px) {
+            .hero-buttons{
+                width: 120px;
+                display: flex;
+            }
+            .accordion-button {
+                font-size: 1rem;
+                padding: 1rem 1.25rem;
+            }
             .hero-title {
                 font-size: 2rem;
             }
@@ -1333,6 +1397,13 @@
                 font-size: 1.5rem;
             }
 
+            .accordion-body {
+                padding: 1rem;
+            }
+
+            .table {
+                font-size: 0.8rem;
+            }
             .stats-grid {
                 grid-template-columns: 1fr;
             }
