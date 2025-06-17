@@ -14,10 +14,10 @@
 {{--  --}}
     <section class="about-section">
         <div class="container">
-            <h2 class="section-title" id="tentang">Tentang Kami</h2>
+            <h2 class="section-title " id="tentang" style="font-weight: 600;">Tentang Kami</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>
+                    <p style="font-weight: 500;">
                         Website PKK SMK 6 Jember bertujuan untuk menjadi sarana informasi dan pembelajaran yang mendukung pengembangan kewirausahaan dan keterampilan siswa SMK. Platform ini dirancang untuk memperluas wawasan siswa dalam bidang Pendidikan Kewirausahaan dan Keterampilan (PKK), serta menjadi pusat referensi materi, panduan, dan kegiatan pembelajaran yang interaktif. <br>
                         Melalui website ini, siswa dapat mengakses materi pembelajaran, video tutorial, informasi lomba, serta mempublikasikan karya dan inovasi mereka guna meningkatkan semangat berwirausaha dan kesiapan menghadapi dunia kerja atau membangun usaha mandiri.
                     </p>
@@ -31,7 +31,7 @@
 
     <section class="company-section" id="perusahaan">
         <div class="container">
-            <h2 class="section-title">Perusahaan</h2>
+            <h2 class="section-title">Perusahaan Mitra</h2>
             <div class="company-scroller">
                 <div class="company-track">
                     @foreach([1,2,3,4,5,6,7] as $index)
@@ -49,7 +49,7 @@
             </div>
         </div>
     </section>
-
+<br>
     <section class="stats-section">
         <div class="container">
             <h3 class="section-title">Info Singkat BKK</h3>
@@ -92,9 +92,10 @@
     <section class="filter-section">
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">Semua</button>
-                <button class="filter-btn" data-filter="jobfair">Job Fair</button>
                 <button class="filter-btn" data-filter="pelatihan">Pelatihan</button>
-                <button class="filter-btn" data-filter="alumni">Kesuksesan Alumni</button>
+                <button class="filter-btn" data-filter="seminar">Seminar</button>
+                <button class="filter-btn" data-filter="lokakarya">Lokakarya</button>
+                <button class="filter-btn" data-filter="rekrutmen">Rekrutmen</button>
             </div>
         </div>
     </section>
@@ -104,109 +105,45 @@
     <section class="gallery-section">
         <div class="gallery-container">
             <div class="gallery-grid">
-                <!-- Item 1 -->
-                <div class="gallery-item" data-category="jobfair">
-                    <div class="gallery-card">
-                        <img src="assets/bg.jpg" class="card-image" alt="Job Fair BKK 2023">
-                        <div class="card-content">
-                            <span class="card-category">Job Fair</span>
-                            <h3 class="card-title">Job Fair BKK 2023</h3>
-                            <p class="card-description">Kegiatan job fair tahunan yang dihadiri oleh 50+ perusahaan ternama dengan berbagai peluang karir menarik.</p>
-                            <div class="card-footer">
-                                <span class="card-date">15 Maret 2023</span>
-                                <a href="#" class="card-action">Lihat Album</a>
-                            </div>
-                        </div>
-                    </div>
+                @forelse ($kegiatan as $item)
+                    <div class="gallery-item" data-category="{{ strtolower($item->tipe_kegiatan ?? 'umum') }}">
+            <div class="gallery-card">
+                <div class="image-container">
+                    <img src="{{ $item->gambar }}" class="card-image" alt="{{ $item->judul }}" loading="lazy">
+                    <a href="{{ route('kegiatan.show.public', $item->id) }}" class="image-button">
+                        <i class="fas fa-eye me-1"></i> Lihat Detail
+                    </a>
+
+                    <div class="image-overlay"></div>
                 </div>
 
-                <!-- Item 2 -->
-                <div class="gallery-item" data-category="pelatihan">
-                    <div class="gallery-card">
-                        <img src="assests/bg.jpg" class="card-image" alt="Pelatihan Wawancara Kerja">
-                        <div class="card-content">
-                            <span class="card-category">Pelatihan</span>
-                            <h3 class="card-title">Pelatihan Wawancara Kerja</h3>
-                            <p class="card-description">Pelatihan komprehensif teknik wawancara kerja untuk mempersiapkan alumni menghadapi dunia kerja.</p>
-                            <div class="card-footer">
-                                <span class="card-date">22 Februari 2023</span>
-                                <a href="#" class="card-action">Lihat Album</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Item 3 -->
-                <div class="gallery-item" data-category="alumni">
-                    <div class="gallery-card">
-                        <img src="https://source.unsplash.com/random/600x400/?success,office,1" class="card-image" alt="Kisah Sukses Alumni">
-                        <div class="card-content">
-                            <span class="card-category">Alumni</span>
-                            <h3 class="card-title">Kisah Sukses: Andi Pratama</h3>
-                            <p class="card-description">Alumni kami yang sekarang menjadi Manager di perusahaan multinasional setelah lulus dari program BKK.</p>
-                            <div class="card-footer">
-                                <span class="card-date">10 Januari 2023</span>
-                                <a href="#" class="card-action">Baca Kisah</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="gallery-item" data-category="jobfair">
-                    <div class="gallery-card">
-                        <img src="{{asset('assets/bg.jpg')}}" class="card-image" alt="Job Fair BKK 2022">
-                        <div class="card-content">
-                            <span class="card-category">Job Fair</span>
-                            <h3 class="card-title">Gelar Karya</h3>
-                            <p class="card-description">Kegiatan job fair tahunan dengan tingkat penyerapan kerja mencapai 75% dari total peserta.</p>
-                            <div class="card-footer">
-                                <span class="card-date">20 Maret 2022</span>
-                                <a href="#" class="card-action">Lihat Album</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="gallery-item" data-category="pelatihan">
-                    <div class="gallery-card">
-                        <img src="https://source.unsplash.com/random/600x400/?training,workshop,2" class="card-image" alt="Workshop CV Profesional">
-                        <div class="card-content">
-                            <span class="card-category">Pelatihan</span>
-                            <h3 class="card-title">Workshop CV Profesional</h3>
-                            <p class="card-description">Pelatihan intensif pembuatan CV yang menarik dan profesional sesuai standar perusahaan.</p>
-                            <div class="card-footer">
-                                <span class="card-date">5 Februari 2022</span>
-                                <a href="#" class="card-action">Lihat Album</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 6 -->
-                <div class="gallery-item" data-category="alumni">
-                    <div class="gallery-card">
-                        <img src="https://source.unsplash.com/random/600x400/?success,office,2" class="card-image" alt="Kisah Sukses Alumni">
-                        <div class="card-content">
-                            <span class="card-category">Alumni</span>
-                            <h3 class="card-title">Kisah Sukses: Siti Rahayu</h3>
-                            <p class="card-description">Alumni kami yang berhasil mendirikan startup teknologi dan menjadi entrepreneur sukses.</p>
-                            <div class="card-footer">
-                                <span class="card-date">15 Desember 2021</span>
-                                <a href="#" class="card-action">Baca Kisah</a>
-                            </div>
-                        </div>
+                <div class="card-content">
+                    <span class="card-category">{{ $item->tipe_kegiatan ?? 'Umum' }}</span>
+                    <h3 class="card-title">{{ $item->judul }}</h3>
+                    <p class="card-description">{{ Str::limit($item->deskripsi, 100) }}</p>
+                    <div class="card-footer">
+                        <span class="card-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}
+                        </span>
                     </div>
                 </div>
             </div>
+        </div>
+                @empty
+                    <div class="no-kegiatan">
+                        <p>Belum ada kegiatan yang tersedia saat ini.</p>
+                    </div>
+                @endforelse
+            </div>
 
-            <!-- Load More Button -->
             <div class="load-more-container">
-                <a href="{{route('kegiatan.public')}}" class="load-more-btn" style="text-decoration: none;">Muat Lebih Banyak</a>
+                <a href="{{ route('kegiatan.public') }}" class="load-more-btn" style="text-decoration: none;">Muat Lebih Banyak</a>
             </div>
         </div>
     </section>
+
 
     <!-- Modal for Image Preview -->
     <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
@@ -226,7 +163,83 @@
             </div>
         </div>
     </div>
+    <section class="why-choose-us bg-light py-5" id="keunggulan">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Mengapa Memilih BKK SMKN 6 Jember?</h2>
+                <div class="divider mx-auto"></div>
+                <p class="section-subtitle">Keunggulan yang kami tawarkan untuk kesuksesan karir Anda</p>
+            </div>
 
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card shadow-sm p-4 h-100">
+                        <div class="benefit-icon mb-3">
+                            <i class="fas fa-handshake fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="benefit-title">Jaringan Perusahaan Luas</h4>
+                        <p class="benefit-text">Lebih dari 85 perusahaan mitra terpercaya dari berbagai industri.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card shadow-sm p-4 h-100">
+                        <div class="benefit-icon mb-3">
+                            <i class="fas fa-user-tie fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="benefit-title">Bimbingan Karir</h4>
+                        <p class="benefit-text">Pelatihan dan konsultasi karir dari profesional berpengalaman.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card shadow-sm p-4 h-100">
+                        <div class="benefit-icon mb-3">
+                            <i class="fas fa-chart-line fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="benefit-title">Tingkat Penempatan Tinggi</h4>
+                        <p class="benefit-text">80% alumni mendapatkan pekerjaan dalam 3 bulan setelah lulus.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card shadow-sm p-4 h-100">
+                        <div class="benefit-icon mb-3">
+                            <i class="fas fa-calendar-check fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="benefit-title">Job Fair Rutin</h4>
+                        <p class="benefit-text">Event rekrutmen berkala dengan perusahaan-perusahaan ternama.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="#testimoni" class="btn btn-primary btn-lg px-4">
+                    <i class="fas fa-comments me-2"></i> Lihat Testimoni
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Career CTA Section -->
+    <section class="career-cta-section text-white position-relative overflow-hidden">
+    <div class="container position-relative z-index-2">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h2 class="display-4 fw-bold mb-4">Siap Memulai Karir Impian Anda?</h2>
+                <p class="lead mb-5">Bergabunglah dengan ratusan alumni SMKN 6 Jember yang telah sukses mendapatkan pekerjaan melalui program BKK kami. Dapatkan akses ke lowongan terbaru, pelatihan karir, dan bimbingan profesional.</p>
+
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="{{ route('lowongan.public') }}" class="btn btn-light btn-lg px-4 py-3 fw-bold rounded-pill">
+                        <i class="fas fa-briefcase me-2"></i>Lihat Lowongan
+                    </a>
+                    <a href="{{ route('register') }}" class="btn btn-outline-light btn-lg px-4 py-3 fw-bold rounded-pill">
+                        <i class="fas fa-user-plus me-2"></i>Daftar Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

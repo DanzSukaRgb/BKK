@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container py-4">
@@ -35,6 +35,7 @@
                             </p>
                         </div>
                     </div>
+                      <p><strong>Tipe Kegiatan:</strong> {{ $kegiatan->tipe_kegiatan ?? '-' }}</p>
 
                     <hr>
 
@@ -52,17 +53,17 @@
                     <h4 class="mb-0">Aksi</h4>
                 </div>
                 <div class="card-body">
-                    <div class="d-grid gap-2">
+                    <div class="d-flex gap-2">
                         <a href="{{ route('kegiatan.edit', $kegiatan->id) }}"
                            class="btn btn-warning btn-block">
-                            <i class="fas fa-edit"></i> Edit Kegiatan
+                            <i class="fas fa-edit "></i> Edit Kegiatan
                         </a>
                         <form action="{{ route('kegiatan.destroy', $kegiatan->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-block"
                                     onclick="return confirm('Yakin ingin menghapus kegiatan ini?')">
-                                <i class="fas fa-trash"></i> Hapus Kegiatan
+                                <i class="fas fa-trash "></i> Hapus Kegiatan
                             </button>
                         </form>
                     </div>

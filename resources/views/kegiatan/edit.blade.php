@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container py-4">
@@ -73,7 +73,21 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="mb-3">
+                    <label for="tipe_kegiatan" class="form-label">Tipe Kegiatan</label>
+                    <select class="form-select @error('tipe_kegiatan') is-invalid @enderror"
+                            name="tipe_kegiatan" id="tipe_kegiatan">
+                        <option value="">-- Pilih Tipe --</option>
+                        @foreach(['Pelatihan', 'Seminar', 'Lokakarya', 'Rekrutmen'] as $tipe)
+                            <option value="{{ $tipe }}" {{ old('tipe_kegiatan', $kegiatan->tipe_kegiatan) == $tipe ? 'selected' : '' }}>
+                                {{ $tipe }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('tipe_kegiatan')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
                 <div class="mb-3">
                     <label for="deskripsi" class="form-label">Deskripsi Kegiatan</label>
                     <textarea class="form-control @error('deskripsi') is-invalid @enderror"

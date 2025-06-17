@@ -23,9 +23,10 @@
                         <tr>
                             <th>#</th>
                             <th>Gambar</th>
-                            <th>Judul</th>
-                            <th>Tanggal/Waktu</th>
+                            <th>Nama Kegiatan</th>
+                            <th>Tanggal</th>
                             <th>Tempat</th>
+                            <th>Tipe Kegiatan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -43,6 +44,7 @@
                                 <small>{{ $item->waktu }}</small>
                             </td>
                             <td>{{ $item->tempat }}</td>
+                            <td>{{ $item->tipe_kegiatan }}</td>
                             <td>
                                 <div class="d-flex gap-2">
                                     <a href="{{ route('kegiatan.show', $item->id) }}"

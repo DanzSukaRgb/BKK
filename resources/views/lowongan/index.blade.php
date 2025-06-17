@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-between align-items-center mb-4">
         <div class="col-md-6">
-            <h1></h1>
+            <h1>Daftar Lowongan</h1>
         </div>
         <div class="col-md-6 text-end">
             <a href="{{ route('lowongan.create') }}" class="btn btn-primary">

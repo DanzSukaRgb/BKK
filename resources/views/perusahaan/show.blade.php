@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -45,6 +45,7 @@
                             <div class="border p-3 rounded bg-light">
                                 {!! $perusahaan->deskripsi ? nl2br(e($perusahaan->deskripsi)) : 'Tidak ada deskripsi' !!}
                             </div>
+                            <a href="{{route('perusahaan.index')}}" class="btn btn-secondary mt-4">Kembali</a>
                         </div>
                     </div>
                 </div>

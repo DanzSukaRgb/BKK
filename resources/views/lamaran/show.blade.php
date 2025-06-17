@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container py-5">
@@ -82,10 +82,10 @@
         </div>
         <div class="card-footer bg-white">
             <div class="btn-group">
-                <a href="{{ route('lamaran.edit', $lamaran->id) }}" class="btn btn-warning">
+                <a href="{{ route('lamaran.edit', $lamaran->id) }}" class="btn btn-warning" style="border-radius: 5px;">
                     <i class="fas fa-edit me-2"></i> Edit
                 </a>
-                <form action="{{ route('lamaran.destroy', $lamaran->id) }}" method="POST" class="d-inline">
+                <form action="{{ route('lamaran.destroy', $lamaran->id) }}" method="POST" class="d-inline" style="margin-left: 10px">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus lamaran ini?')">

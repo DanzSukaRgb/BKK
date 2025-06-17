@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<br><br><br><br>
+<br><br><br>
 <section id="lokasi" class="lokasi-section py-5 bg-light">
     <div class="container">
         <!-- Section Heading -->
@@ -14,19 +14,15 @@
                 Hubungi kami untuk informasi lebih lanjut atau pertanyaan yang Anda miliki
             </p>
         </div>
-
-        <div class="row g-4">
+        <div class="row g-4 align-items-stretch">
             <!-- Google Maps -->
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-sm h-100 overflow-hidden">
-                    <div class="ratio ratio-16x9">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4686155740765!2d113.43264387405587!3d-8.155450181697379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd68b08077adae9%3A0x32c15952de1123cb!2sSMK%20Negeri%206%20Jember!5e0!3m2!1sid!2sid!4v1749458184051!5m2!1sid!2sid"
-                            class="w-100 h-100"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
+            <div class="col-lg-6 d-flex">
+                <div class="card border-0 shadow-sm w-100 d-flex flex-column">
+                    <div class="ratio ratio-4x3 flex-grow-1">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1412.5328379938078!2d113.4347124269006!3d-8.155450754436908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd68b08077adae9%3A0x32c15952de1123cb!2sSMK%20Negeri%206%20Jember!5e0!3m2!1sid!2sid!4v1750121694154!5m2!1sid!2sid"
+                        width="600" height="450" style="border:0;"
+                        allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                     <div class="card-footer bg-white">
@@ -39,26 +35,23 @@
             </div>
 
             <!-- Contact Form -->
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4 p-md-5">
+            <div class="col-lg-6 d-flex">
+                <div class="card border-0 shadow-sm w-100 d-flex flex-column">
+                    <div class="card-body p-4 p-md-5 flex-grow-1">
                         <h3 class="h4 fw-bold mb-4">Kirim Pesan</h3>
                         <form method="POST" action="#">
                             @csrf
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama Lengkap</label>
-                                <input type="text" class="form-control py-2" id="nama" name="nama" required
-                                    placeholder="Masukkan nama lengkap Anda">
+                                <input type="text" class="form-control py-2" id="nama" name="nama" required placeholder="Masukkan nama lengkap Anda">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Alamat Email</label>
-                                <input type="email" class="form-control py-2" id="email" name="email" required
-                                    placeholder="contoh@email.com">
+                                <input type="email" class="form-control py-2" id="email" name="email" required placeholder="contoh@email.com">
                             </div>
                             <div class="mb-4">
                                 <label for="pesan" class="form-label">Pesan</label>
-                                <textarea class="form-control" id="pesan" name="pesan" rows="4" required
-                                    placeholder="Tulis pesan Anda di sini..."></textarea>
+                                <textarea class="form-control" id="pesan" name="pesan" rows="4" required placeholder="Tulis pesan Anda di sini..."></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">
                                 <i class="fas fa-paper-plane me-2"></i> Kirim Pesan
@@ -68,6 +61,7 @@
                 </div>
             </div>
         </div>
+
 
         <!-- Additional Contact Info -->
         <div class="row mt-5 g-4">

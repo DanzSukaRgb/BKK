@@ -19,7 +19,7 @@ class HomeController extends Controller
             ->get();
 
         $kegiatan = KegiatanBkk::orderBy('tanggal', 'desc')
-            ->take(3)
+            ->take(4)
             ->get();
 
         $perusahaan = Perusahaan::take(8)->get();

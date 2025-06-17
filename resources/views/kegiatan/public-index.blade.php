@@ -5,8 +5,8 @@
 <div class="container py-5">
     <div class="row mb-4">
         <div class="col-12">
-            <h1 class="text-center mb-4">Kegiatan BKK</h1>
-            <p class="text-center lead">Daftar kegiatan terbaru dari Bursa Kerja Khusus kami</p>
+            <h1 class="text-center mb-4 text-primary" style="font-weight: 600;">Daftar Kegiatan </h1>
+            <p class="text-center lead" style="font-weight: 500;">Daftar kegiatan terbaru dari Bursa Kerja Khusus kami</p>
         </div>
     </div>
 
@@ -24,7 +24,7 @@
                     </p>
                     <p class="card-text">{{ Str::limit($item->deskripsi, 100) }}</p>
                 </div>
-                <div class="card-footer bg-white">
+                <div class="card-footer bg-white text-center">
                     <a href="{{ route('kegiatan.show.public', $item->id) }}" class="btn btn-primary btn-sm">
                         Lihat Detail <i class="fas fa-arrow-right ms-1"></i>
                     </a>
@@ -32,7 +32,7 @@
             </div>
         </div>
         @empty
-        <div class="col-12">
+        <div class="col-8">
             <div class="alert alert-info text-center">
                 Tidak ada kegiatan yang tersedia saat ini.
             </div>
