@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compat[ible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <title>BKK | SMKN 6 JEMBER</title>
     <style>
@@ -40,7 +42,8 @@
             line-height: 1.6;
             background-color: var(--light-color);
         }
-        .section-title:after {
+
+        .section-title1:after {
             content: '';
             display: block;
             width: 100px;
@@ -72,13 +75,15 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
         }
+
         .hero-section .container {
             position: relative;
             z-index: 1;
         }
+
         .hero-title {
             font-size: 3rem;
-            font-weight:700;
+            font-weight: 700;
             color: var(--light-color);
             margin-bottom: 1.5rem;
             line-height: 1.2;
@@ -104,6 +109,15 @@
         }
 
         .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+
+        }
+
+        .section-title1 {
             text-align: center;
             font-size: 2rem;
             font-weight: 600;
@@ -169,7 +183,7 @@
             padding: 15px;
             background: white;
             border-radius: 14px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .company-logo {
@@ -191,7 +205,7 @@
         }
 
         .stats-section .section-title:after {
-            background: rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .stats-grid {
@@ -203,13 +217,13 @@
         }
 
         .stat-card {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(8px);
             border-radius: 16px;
             padding: 2rem 1.5rem;
             text-align: center;
             transition: all 0.4s ease;
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             position: relative;
             overflow: hidden;
         }
@@ -221,7 +235,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
             transform: rotate(45deg);
             transition: all 0.6s ease;
             opacity: 0;
@@ -229,8 +243,8 @@
 
         .stat-card:hover {
             transform: translateY(-8px);
-            background: rgba(255,255,255,0.15);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .stat-card:hover:before {
@@ -284,13 +298,13 @@
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
         }
 
         .activity-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .activity-card .card-body {
@@ -339,9 +353,10 @@
             font-weight: 500;
         }
 
-        .filter-btn:hover, .filter-btn.active {
+        .filter-btn:hover,
+        .filter-btn.active {
             background-color: #0d6efd;
-            color:#ffffff !important;
+            color: #ffffff !important;
         }
 
         .gallery-grid {
@@ -352,7 +367,7 @@
         }
 
         .gallery-card {
-            background: rgb(255, 255, 255)!important;
+            background: rgb(255, 255, 255) !important;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(12, 9, 214, 0.1) !important;
@@ -364,7 +379,7 @@
 
         .gallery-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
         }
 
         .image-container {
@@ -387,7 +402,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
             z-index: 1;
         }
 
@@ -523,6 +538,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 10px 0;
         }
+
         .why-choose-us {
             position: relative;
             overflow: hidden;
@@ -532,12 +548,12 @@
             border-radius: 10px;
             background: white;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .benefit-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .benefit-icon {
@@ -559,7 +575,7 @@
         .benefit-number {
             font-size: 2rem;
             font-weight: 700;
-            color: rgba(0,0,0,0.05);
+            color: rgba(0, 0, 0, 0.05);
             line-height: 1;
         }
 
@@ -612,101 +628,83 @@
             filter: none;
         }
 
-        /* Footer */
         .footer {
-            background: linear-gradient(to top, #1e293b, #2d4975);
-            color: #e2e8f0;
-            padding: 5rem 0 2rem;
+            background-color: #ffffff;
+            padding: 40px 60px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 30px;
         }
 
-        .footer-col h4 {
-            font-size: 1.25rem;
-            color: white;
-            margin-bottom: 1.75rem;
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 0.75rem;
+        .footer-logo {
+            max-width: 160px;
+            margin-bottom: 15px;
         }
 
-        .footer-col h4:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        .footer h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
-        .footer-col ul {
+        .footer p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .footer ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
-        .footer-col ul li {
-            margin-bottom: 0.75rem;
+        .footer ul li {
+            margin-bottom: 8px;
         }
 
-        .footer-col ul li a {
-            color: #cbd5e1;
+        .footer ul li a {
             text-decoration: none;
-            transition: var(--transition);
+            font-size: 14px;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .footer ul li a:hover {
+            color: #007bff;
+        }
+
+        .footer .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e62d0;
+            margin-bottom: 10px;
+        }
+
+        .footer .social {
+            margin: 15px 0;
+        }
+
+        .footer .social a {
             display: inline-block;
+            margin-right: 10px;
+            font-size: 16px;
+            color: #333;
+            transition: 0.3s;
         }
 
-        .footer-col ul li a:hover {
-            color: white;
-            transform: translateX(5px);
+        .footer .social a:hover {
+            color: #007bff;
         }
 
-        .contact-info p {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .contact-info i {
-            margin-right: 0.75rem;
-            margin-top: 0.25rem;
-            color: var(--primary-light);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #94a3b8;
-            font-size: 0.9rem;
+        .footer .logos img {
+            height: 30px;
+            margin: 5px 10px 0 0;
         }
 
         /* Filter Section */
         .filter-section {
-            margin-top:50px;
+            margin-top: 50px;
             background: #ffffff;
         }
 
@@ -817,7 +815,8 @@
             border: 1px solid #e2e8f0;
         }
 
-        .filter-btn:hover, .filter-btn.active {
+        .filter-btn:hover,
+        .filter-btn.active {
             background: linear-gradient(90deg, #3b82f6, #2563eb);
             color: white;
             transform: translateY(-2px);
@@ -865,6 +864,7 @@
             height: 240px;
             overflow: hidden;
         }
+
         .image-container {
             position: relative;
             width: 100%;
@@ -1103,6 +1103,7 @@
             border-radius: 8px;
             font-weight: 500;
         }
+
         .auth-page-wrapper {
             min-height: 100vh;
             background: linear-gradient(to right, #e0ecff, #f7f9fc);
@@ -1168,6 +1169,7 @@
         .form-check-label {
             color: #555;
         }
+
         /* Testimoni */
         .why-choose-us {
             position: relative;
@@ -1178,11 +1180,11 @@
             border-radius: 10px;
             background: white;
             /* transition: all 0.3s ease; */
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .benefit-card:hover {
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .benefit-icon {
@@ -1204,7 +1206,7 @@
         .benefit-number {
             font-size: 2rem;
             font-weight: 700;
-            color: rgba(0,0,0,0.05);
+            color: rgba(0, 0, 0, 0.05);
             line-height: 1;
         }
 
@@ -1214,6 +1216,7 @@
             background: var(--primary);
             margin: 15px auto;
         }
+
         .career-cta-section {
             background-image: url('assets/karer.png');
             background-size: cover;
@@ -1228,7 +1231,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.55); /* Overlay gelap agar teks tetap terbaca */
+            background: rgba(0, 0, 0, 0.55);
+            /* Overlay gelap agar teks tetap terbaca */
             z-index: 1;
         }
 
@@ -1236,7 +1240,8 @@
             position: relative;
             z-index: 2;
         }
-            /* FAQ Section Styles */
+
+        /* FAQ Section Styles */
         .faq-section {
             position: relative;
         }
@@ -1292,8 +1297,13 @@
 
         /* Animation */
         @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* Responsive Adjustments */
@@ -1308,9 +1318,11 @@
                 font-size: 2.2rem;
                 padding-top: 120px;
             }
+
             .section-title {
                 font-size: 2rem;
-             }
+            }
+
             .about-content {
                 flex-direction: column;
                 align-items: center;
@@ -1331,7 +1343,7 @@
                 padding: 20px;
                 border-radius: 10px;
                 margin-top: 10px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             }
 
             .navbar-collapse .nav-link {
@@ -1344,14 +1356,16 @@
         }
 
         @media (max-width: 768px) {
-            .hero-buttons{
+            .hero-buttons {
                 width: 120px;
                 display: flex;
             }
+
             .accordion-button {
                 font-size: 1rem;
                 padding: 1rem 1.25rem;
             }
+
             .hero-title {
                 font-size: 2rem;
             }
@@ -1376,11 +1390,15 @@
             .footer-col {
                 width: 50%;
             }
+
             .benefit-card {
                 margin-bottom: 20px;
             }
-        }
 
+            .footer {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
 
 
         @media (max-width: 576px) {
@@ -1404,6 +1422,7 @@
             .table {
                 font-size: 0.8rem;
             }
+
             .stats-grid {
                 grid-template-columns: 1fr;
             }
@@ -1417,6 +1436,10 @@
             }
 
             .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
                 grid-template-columns: 1fr;
             }
         }
@@ -1433,117 +1456,134 @@
     </style>
     @yield('styles')
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{{ asset('assets/logo.png') }}" alt="logo" class="logo">SMKN 6 JEMBER
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#tentang">Profil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('kegiatan.public')}}">Kegiatan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('lowongan.public') }}">Lowongan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Kontak</a></li>
-                    @guest
+   <nav class="navbar navbar-expand-lg navbar-light" style="z-index: 1050;">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset('image/logosmk (1).png') }}" alt="logo" class="logo"> BKK SMKN 6 JEMBER
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#tentang">Profil</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('kegiatan.public') }}">Kegiatan</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('lowongan.public') }}">Lowongan</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Kontak</a></li>
+
+                @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">
-                            <i class="fas fa-sign-in-alt me-1"></i> Login
-                        </a>
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
                 @else
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ Auth::user()->name }}
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            {{-- Link ke Dashboard Admin --}}
-                            <li>
-                                <a class="dropdown-item" href="{{ route('dashboard') }}">
-                                    <i class="fas fa-user-tie me-2"></i> Admin
-                                </a>
-                            </li>
 
-                            {{-- Tombol Logout --}}
+                            {{-- Link ke Dashboard sesuai role --}}
+                            @if(Auth::user()->role === 'admin')
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                        <i class="fas fa-user-tie me-2"></i> Admin
+                                    </a>
+                                </li>
+                            @elseif(Auth::user()->role === 'perusahaan')
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('perusahaan.dashboard') }}">
+                                        <i class="fas fa-building me-2"></i> Perusahaan
+                                    </a>
+                                </li>
+                            @elseif(Auth::user()->role === 'alumni')
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('alumni.dashboard') }}">
+                                        <i class="fas fa-user me-2"></i> Alumni
+                                    </a>
+                                </li>
+                            @endif
+
+                            {{-- Logout --}}
                             <li>
                                 <a class="dropdown-item" href="#"
-                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt me-2"></i> Logout
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </li>
-                        </ul>
 
+                        </ul>
                     </li>
                 @endguest
-                </ul>
-            </div>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
 
     <main>
         @yield('content')
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 footer-col">
-                    <h4>Tautan Cepat</h4>
-                    <ul>
-                        <li><a href="{{route('home')}}">Beranda</a></li>
-                        <li><a href="/#tentang">Profil</a></li>
-                        <li><a href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
-                        <li><a href="{{route('kegiatan.public')}}">Kegiatan</a></li>
-                        <li><a href="{{ route('lowongan.public') }}">Lowongan</a></li>
-                        <li><a href="{{route('contact')}}">Kontak</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 footer-col">
-                    <h4>Bantuan</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Kebijakan Privasi</a></li>
-                        <li><a href="#">Syarat & Ketentuan</a></li>
-                        <li><a href="#">Panduan</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 footer-col">
-                    <h4>Informasi Kontak</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> JL. PB. SUDIRMAN NO. 114 TANGGUL-JEMBER, Tanggul Kulon, Kec. Tanggul, Kab. Jember Prov. Jawa Timur</p>
-                        <p><i class="fas fa-phone-alt"></i> 0336441347</p>
-                        <p><i class="fas fa-envelope"></i> smkn6.jember@yahoo.com</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 footer-col">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/facebook/?locale=id_ID"><i class="fab fa-facebook"></i></a>
-                        <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/smkn6jember/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://id.linkedin.com/"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
+        <div>
+            <img src="{{ asset('image/logosmk (1).png') }}" alt="BKKBISA Logo" class="footer-logo" width="50"> BKK SMKN 6 JEMBER
+            <p>BKK SMKN 6 Jember merupakan platform penyedia informasi lowongan pekerjaan berbasis online</p>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
-            <div class="row">
-                <div class="col-12 text-center mt-4">
-                    <p class="mb-0">&copy; 2023 BKK SMKN 6 Jember. All rights reserved.</p>
-                </div>
+            <div class="logos">
+                <img src="{{ asset('image/logokementrian.png') }}">
             </div>
         </div>
+        <div>
+            <h3>Pencari Kerja</h3>
+            <ul>
+                <li><a href="#">Pendaftaran</a></li>
+                <li><a href="#">Ketentuan Penggunaan</a></li>
+                <li><a href="#">Kebijakan Privasi</a></li>
+                <li><a href="#">Tips Karier</a></li>
+                <li><a href="#">Testimoni</a></li>
+                <li><a href="#">Bantuan mencari kerja</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>BKK / Yayasan</h3>
+            <ul>
+                <li><a href="#">Pendaftaran</a></li>
+                <li><a href="#">Masuk</a></li>
+                <li><a href="#">Pasang Iklan Lowongan</a></li>
+                <li><a href="#">Tracking Alumni</a></li>
+                <li><a href="#">Ketentuan Penggunaan</a></li>
+                <li><a href="#">Bantuak BKK / Yayasan</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Perusahaan / UMKM</h3>
+            <ul>
+                <li><a href="#">Pendaftaran</a></li>
+                <li><a href="#">Masuk</a></li>
+                <li><a href="#">Pasang Iklan Lowongan</a></li>
+                <li><a href="#">Cari Resume</a></li>
+                <li><a href="#">Ketentuan Penggunaan</a></li>
+                <li><a href="#">Bantuan Perusahaan</a></li>
+            </ul>
+        </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -1616,7 +1656,8 @@
                     // Filter items with smooth animation
                     galleryItems.forEach((item, index) => {
                         setTimeout(() => {
-                            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            if (filterValue === 'all' || item.getAttribute(
+                                    'data-category') === filterValue) {
                                 item.classList.remove('hidden');
                             } else {
                                 item.classList.add('hidden');
@@ -1629,4 +1670,5 @@
     </script>
     @yield('scripts')
 </body>
+
 </html>

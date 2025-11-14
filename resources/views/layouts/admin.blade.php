@@ -505,7 +505,7 @@
   <!-- Mobile Sidebar -->
   <aside class="mobile-sidebar" x-show="isMobileSidebarOpen" x-transition>
     <div class="sidebar-header">
-      <img src="{{ asset('assets/logo.png') }}" alt="SMKN 6 JEMBER" class="sidebar-logo">
+      <img src="{{ asset('image/logosmk (1).png') }}" alt="SMKN 6 JEMBER" class="sidebar-logo">
       <span class="brand-name">SMKN 6 JEMBER</span>
     </div>
 
@@ -563,7 +563,7 @@
   <!-- Desktop Sidebar -->
   <aside class="sidebar d-none d-lg-block" x-bind:class="{ 'collapsed': isDesktopSidebarCollapsed }">
     <div class="sidebar-header">
-      <img src="{{ asset('assets/logo.png') }}" alt="SMKN 6 JEMBER" class="sidebar-logo">
+      <img src="{{ asset('image/logosmk (1).png') }}" alt="SMKN 6 JEMBER" class="sidebar-logo">
       <span class="brand-name">SMKN 6 JEMBER</span>
     </div>
 
@@ -602,6 +602,10 @@
       <a href="{{ route('perusahaan.index') }}" class="nav-link {{ request()->routeIs('perusahaan.*') ? 'active' : '' }}">
         <i class="fas fa-building"></i>
         <span>Kelola Perusahaan</span>
+      </a>
+      <a href="{{ route('admin.tracer.import.form') }}" class="nav-link {{ request()->routeIs('tracer*') ? 'active' : '' }}">
+      <i class="fas fa-file-import"></i>
+        <span>Import Data</span>
       </a>
       <a href="{{ route('lowongan.index') }}" class="nav-link {{ request()->routeIs('lowongan.*') ? 'active' : '' }}">
         <i class="fas fa-briefcase"></i>

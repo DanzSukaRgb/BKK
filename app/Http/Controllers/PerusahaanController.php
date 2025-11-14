@@ -1,8 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Lowongan;
 use App\Models\Perusahaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PerusahaanController extends Controller
@@ -21,14 +23,14 @@ class PerusahaanController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'alamat' => 'required|string',
-            'telepon' => 'required|string|max:20',
-            'email' => 'required|email|unique:perusahaan,email',
-            'website' => 'nullable|url',
-            'deskripsi' => 'nullable|string',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'industri' => 'required|string|max:255',
+            'nama'            => 'required|string|max:255',
+            'alamat'          => 'required|string',
+            'telepon'         => 'required|string|max:20',
+            'email'           => 'required|email|unique:perusahaan,email',
+            'website'         => 'nullable|url',
+            'deskripsi'       => 'nullable|string',
+            'logo'            => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'industri'        => 'required|string|max:255',
             'jumlah_karyawan' => 'required|integer|min:0',
         ]);
 
@@ -36,7 +38,7 @@ class PerusahaanController extends Controller
             $validated['logo'] = $request->file('logo')->store('perusahaan', 'public');
         }
 
-        $validated['user_id'] = auth()->id();
+        $validated['user_id']           = auth()->id();
         $validated['status_verifikasi'] = 'Belum Diverifikasi';
 
         Perusahaan::create($validated);
@@ -57,14 +59,14 @@ class PerusahaanController extends Controller
     public function update(Request $request, Perusahaan $perusahaan)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'alamat' => 'required|string',
-            'telepon' => 'required|string|max:20',
-            'email' => 'required|email|unique:perusahaan,email,'.$perusahaan->id,
-            'website' => 'nullable|url',
-            'deskripsi' => 'nullable|string',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'industri' => 'required|string|max:255',
+            'nama'            => 'required|string|max:255',
+            'alamat'          => 'required|string',
+            'telepon'         => 'required|string|max:20',
+            'email'           => 'required|email|unique:perusahaan,email,' . $perusahaan->id,
+            'website'         => 'nullable|url',
+            'deskripsi'       => 'nullable|string',
+            'logo'            => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'industri'        => 'required|string|max:255',
             'jumlah_karyawan' => 'required|integer|min:0',
         ]);
 
@@ -100,15 +102,25 @@ class PerusahaanController extends Controller
     public function publicIndex()
     {
         $perusahaan = Perusahaan::where('status_verifikasi', 'Terverifikasi')
-                        ->orderBy('nama')
-                        ->paginate(10);
+            ->orderBy('nama')
+            ->paginate(10);
         return view('perusahaan.publicIndex', compact('perusahaan'));
     }
 
     public function publicShow($id)
     {
         $perusahaan = Perusahaan::where('status_verifikasi', 'Terverifikasi')
-                        ->findOrFail($id);
+            ->findOrFail($id);
         return view('perusahaan.publicShow', compact('perusahaan'));
     }
+    public function dashboard()
+    {
+        $user       = Auth::user();
+        $perusahaan = $user->perusahaan;
+
+        $lowonganCount = Lowongan::where('perusahaan_id', $perusahaan->id)->count();
+
+        return view('perusahaan.dashboard', compact('perusahaan', 'lowonganCount'));
+    }
+
 }

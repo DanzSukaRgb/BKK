@@ -147,7 +147,7 @@
         transform: scaleX(1);
     }
 </style>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     // Simple animation for the heading underline
     document.addEventListener('DOMContentLoaded', function() {

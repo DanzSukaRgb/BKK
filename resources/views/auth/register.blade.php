@@ -60,6 +60,13 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+<div class="mb-3">
+    <label for="role" class="form-label">Daftar Sebagai</label>
+    <select id="role" name="role" class="form-control" required>
+        <option value="alumni">Alumni</option>
+        <option value="perusahaan">Perusahaan</option>
+    </select>
+</div>
 
             <div class="d-grid mb-3">
                 <button type="submit" class="btn btn-primary">Daftar</button>

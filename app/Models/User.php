@@ -17,7 +17,7 @@ class User extends Authenticatable
         'role',
         'avatar',
         'bio',
-        'phone'
+        'phone',
     ];
 
     protected $hidden = [
@@ -52,4 +52,11 @@ class User extends Authenticatable
     {
         return $this->role === 'perusahaan';
     }
+    // app/Models/User.php
+  
+    public function perusahaan()
+{
+    return $this->belongsTo(Perusahaan::class);
+}
+
 }

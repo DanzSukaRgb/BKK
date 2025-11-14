@@ -17,14 +17,16 @@ class HomeController extends Controller
             ->orderBy('created_at', 'desc')
             ->take(6)
             ->get();
-
+        $lowonganCount = Lowongan::count();
         $kegiatan = KegiatanBkk::orderBy('tanggal', 'desc')
             ->take(4)
             ->get();
-
+        $kegiatanCount = KegiatanBkk::count();
         $perusahaan = Perusahaan::take(8)->get();
-
-        return view('home', compact('lowongan', 'kegiatan', 'perusahaan'));
+        $perusahaanCount = Perusahaan::count();
+        $alumniCount = Alumni::count();
+        $kegiatanCount = KegiatanBkk::count();
+        return view('home', compact('lowongan', 'kegiatan', 'perusahaan','lowonganCount','perusahaanCount','alumniCount','kegiatanCount'));
     }
 
     public function dashboard()

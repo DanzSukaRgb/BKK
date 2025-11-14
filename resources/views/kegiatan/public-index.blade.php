@@ -3,14 +3,14 @@
 @section('content')
 <div class="kegiatan-page">
     <!-- Hero Section -->
-    <section class="hero-section bg-primary text-white py-5">
+    <section class="hero-section bg-primary text-white py-4 py-lg-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 text-start">
-                    <h1 class="display-4 fw-bold mb-3">Daftar Kegiatan BKK</h1>
+                <div class="col-12 col-lg-8 text-center text-lg-start">
+                    <h1 class="display-5 display-lg-4 fw-bold mb-3">Daftar Kegiatan BKK</h1>
                     <p class="lead mb-4">Tempertemukan peluang dengan bakat - Temukan kegiatan terbaru dari Bursa Kerja Khusus kami</p>
-                    <div class="d-flex  gap-3">
-                        <a href="#kegiatan-list" class="btn btn-primary btn-lg px-4">
+                    <div class="d-flex justify-content-center justify-content-lg-start gap-3">
+                        <a href="#kegiatan-list" class="btn btn-light btn-lg px-3 px-lg-4">
                             <i class="fas fa-calendar-alt me-2"></i> Jelajahi Kegiatan
                         </a>
                     </div>
@@ -20,20 +20,17 @@
     </section>
 
     <!-- Main Content -->
-    <div class="container py-5" id="kegiatan-list">
-        <!-- Filter Section -->
-
-
+    <div class="container py-4 py-lg-5" id="kegiatan-list">
         <!-- Kegiatan List -->
-        <div class="row g-4">
+        <div class="row g-3 g-lg-4">
             @forelse($kegiatan as $item)
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-hover">
+            <div class="col-12 col-sm-10 col-md-6 col-lg-4 col-xl-4">
+                <div class="card h-100 border-0 shadow shadow-hover mx-auto" style="max-width: 500px;">
                     <div class="position-relative">
                         <img src="{{ $item->gambar ?: 'https://via.placeholder.com/600x400?text=BKK+Kegiatan' }}"
                              class="card-img-top"
                              alt="{{ $item->judul }}"
-                             style="height: 220px; object-fit: cover;">
+                             style="height: 200px; object-fit: cover;">
                         <div class="badge-overlay">
                             <span class="badge bg-{{ $item->tipe_kegiatan == 'Workshop' ? 'info' : ($item->tipe_kegiatan == 'Seminar' ? 'warning' : 'success') }}">
                                 {{ $item->tipe_kegiatan }}
@@ -45,12 +42,12 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="text-muted small">
+                        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-2">
+                            <span class="text-muted small mb-1 mb-sm-0">
                                 <i class="fas fa-clock me-1"></i> {{ $item->waktu }}
                             </span>
                             <span class="text-muted small">
-                                <i class="fas fa-map-marker-alt me-1"></i> {{ $item->lokasi ?? 'Online' }}
+                                <i class="fas fa-map-marker-alt me-1"></i> {{ $item->tempat ?? 'Online' }}
                             </span>
                         </div>
                         <h3 class="h5 card-title">{{ $item->judul }}</h3>
@@ -62,9 +59,6 @@
                                class="btn btn-outline-primary btn-sm stretched-link">
                                 Detail Kegiatan
                             </a>
-                            <span class="badge bg-light text-dark small">
-                                {{ $item->kuota_peserta ?? '0' }} Peserta
-                            </span>
                         </div>
                     </div>
                 </div>
@@ -72,23 +66,22 @@
             @empty
             <div class="col-12">
                 <div class="card border-0 shadow-sm">
-                    <div class="card-body text-center py-5">
-                        <img src="{{ asset('img/empty-state.svg') }}" alt="No activities" style="height: 150px;" class="mb-4">
+                    <div class="card-body text-center py-4 py-lg-5">
+                        <img src="{{ asset('image/activity.png') }}" alt="No activities" class="img-fluid mb-3 mb-lg-4" style="max-height: 200px;">
                         <h4 class="text-muted mb-3">Belum ada kegiatan tersedia</h4>
                         <p class="text-muted">Silakan kembali lagi nanti untuk melihat kegiatan terbaru kami</p>
                     </div>
                 </div>
             </div>
-        </div>
             @endforelse
         </div>
 
         <!-- Pagination -->
         @if($kegiatan->hasPages())
-        <div class="row mt-5">
+        <div class="row mt-4 mt-lg-5">
             <div class="col-12">
                 <nav aria-label="Page navigation">
-                    <ul class="pagination justify-content-center">
+                    <ul class="pagination justify-content-center flex-wrap">
                         {{ $kegiatan->links() }}
                     </ul>
                 </nav>
@@ -100,15 +93,18 @@
 
 <style>
     .hero-section {
-        background-image: url('assets/karer.png');
-        padding: 5rem 0;
-        margin-bottom: 3rem;
+        background-image: url('image/karir.png');
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 2rem;
+    }
+
+    .shadow {
+        box-shadow: 0 4px 6px rgba(58, 123, 213, 0.1) !important;
     }
 
     .shadow-hover {
         transition: all 0.3s ease;
-        border-radius: 10px;
-        overflow: hidden;
     }
 
     .shadow-hover:hover {
@@ -118,16 +114,16 @@
 
     .badge-overlay {
         position: absolute;
-        top: 15px;
-        right: 15px;
+        top: 10px;
+        right: 10px;
     }
 
     .date-overlay {
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -136,12 +132,12 @@
     }
 
     .date-overlay .day {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         line-height: 1;
     }
 
     .date-overlay .month {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         text-transform: uppercase;
     }
 
@@ -158,5 +154,53 @@
     .pagination .page-link {
         color: #3a7bd5;
     }
+
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+        .hero-section {
+            padding: 3rem 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .card {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .card-img-top {
+            height: 180px !important;
+        }
+
+        .date-overlay {
+            width: 45px;
+            height: 45px;
+        }
+
+        .date-overlay .day {
+            font-size: 1.1rem;
+        }
+
+        .date-overlay .month {
+            font-size: 0.65rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-section h1 {
+            font-size: 2rem !important;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .card {
+            margin-bottom: 1rem;
+        }
+    }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 @endsection
