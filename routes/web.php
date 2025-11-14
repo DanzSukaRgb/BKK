@@ -190,3 +190,7 @@ Route::middleware(['auth', 'alumni'])->prefix('alumni')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\Alumni\DashboardAlumniController::class, 'index'])
         ->name('alumni.dashboard');
 });
+
+Route::get('/alumni/dashboard', function () {
+    return view('alumni.dashboard');
+})->name('alumni.dashboard');
