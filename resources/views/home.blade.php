@@ -79,6 +79,7 @@
             border-radius: 5px;
             border: none;
             background-color: #3c53d1;
+            margin-top: -1rem;
         }
 
         .wave img {
