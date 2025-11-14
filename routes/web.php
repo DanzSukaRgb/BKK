@@ -183,3 +183,10 @@ Route::prefix('perusahaan')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('perusahaan.profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('perusahaan.profile.update');
 });
+// ===============================
+// DASHBOARD ALUMNI
+// ===============================
+Route::middleware(['auth', 'alumni'])->prefix('alumni')->group(function () {
+    Route::get('/dashboard', [\App\Http\Controllers\Alumni\DashboardAlumniController::class, 'index'])
+        ->name('alumni.dashboard');
+});
