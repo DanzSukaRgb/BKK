@@ -129,7 +129,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 // Alumni routes
 // -----------------------------
 // CRUD Alumni Admin
-Route::prefix('alumni')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('admin/alumni')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AlumniController::class, 'index'])->name('alumni.index'); // Daftar alumni
     Route::get('/create', [AlumniController::class, 'create'])->name('alumni.create');
     Route::post('/', [AlumniController::class, 'store'])->name('alumni.store');
@@ -137,6 +137,7 @@ Route::prefix('alumni')->middleware(['auth', 'admin'])->group(function () {
     Route::put('/{alumni}', [AlumniController::class, 'update'])->name('alumni.update');
     Route::delete('/{alumni}', [AlumniController::class, 'destroy'])->name('alumni.destroy');
 });
+
 
 
 Route::prefix('lamaran')->group(function () {
@@ -199,6 +200,6 @@ Route::middleware(['auth', 'alumni'])->prefix('alumni')->group(function () {
     Route::get('/profile/edit', [ProfileAlumniController::class, 'edit'])
         ->name('alumni.profile.edit');
 
-    Route::post('/profile/update', [ProfileAlumniController::class, 'update'])
-        ->name('alumni.profile.update');
+    Route::put('/profile', [ProfileAlumniController::class, 'update'])
+        ->name('alumni.profile.update'); // gunakan PUT
 });

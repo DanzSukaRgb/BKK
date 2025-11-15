@@ -9,34 +9,22 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileAlumniController extends Controller
 {
-    // ================================
-    // TAMPILKAN PROFIL
-    // ================================
     public function index()
     {
         $alumni = Alumni::where('user_id', Auth::id())->first();
-
         return view('alumni.indexprofile', compact('alumni'));
     }
 
-    // ================================
-    // FORM EDIT PROFIL
-    // ================================
     public function edit()
     {
         $alumni = Alumni::where('user_id', Auth::id())->first();
-
         return view('alumni.editprofile', compact('alumni'));
     }
 
-    // ================================
-    // UPDATE PROFIL ALUMNI
-    // ================================
     public function update(Request $request)
     {
         $alumni = Alumni::where('user_id', Auth::id())->firstOrFail();
 
-        // VALIDASI SESUAI MIGRATION
         $request->validate([
             'nisn'          => 'required|string|max:30',
             'nama_lengkap'  => 'required|string|max:255',
@@ -54,48 +42,44 @@ class ProfileAlumniController extends Controller
             'cv'            => 'nullable|mimes:pdf|max:5000',
         ]);
 
-        // UPDATE DATA UTAMA
-        $alumni->nisn          = $request->nisn;
-        $alumni->nama_lengkap  = $request->nama_lengkap;
-        $alumni->jenis_kelamin = $request->jenis_kelamin;
-        $alumni->tempat_lahir  = $request->tempat_lahir;
-        $alumni->tanggal_lahir = $request->tanggal_lahir;
-        $alumni->alamat        = $request->alamat;
-        $alumni->telepon       = $request->telepon;
-        $alumni->email         = $request->email;
-        $alumni->tahun_lulus   = $request->tahun_lulus;
-        $alumni->jurusan       = $request->jurusan;
-        $alumni->skills        = $request->skills;
-        $alumni->pengalaman    = $request->pengalaman;
+        // Update data utama
+        $alumni->update([
+            'nisn'          => $request->nisn,
+            'nama_lengkap'  => $request->nama_lengkap,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahir'  => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'alamat'        => $request->alamat,
+            'telepon'       => $request->telepon,
+            'email'         => $request->email,
+            'tahun_lulus'   => $request->tahun_lulus,
+            'jurusan'       => $request->jurusan,
+            'skills'        => $request->skills,
+            'pengalaman'    => $request->pengalaman,
+        ]);
 
-        // ================================
-        // FOTO PROFIL (opsional)
-        // ================================
+        // Upload foto baru jika ada
         if ($request->hasFile('foto')) {
             if ($alumni->foto && Storage::exists('public/alumni/' . $alumni->foto)) {
                 Storage::delete('public/alumni/' . $alumni->foto);
             }
-
-            $fotoName = time() . '_' . $request->foto->getClientOriginalName();
-            $request->foto->storeAs('public/alumni', $fotoName);
+            $fotoName = time() . '_' . $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->storeAs('public/alumni', $fotoName);
             $alumni->foto = $fotoName;
         }
 
-        // ================================
-        // FILE CV (opsional)
-        // ================================
+        // Upload CV baru jika ada
         if ($request->hasFile('cv')) {
             if ($alumni->cv && Storage::exists('public/alumni/' . $alumni->cv)) {
                 Storage::delete('public/alumni/' . $alumni->cv);
             }
-
-            $cvName = time() . '_' . $request->cv->getClientOriginalName();
-            $request->cv->storeAs('public/alumni', $cvName);
+            $cvName = time() . '_' . $request->file('cv')->getClientOriginalName();
+            $request->file('cv')->storeAs('public/alumni', $cvName);
             $alumni->cv = $cvName;
         }
 
         $alumni->save();
 
-        return redirect()->route('alumni.profile')->with('success', 'Profil alumni berhasil diperbarui.');
+        return redirect()->route('alumni.profile')->with('success', 'Profil berhasil diperbarui.');
     }
 }

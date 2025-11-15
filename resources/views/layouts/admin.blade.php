@@ -477,8 +477,8 @@
                class="profile-img"
                onerror="this.src='{{ asset('images/default-avatar.webp') }}'">
           <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-              <span class="d-none d-sm-inline">{{ Auth::user()->name }}</span>
+            <button class="btn dropdown-toggle me-3" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="d-none d-sm-inline me-3">{{ Auth::user()->name }}</span>
               <span class="d-sm-none"><i class="fas fa-user"></i></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">

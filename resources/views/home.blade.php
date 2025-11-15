@@ -1559,13 +1559,6 @@
         }
 
         @media (max-width: 576px) {
-            nav ul {
-                gap: 10px;
-            }
-
-            nav ul li a {
-                font-size: 13px;
-            }
 
             .container-2 {
                 flex-direction: column;
