@@ -15,33 +15,35 @@
 
     <div class="card shadow-sm mb-4">
         <div class="card-body d-flex flex-column flex-md-row align-items-center">
-             <div class="col-md-3 text-center mb-3 mb-md-0 ml-10">
-                    <img src="{{ $perusahaan->logo ?? asset('images/default-company.png') }}"
-                         alt="Logo">
-                </div>
-            <div class="flex-grow-1">
-                <h3 class="fw-bold">{{ $perusahaan->nama }}</h3>
-                <p class="text-muted"><i class="fas fa-industry me-2"></i>{{ $perusahaan->industri }}</p>
-                <p><i class="fas fa-map-marker-alt me-2"></i>{{ $perusahaan->alamat }}</p>
-                <p><i class="fas fa-envelope me-2"></i>{{ $perusahaan->email }}</p>
-                <p><i class="fas fa-phone me-2"></i>{{ $perusahaan->telepon }}</p>
-                <p>
-                    <i class="fas fa-globe me-2"></i>
-                    @if($perusahaan->website)
-                        <a href="{{ $perusahaan->website }}" target="_blank">{{ $perusahaan->website }}</a>
-                    @else
-                        -
-                    @endif
-                </p>
-                <p><i class="fas fa-users me-2"></i>Jumlah Karyawan: {{ $perusahaan->jumlah_karyawan }}</p>
-                <p>
-                    <i class="fas fa-check-circle me-2"></i>Status Verifikasi:
-                    <span class="{{ $perusahaan->status_verifikasi == 'Terverifikasi' ? 'text-success' : 'text-warning' }}">
-                        {{ $perusahaan->status_verifikasi }}
-                    </span>
-                </p>
-            </div>
-        </div>
+    <!-- Logo -->
+    <div class="col-md-3 text-center mb-3 mb-md-0">
+        <img src="{{ $perusahaan->logo ?? asset('images/default-company.png') }}" alt="Logo" class="img-fluid" style="max-height: 150px;">
+    </div>
+
+    <!-- Teks Profil dengan jarak kiri -->
+    <div class="flex-grow-1 ms-md-4"><br>
+        <h3 class="fw-bold">{{ $perusahaan->nama }}</h3>
+        <p class="text-muted"><i class="fas fa-industry me-2"></i>{{ $perusahaan->industri }}</p>
+        <p><i class="fas fa-map-marker-alt me-2"></i>{{ $perusahaan->alamat }}</p>
+        <p><i class="fas fa-envelope me-2"></i>{{ $perusahaan->email }}</p>
+        <p><i class="fas fa-phone me-2"></i>{{ $perusahaan->telepon }}</p>
+        <p>
+            <i class="fas fa-globe me-2"></i>
+            @if($perusahaan->website)
+                <a href="{{ $perusahaan->website }}" target="_blank">{{ $perusahaan->website }}</a>
+            @else
+                -
+            @endif
+        </p>
+        <p><i class="fas fa-users me-2"></i>Jumlah Karyawan: {{ $perusahaan->jumlah_karyawan }}</p>
+        <p>
+            <i class="fas fa-check-circle me-2"></i>Status Verifikasi:
+            <span class="{{ $perusahaan->status_verifikasi == 'Terverifikasi' ? 'text-success' : 'text-warning' }}">
+                {{ $perusahaan->status_verifikasi }}
+            </span>
+        </p>
+    </div>
+</div>
     </div>
 
     <div class="card shadow-sm mb-4">

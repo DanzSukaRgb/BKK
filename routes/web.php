@@ -11,7 +11,8 @@ use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\Perusahaan\PerusahaanJobsController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\Alumni\AlumniDashboardController;
+use App\Http\Controllers\Alumni\DashboardAlumniController;
+use App\Http\Controllers\Alumni\ProfileAlumniController;
 use App\Http\Controllers\KegiatanBkkController;
 use App\Http\Controllers\ImportTracerController;
 use App\Http\Controllers\TracerStudyController;
@@ -186,11 +187,18 @@ Route::prefix('perusahaan')->group(function () {
 // ===============================
 // DASHBOARD ALUMNI
 // ===============================
-Route::middleware(['auth', 'alumni'])->prefix('alumni')->group(function () {
-    Route::get('/dashboard', [\App\Http\Controllers\Alumni\DashboardAlumniController::class, 'index'])
-        ->name('alumni.dashboard');
-});
 
-Route::get('/alumni/dashboard', function () {
-    return view('alumni.dashboard');
-})->name('alumni.dashboard');
+Route::middleware(['auth', 'alumni'])->prefix('alumni')->group(function () {
+
+    Route::get('/dashboard', [DashboardAlumniController::class, 'index'])
+        ->name('alumni.dashboard');
+
+    Route::get('/profile', [ProfileAlumniController::class, 'index'])
+        ->name('alumni.profile');
+
+    Route::get('/profile/edit', [ProfileAlumniController::class, 'edit'])
+        ->name('alumni.profile.edit');
+
+    Route::post('/profile/update', [ProfileAlumniController::class, 'update'])
+        ->name('alumni.profile.update');
+});

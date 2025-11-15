@@ -1,4 +1,4 @@
-@extends('perusahaan.dashboard')
+@extends('layouts.perusahaan.admin')
 
 @section('title', 'Tambah Jobs')
 
