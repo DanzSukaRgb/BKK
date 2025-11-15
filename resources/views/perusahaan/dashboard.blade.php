@@ -105,34 +105,21 @@
 
         <div class="row g-4">
             <!-- Lowongan Aktif -->
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="gradient-card">
                     <div class="card-body">
                         <h5 class="card-title"><i class="fas fa-briefcase"></i>Lowongan Aktif</h5>
                         <p class="display-6">{{$lowonganCount}}</p>
-                        <p class="card-text text-success"><i class="fas fa-arrow-up me-1"></i>+2 dari bulan lalu</p>
                     </div>
                 </div>
             </div>
 
             <!-- Lamaran Masuk -->
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="gradient-card">
                     <div class="card-body">
                         <h5 class="card-title"><i class="fas fa-file-alt"></i>Lamaran Masuk</h5>
                         <p class="display-6">45</p>
-                        <p class="card-text text-success"><i class="fas fa-arrow-up me-1"></i>+10 dari bulan lalu</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Total Karyawan -->
-            <div class="col-md-4">
-                <div class="gradient-card">
-                    <div class="card-body">
-                        <h5 class="card-title"><i class="fas fa-users"></i>Total Karyawan</h5>
-                        <p class="display-6">150</p>
-                        <p class="card-text text-success"><i class="fas fa-arrow-up me-1"></i>+5 dari bulan lalu</p>
                     </div>
                 </div>
             </div>
@@ -148,7 +135,6 @@
                             <a href="{{route('perusahaan.jobs.create')}}" class="btn btn-light"><i class="fas fa-plus-circle me-2"></i>Tambah
                                 Lowongan</a>
                             <a href="#" class="btn btn-light"><i class="fas fa-file-alt me-2"></i>Lihat Lamaran</a>
-                            <a href="#" class="btn btn-light"><i class="fas fa-users me-2"></i>Kelola Karyawan</a>
                         </div>
                     </div>
                 </div>

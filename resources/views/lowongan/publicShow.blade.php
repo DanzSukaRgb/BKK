@@ -12,6 +12,7 @@
     </div>
 
     <div class="row">
+        <!-- Kolom Detail Lowongan -->
         <div class="col-md-8">
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
@@ -69,16 +70,26 @@
                 </div>
             </div>
 
+            <!-- Form Lamar -->
             <div class="card shadow-sm mb-4" id="lamar">
                 <div class="card-header bg-primary text-white">
                     <h4 class="mb-0">Lamar Lowongan Ini</h4>
                 </div>
                 <div class="card-body">
                     @auth
-                        @if(auth()->user()->role == 'alumni')
-                            @if($lowongan->status == 'Aktif' && $lowongan->tanggal_tutup >= now())
+                        @php
+                            $alumni = auth()->user()->alumni ?? null;
+                        @endphp
+
+                        @if(auth()->user()->isAlumni())
+                            @if(!$alumni)
+                                <div class="alert alert-warning">
+                                    Silakan lengkapi profil alumni Anda sebelum melamar lowongan.
+                                    <a href="" class="btn btn-sm btn-primary">Lengkapi Profil</a>
+                                </div>
+                            @elseif($lowongan->status == 'Aktif' && $lowongan->tanggal_tutup >= now())
                                 @php
-                                    $hasApplied = App\Models\Lamaran::where('alumni_id', auth()->user()->alumni->id)
+                                    $hasApplied = App\Models\Lamaran::where('alumni_id', $alumni->id)
                                         ->where('lowongan_id', $lowongan->id)
                                         ->exists();
                                 @endphp
@@ -86,7 +97,7 @@
                                 @if($hasApplied)
                                     <div class="alert alert-info">
                                         Anda sudah melamar lowongan ini. Status lamaran Anda:
-                                        <strong>{{ auth()->user()->alumni->lamaran->firstWhere('lowongan_id', $lowongan->id)->status }}</strong>
+                                        <strong>{{ $alumni->lamaran->firstWhere('lowongan_id', $lowongan->id)->status ?? '-' }}</strong>
                                     </div>
                                 @else
                                     <form action="{{ route('lamaran.store', ['id' => $lowongan->id]) }}" method="POST" enctype="multipart/form-data">
@@ -143,6 +154,7 @@
             </div>
         </div>
 
+        <!-- Kolom Perusahaan & Lowongan Lainnya -->
         <div class="col-md-4">
             <div class="card shadow-sm mb-4">
                 <div class="card-header bg-white">

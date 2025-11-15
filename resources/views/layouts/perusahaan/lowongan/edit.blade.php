@@ -1,4 +1,4 @@
-@extends('perusahaan.dashboard')
+@extends('layouts.perusahaan.admin')
 
 @section('title', 'Edit Lowongan')
 
@@ -83,4 +83,3 @@
     </form>
 </div>
 @endsection
-    

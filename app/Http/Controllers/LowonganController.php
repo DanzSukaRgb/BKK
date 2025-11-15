@@ -237,4 +237,9 @@ class LowonganController extends Controller
         $lowongan->delete();
         return redirect()->route('perusahaan.lowongan')->with('success', 'Lowongan berhasil dihapus');
     }
+     public function show($slug)
+    {
+        $lowongan = Lowongan::with('perusahaan')->where('slug', $slug)->firstOrFail();
+        return view('lowongan.publicShow', compact('lowongan'));
+    }
 }

@@ -88,27 +88,24 @@
     }
 </style>
 @endsection
-
 @section('content')
 <div class="container py-4">
     <h2>Dashboard Alumni</h2>
 
     <div class="row g-4">
         <!-- Lowongan Tersedia -->
-        <div class="col-md-3">
-            <div class="gradient-card">
+        <div class="col-md-6">
+            <div class="gradient-card w-100">
                 <h5 class="card-title"><i class="fas fa-briefcase"></i>Lowongan Tersedia</h5>
                 <p class="display-6">15</p>
-                <p class="card-text text-success"><i class="fas fa-arrow-up me-1"></i>+3 dari minggu lalu</p>
             </div>
         </div>
 
         <!-- Perusahaan Favorit -->
-        <div class="col-md-3">
-            <div class="gradient-card">
-                <h5 class="card-title"><i class="fas fa-star"></i>Perusahaan Favorit</h5>
+        <div class="col-md-6">
+            <div class="gradient-card w-100">
+                <h5 class="card-title"><i class="fas fa-envelope"></i>Jumlah Lamaran</h5>
                 <p class="display-6">3</p>
-                <p class="card-text text-warning">Favorit Anda</p>
             </div>
         </div>
     </div>
@@ -116,7 +113,7 @@
     <!-- Daftar Lowongan -->
     <div class="row g-4 mt-4">
         <div class="col-12">
-            <div class="gradient-card">
+            <div class="gradient-card w-100">
                 <h5 class="card-title"><i class="fas fa-briefcase"></i>Daftar Lowongan</h5>
                 <div class="table-responsive mt-3">
                     <table class="table table-striped">

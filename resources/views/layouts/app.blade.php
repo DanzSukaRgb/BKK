@@ -1538,46 +1538,35 @@
             <img src="{{ asset('image/logosmk (1).png') }}" alt="BKKBISA Logo" class="footer-logo" width="50"> BKK SMKN 6 JEMBER
             <p>BKK SMKN 6 Jember merupakan platform penyedia informasi lowongan pekerjaan berbasis online</p>
             <div class="social">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/smkn1tanggul?locale=id_ID"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/smkn6jember/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@smknegeri6jember"><i class="fab fa-youtube"></i></a>
             </div>
             <div class="logos">
                 <img src="{{ asset('image/logokementrian.png') }}">
             </div>
         </div>
         <div>
-            <h3>Pencari Kerja</h3>
+            <h3>Opsi</h3>
             <ul>
-                <li><a href="#">Pendaftaran</a></li>
-                <li><a href="#">Ketentuan Penggunaan</a></li>
-                <li><a href="#">Kebijakan Privasi</a></li>
-                <li><a href="#">Tips Karier</a></li>
-                <li><a href="#">Testimoni</a></li>
-                <li><a href="#">Bantuan mencari kerja</a></li>
+                <li><a href="{{route('perusahaan.public')}}">Daftar Perusahaan</a></li>
+                <li><a href="{{route('lowongan.public')}}">Daftar Lowongan</a></li>
+                <li><a href="{{route('kegiatan.public')}}">Kegiatan</a></li>
             </ul>
         </div>
         <div>
-            <h3>BKK / Yayasan</h3>
+            <h3>Media Sosial</h3>
             <ul>
-                <li><a href="#">Pendaftaran</a></li>
-                <li><a href="#">Masuk</a></li>
-                <li><a href="#">Pasang Iklan Lowongan</a></li>
-                <li><a href="#">Tracking Alumni</a></li>
-                <li><a href="#">Ketentuan Penggunaan</a></li>
-                <li><a href="#">Bantuak BKK / Yayasan</a></li>
+                <li><a href="https://www.instagram.com/smkn6jember/">Instagram</a></li>
+                <li><a href="https://www.youtube.com/@smknegeri6jember">Youtube</a></li>
+                <li><a href="https://www.facebook.com/smkn1tanggul?locale=id_ID">Facebook</a></li>
             </ul>
         </div>
         <div>
-            <h3>Perusahaan / UMKM</h3>
+            <h3>Akun</h3>
             <ul>
-                <li><a href="#">Pendaftaran</a></li>
-                <li><a href="#">Masuk</a></li>
-                <li><a href="#">Pasang Iklan Lowongan</a></li>
-                <li><a href="#">Cari Resume</a></li>
-                <li><a href="#">Ketentuan Penggunaan</a></li>
-                <li><a href="#">Bantuan Perusahaan</a></li>
+                <li><a href="{{route('register')}}">Register</a></li>
+                <li><a href="{{route('login')}}">Login</a></li>
             </ul>
         </div>
     </footer>

@@ -32,7 +32,7 @@ class User extends Authenticatable
     // Relasi dengan Alumni
     public function alumni()
     {
-        return $this->hasOne(Alumni::class);
+         return $this->hasOne(Alumni::class, 'user_id', 'id');
     }
 
     // Cek apakah user adalah admin
@@ -53,10 +53,11 @@ class User extends Authenticatable
         return $this->role === 'perusahaan';
     }
     // app/Models/User.php
-  
+
     public function perusahaan()
 {
     return $this->belongsTo(Perusahaan::class);
 }
+
 
 }

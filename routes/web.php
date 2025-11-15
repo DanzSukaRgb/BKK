@@ -11,7 +11,8 @@ use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\Perusahaan\PerusahaanJobsController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\Alumni\AlumniDashboardController;
+use App\Http\Controllers\Alumni\DashboardAlumniController;
+use App\Http\Controllers\Alumni\ProfileAlumniController;
 use App\Http\Controllers\KegiatanBkkController;
 use App\Http\Controllers\ImportTracerController;
 use App\Http\Controllers\TracerStudyController;
@@ -19,7 +20,7 @@ use App\Http\Controllers\TracerStudyController;
 // -----------------------------
 // Root-level routes
 // -----------------------------
-Route::get('/', [TracerStudyController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 // -----------------------------
@@ -81,6 +82,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/', [LowonganController::class, 'store'])->name('lowongan.store');
         Route::get('/{lowongan}/edit', [LowonganController::class, 'edit'])->name('lowongan.edit');
         Route::put('/{lowongan}', [LowonganController::class, 'update'])->name('lowongan.update');
+        Route::get('/lowongan/{slug}', [LowonganController::class, 'show'])->name('lowongan.show');
         Route::delete('/{lowongan}', [LowonganController::class, 'destroy'])->name('lowongan.destroy');
         Route::post('/{lowongan}/toggle-status', [LowonganController::class, 'toggleStatus'])->name('lowongan.toggle-status');
     });
@@ -128,21 +130,14 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 // Alumni routes
 // -----------------------------
 // CRUD Alumni Admin
-Route::prefix('alumni')
-     ->middleware(['auth', 'admin'])
-     ->group(function () {
-
-        // daftar, tambah, simpan, ubah, update, hapus
-        Route::get('/', [AlumniController::class, 'index'])->name('alumni.index');
-        Route::get('/create', [AlumniController::class, 'create'])->name('alumni.create');
-        Route::post('/', [AlumniController::class, 'store'])->name('alumni.store');
-        Route::get('/{alumni}/edit', [AlumniController::class, 'edit'])->name('alumni.edit');
-        Route::put('/{alumni}', [AlumniController::class, 'update'])->name('alumni.update');
-        Route::delete('/{alumni}', [AlumniController::class, 'destroy'])->name('alumni.destroy');
-
-        // detail alumni (SHOW) – taruh paling akhir
-        Route::get('/{alumni}', [AlumniController::class, 'show'])->name('alumni.show');
-     });
+Route::prefix('alumni')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/', [AlumniController::class, 'index'])->name('alumni.index'); // Daftar alumni
+    Route::get('/create', [AlumniController::class, 'create'])->name('alumni.create');
+    Route::post('/', [AlumniController::class, 'store'])->name('alumni.store');
+    Route::get('/{alumni}/edit', [AlumniController::class, 'edit'])->name('alumni.edit');
+    Route::put('/{alumni}', [AlumniController::class, 'update'])->name('alumni.update');
+    Route::delete('/{alumni}', [AlumniController::class, 'destroy'])->name('alumni.destroy');
+});
 
 
 Route::prefix('lamaran')->group(function () {
@@ -193,8 +188,10 @@ Route::prefix('perusahaan')->group(function () {
 // ===============================
 // DASHBOARD ALUMNI
 // ===============================
+
 Route::middleware(['auth', 'alumni'])->prefix('alumni')->group(function () {
-    Route::get('/dashboard', [\App\Http\Controllers\Alumni\DashboardAlumniController::class, 'index'])
+
+    Route::get('/dashboard', [DashboardAlumniController::class, 'index'])
         ->name('alumni.dashboard');
 });
 
