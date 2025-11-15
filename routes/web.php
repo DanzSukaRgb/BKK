@@ -128,14 +128,21 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 // Alumni routes
 // -----------------------------
 // CRUD Alumni Admin
-Route::prefix('alumni')->middleware(['auth', 'admin'])->group(function () {
-    Route::get('/', [AlumniController::class, 'index'])->name('alumni.index'); // Daftar alumni
-    Route::get('/create', [AlumniController::class, 'create'])->name('alumni.create');
-    Route::post('/', [AlumniController::class, 'store'])->name('alumni.store');
-    Route::get('/{alumni}/edit', [AlumniController::class, 'edit'])->name('alumni.edit');
-    Route::put('/{alumni}', [AlumniController::class, 'update'])->name('alumni.update');
-    Route::delete('/{alumni}', [AlumniController::class, 'destroy'])->name('alumni.destroy');
-});
+Route::prefix('alumni')
+     ->middleware(['auth', 'admin'])
+     ->group(function () {
+
+        // daftar, tambah, simpan, ubah, update, hapus
+        Route::get('/', [AlumniController::class, 'index'])->name('alumni.index');
+        Route::get('/create', [AlumniController::class, 'create'])->name('alumni.create');
+        Route::post('/', [AlumniController::class, 'store'])->name('alumni.store');
+        Route::get('/{alumni}/edit', [AlumniController::class, 'edit'])->name('alumni.edit');
+        Route::put('/{alumni}', [AlumniController::class, 'update'])->name('alumni.update');
+        Route::delete('/{alumni}', [AlumniController::class, 'destroy'])->name('alumni.destroy');
+
+        // detail alumni (SHOW) – taruh paling akhir
+        Route::get('/{alumni}', [AlumniController::class, 'show'])->name('alumni.show');
+     });
 
 
 Route::prefix('lamaran')->group(function () {
