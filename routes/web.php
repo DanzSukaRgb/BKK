@@ -20,7 +20,7 @@ use App\Http\Controllers\TracerStudyController;
 // -----------------------------
 // Root-level routes
 // -----------------------------
-Route::get('/', [TracerStudyController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 // -----------------------------
@@ -82,6 +82,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/', [LowonganController::class, 'store'])->name('lowongan.store');
         Route::get('/{lowongan}/edit', [LowonganController::class, 'edit'])->name('lowongan.edit');
         Route::put('/{lowongan}', [LowonganController::class, 'update'])->name('lowongan.update');
+        Route::get('/lowongan/{slug}', [LowonganController::class, 'show'])->name('lowongan.show');
         Route::delete('/{lowongan}', [LowonganController::class, 'destroy'])->name('lowongan.destroy');
         Route::post('/{lowongan}/toggle-status', [LowonganController::class, 'toggleStatus'])->name('lowongan.toggle-status');
     });
@@ -134,8 +135,12 @@ Route::prefix('admin/alumni')->middleware(['auth', 'admin'])->group(function () 
     Route::get('/create', [AlumniController::class, 'create'])->name('alumni.create');
     Route::post('/', [AlumniController::class, 'store'])->name('alumni.store');
     Route::get('/{alumni}/edit', [AlumniController::class, 'edit'])->name('alumni.edit');
+    Route::get('/{alumni}', [AlumniController::class, 'show'])
+    ->name('alumni.show')
+    ->whereNumber('alumni');
     Route::put('/{alumni}', [AlumniController::class, 'update'])->name('alumni.update');
     Route::delete('/{alumni}', [AlumniController::class, 'destroy'])->name('alumni.destroy');
+
 });
 
 

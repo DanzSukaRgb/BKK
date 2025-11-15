@@ -135,7 +135,6 @@
                             <a href="{{route('perusahaan.jobs.create')}}" class="btn btn-light"><i class="fas fa-plus-circle me-2"></i>Tambah
                                 Lowongan</a>
                             <a href="#" class="btn btn-light"><i class="fas fa-file-alt me-2"></i>Lihat Lamaran</a>
-                            <a href="#" class="btn btn-light"><i class="fas fa-users me-2"></i>Kelola Karyawan</a>
                         </div>
                     </div>
                 </div>

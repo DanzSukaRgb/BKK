@@ -1538,17 +1538,16 @@
             <img src="{{ asset('image/logosmk (1).png') }}" alt="BKKBISA Logo" class="footer-logo" width="50"> BKK SMKN 6 JEMBER
             <p>BKK SMKN 6 Jember merupakan platform penyedia informasi lowongan pekerjaan berbasis online</p>
             <div class="social">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/smkn1tanggul?locale=id_ID"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/smkn6jember/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@smknegeri6jember"><i class="fab fa-youtube"></i></a>
             </div>
             <div class="logos">
                 <img src="{{ asset('image/logokementrian.png') }}">
             </div>
         </div>
         <div>
-            <h3>Pencari Kerja</h3>
+            <h3>Opsi</h3>
             <ul>
                 <li><a href="#">Pendaftaran</a></li>
                 <li><a href="#">Ketentuan Penggunaan</a></li>
