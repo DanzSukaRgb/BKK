@@ -130,13 +130,17 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 // Alumni routes
 // -----------------------------
 // CRUD Alumni Admin
-Route::prefix('alumni')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('admin/alumni')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AlumniController::class, 'index'])->name('alumni.index'); // Daftar alumni
     Route::get('/create', [AlumniController::class, 'create'])->name('alumni.create');
     Route::post('/', [AlumniController::class, 'store'])->name('alumni.store');
     Route::get('/{alumni}/edit', [AlumniController::class, 'edit'])->name('alumni.edit');
+    Route::get('/{alumni}', [AlumniController::class, 'show'])
+    ->name('alumni.show')
+    ->whereNumber('alumni');
     Route::put('/{alumni}', [AlumniController::class, 'update'])->name('alumni.update');
     Route::delete('/{alumni}', [AlumniController::class, 'destroy'])->name('alumni.destroy');
+
 });
 
 
@@ -189,12 +193,20 @@ Route::prefix('perusahaan')->group(function () {
 // DASHBOARD ALUMNI
 // ===============================
 
+Route::get('/alumni/dashboard', function () {
+    return view('alumni.dashboard');
+})->name('alumni.dashboard');
 Route::middleware(['auth', 'alumni'])->prefix('alumni')->group(function () {
 
     Route::get('/dashboard', [DashboardAlumniController::class, 'index'])
         ->name('alumni.dashboard');
-});
 
-Route::get('/alumni/dashboard', function () {
-    return view('alumni.dashboard');
-})->name('alumni.dashboard');
+    Route::get('/profile', [ProfileAlumniController::class, 'index'])
+        ->name('alumni.profile');
+
+    Route::get('/profile/edit', [ProfileAlumniController::class, 'edit'])
+        ->name('alumni.profile.edit');
+
+    Route::put('/profile', [ProfileAlumniController::class, 'update'])
+        ->name('alumni.profile.update'); // gunakan PUT
+});
