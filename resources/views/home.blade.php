@@ -1129,9 +1129,9 @@
         }
 
         /* ==============================
-       RESPONSIVE STYLES ONLY
-       Tambahkan di bagian paling bawah styles section
-       ============================== */
+           RESPONSIVE STYLES ONLY
+           Tambahkan di bagian paling bawah styles section
+           ============================== */
 
         /* Tablet Landscape dan Desktop Kecil */
         @media (max-width: 1199px) {
@@ -1141,7 +1141,7 @@
             }
 
             .hero-student img {
-               display: none;
+                display: none;
             }
 
             .kategori-header {
@@ -1156,6 +1156,7 @@
             .bkk-badge {
                 width: 450px;
             }
+
             .wave img {
                 margin-top: -8rem;
             }
@@ -1168,9 +1169,11 @@
                 padding-top: 7rem;
                 text-align: center;
             }
+
             .wave img {
                 margin-top: -8rem;
             }
+
             .hero-student {
                 display: none;
             }
@@ -1247,9 +1250,11 @@
             .hero h1 {
                 font-size: 1.8rem;
             }
-            .wave{
+
+            .wave {
                 margin-top: 60px;
             }
+
             .hero-student img {
                 display: none;
             }
@@ -1344,7 +1349,7 @@
             }
 
             .containerprofile img {
-               display: none
+                display: none
             }
 
             .steps hr {
@@ -1395,9 +1400,11 @@
             .hero h1 {
                 font-size: 1.5rem;
             }
-             .wave{
+
+            .wave {
                 margin-top: 60px;
             }
+
             .hero-student img {
                 display: none;
             }
@@ -1477,9 +1484,11 @@
             .hero h1 {
                 font-size: 1.3rem;
             }
-             .wave{
+
+            .wave {
                 margin-top: 60px;
             }
+
             .input1,
             select {
                 font-size: 16px;
@@ -1528,7 +1537,8 @@
             .hero-student img {
                 display: none;
             }
-             .wave{
+
+            .wave {
                 margin-top: 60px;
             }
         }
@@ -1548,9 +1558,11 @@
                 flex-direction: row;
                 flex-wrap: wrap;
             }
-             .wave{
+
+            .wave {
                 margin-top: 60px;
             }
+
             .input1,
             select {
                 width: 45%;
@@ -1616,7 +1628,8 @@
         <img src="{{ asset('image/hero.png') }}" alt="" class="img-fluid rounded">
     </div>
     <div class="wave">
-        <img src="{{ asset('image/Vector 46.png') }}" alt="" width="100%" class="img-fluid rounded" style="position: relative;">
+        <img src="{{ asset('image/Vector 46.png') }}" alt="" width="100%" class="img-fluid rounded"
+            style="position: relative;">
         <section class="kategori">
             <div class="kategori-header">
                 <h2>Kategori</h2>
@@ -1650,8 +1663,10 @@
                 </div>
             </div>
         </section>
-        <img src="{{ asset('image/Vector 47.png') }}" alt="" style="margin-top: -2rem;" width="100%" class="img-fluid rounded">
+        <img src="{{ asset('image/Vector 47.png') }}" alt="" style="margin-top: -2rem;" width="100%"
+            class="img-fluid rounded">
     </div>
+    <section id="tentang">
     <section class="section-bkk py-5">
         <div class="container">
             <div class="row align-items-center g-5">
@@ -1726,7 +1741,7 @@
             </div>
         </div>
     </section>
-
+</section>
     <br>
     <br>
     <br>
@@ -2018,7 +2033,7 @@
                         </article>
                     @endforeach
                 @endif
-                <a href="{{ route('kegiatan.public') }}" class="btn-ghost all-agenda">
+                <a href="{{ route('kegiatan.public') }}" class="btn btn-primary all-agenda">
                     Lihat Semua Agenda
                 </a>
             </div>
@@ -2029,8 +2044,7 @@
                     <i class="fas fa-clock me-2"></i> Terbaru
                 </h5>
                 @php
-                    // Ambil kegiatan terbaru, misal 1 item
-                    $featured = $kegiatan->first();
+                    $featured = $kegiatan->sortByDesc('created_at')->first();
                 @endphp
 
                 @if ($featured)
@@ -2102,12 +2116,17 @@
                     RCVP+R39, Jl. PB.Sudirman, Tekoan,
                     Tanggul Kulon, Kec. Tanggul, Kabupaten Jember, Jawa Timur 68155
                 </p>
-
                 <p><b>Hubungi Kami</b></p>
                 <div class="social-links">
-                    <img src="{{ asset('image/image 107.png') }}" alt="">
-                    <img src="{{ asset('image/image 108.png') }}" alt="">
-                    <img src="{{ asset('image/image 109.png') }}" alt="">
+                    <a href="" target="_blank">
+                        <img src="{{ asset('image/image 107.png') }}" alt="Facebook">
+                    </a>
+                    <a href="https://www.facebook.com/smkn1tanggul?locale=id_ID" target="_blank">
+                        <img src="{{ asset('image/image 108.png') }}" alt="Twitter">
+                    </a>
+                    <a href="https://www.youtube.com/@smknegeri6jember" target="_blank">
+                        <img src="{{ asset('image/image 109.png') }}" alt="Instagram">
+                    </a>
                 </div>
             </div>
         </div>

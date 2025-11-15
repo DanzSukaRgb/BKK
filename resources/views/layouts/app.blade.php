@@ -1549,34 +1549,24 @@
         <div>
             <h3>Opsi</h3>
             <ul>
-                <li><a href="#">Pendaftaran</a></li>
-                <li><a href="#">Ketentuan Penggunaan</a></li>
-                <li><a href="#">Kebijakan Privasi</a></li>
-                <li><a href="#">Tips Karier</a></li>
-                <li><a href="#">Testimoni</a></li>
-                <li><a href="#">Bantuan mencari kerja</a></li>
+                <li><a href="{{route('perusahaan.public')}}">Daftar Perusahaan</a></li>
+                <li><a href="{{route('lowongan.public')}}">Daftar Lowongan</a></li>
+                <li><a href="{{route('kegiatan.public')}}">Kegiatan</a></li>
             </ul>
         </div>
         <div>
-            <h3>BKK / Yayasan</h3>
+            <h3>Media Sosial</h3>
             <ul>
-                <li><a href="#">Pendaftaran</a></li>
-                <li><a href="#">Masuk</a></li>
-                <li><a href="#">Pasang Iklan Lowongan</a></li>
-                <li><a href="#">Tracking Alumni</a></li>
-                <li><a href="#">Ketentuan Penggunaan</a></li>
-                <li><a href="#">Bantuak BKK / Yayasan</a></li>
+                <li><a href="https://www.instagram.com/smkn6jember/">Instagram</a></li>
+                <li><a href="https://www.youtube.com/@smknegeri6jember">Youtube</a></li>
+                <li><a href="https://www.facebook.com/smkn1tanggul?locale=id_ID">Facebook</a></li>
             </ul>
         </div>
         <div>
-            <h3>Perusahaan / UMKM</h3>
+            <h3>Akun</h3>
             <ul>
-                <li><a href="#">Pendaftaran</a></li>
-                <li><a href="#">Masuk</a></li>
-                <li><a href="#">Pasang Iklan Lowongan</a></li>
-                <li><a href="#">Cari Resume</a></li>
-                <li><a href="#">Ketentuan Penggunaan</a></li>
-                <li><a href="#">Bantuan Perusahaan</a></li>
+                <li><a href="{{route('register')}}">Register</a></li>
+                <li><a href="{{route('login')}}">Login</a></li>
             </ul>
         </div>
     </footer>
