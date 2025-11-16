@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<br><br><br>
 <section id="lokasi" class="lokasi-section py-5 bg-light">
     <div class="container">
         <!-- Section Heading -->
