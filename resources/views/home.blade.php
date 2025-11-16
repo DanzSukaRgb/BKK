@@ -80,8 +80,7 @@
             z-index: 99;
         }
 
-        KIRI
-        .left {
+        KIRI .left {
             flex: 1;
             position: relative;
         }
@@ -1120,952 +1119,971 @@
             color: #2b65f7;
         }
 
-        /* ==============================
-           RESPONSIVE STYLES ONLY
-           Tambahkan di bagian paling bawah styles section
-           ============================== */
+
 
         /* Tablet Landscape dan Desktop Kecil */
-       /* ==============================
-   RESPONSIVE STYLES ONLY
-   Tambahkan di bagian paling bawah styles section
-   ============================== */
-
-/* Tablet Landscape dan Desktop Kecil */
-@media (max-width: 1199px) {
-    .hero {
-        padding: 6rem 4rem;
-        padding-top: 8rem;
-    }
-
-    .hero-student img {
-        display: none;
-    }
-
-    .kategori-header {
-        margin-left: 5rem;
-    }
-
-    .container-4 {
-        max-width: 95%;
-        gap: 15px;
-    }
-
-    .bkk-badge {
-        width: 450px;
-    }
-
-    .wave img {
-        margin-top: -8rem;
-    }
-}
-
-/* Tablet Portrait */
-@media (max-width: 991px) {
-    .hero {
-        padding: 5rem 2rem;
-        padding-top: 7rem;
-        text-align: center;
-    }
-
-    .wave img {
-        margin-top: -8rem;
-    }
-
-    .hero-student {
-        display: none;
-    }
-
-    .hero-student img {
-        width: 300px;
-        margin-top: 0;
-        margin-right: 0;
-    }
-
-    .container-2 {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .input1,
-    select {
-        width: 200px;
-    }
-
-    .kategori-header {
-        margin-left: 2rem;
-        text-align: center;
-    }
-
-    .kategori-header h2,
-    .kategori-header p {
-        text-align: center;
-    }
-
-    .container-4 {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .left,
-    .right {
-        width: 100%;
-    }
-
-    .bkk-left .top-img {
-        width: 200px;
-        left: -20px;
-        top: -20px;
-    }
-
-    .bkk-left img.small-img {
-        width: 150px;
-        bottom: -20px;
-        right: 0;
-    }
-
-    .bkk-badge {
-        width: 350px;
-        height: auto;
-        padding: 12px 20px;
-        bottom: -60px;
-    }
-
-    .agenda-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-}
-
-/* Mobile Landscape */
-@media (max-width: 767px) {
-    .hero {
-        padding: 4rem 1rem;
-        padding-top: 6rem;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .wave {
-        margin-top: 60px;
-    }
-
-    .hero-student img {
-        display: none;
-    }
-
-    .container-2 {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .input1,
-    select {
-        width: 100%;
-        max-width: 300px;
-        margin-top: 9px;
-    }
-
-    .search,
-    .daftar {
-        width: 100%;
-        max-width: 300px;
-        margin-left: 0;
-    }
-
-    .wave img {
-        margin-top: -8rem;
-    }
-
-    .kategori {
-        margin-top: -2rem;
-        padding: 40px 15px;
-    }
-
-    .kategori-header {
-        margin-left: 0;
-    }
-
-    .kategori-header h2 {
-        font-size: 28px;
-    }
-
-    .kategori-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .kategori-card {
-        padding: 20px 10px;
-    }
-
-    .kategori-card i {
-        font-size: 24px;
-    }
-
-    .kategori-card span {
-        font-size: 12px;
-    }
-
-    .section-bkk {
-        padding: 40px 0;
-    }
-
-    .bkk-left .top-img,
-    .bkk-left img.small-img {
-        display: none;
-    }
-
-    .bkk-badge {
-        position: relative;
-        width: 100%;
-        bottom: 0;
-        margin-top: 20px;
-    }
-
-    .bkk-right h2 {
-        font-size: 1.5rem;
-    }
-
-    .job-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-
-    .job-info {
-        flex-direction: column;
-    }
-
-    .job-info img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .containerprofile img {
-        display: none
-    }
-
-    .steps hr {
-        width: 100% !important;
-    }
-
-    .ts-card {
-        flex: 0 0 280px;
-    }
-
-    .agenda-item {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .agenda-item img {
-        width: 100%;
-        height: 150px;
-    }
-
-    .agenda-actions {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .agenda-date {
-        justify-self: center;
-    }
-
-    .promo-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .promo-img {
-        justify-self: center;
-        margin-bottom: 0;
-    }
-}
-
-/* Mobile Portrait */
-@media (max-width: 575px) {
-    .hero {
-        padding: 3rem 1rem;
-        padding-top: 5rem;
-    }
-
-    .hero h1 {
-        font-size: 1.5rem;
-    }
-
-    .wave {
-        margin-top: 60px;
-    }
-
-    .hero-student img {
-        display: none;
-    }
-
-    .kategori-container {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .kategori-card {
-        padding: 25px 15px;
-    }
-
-    .badge {
-        width: 100%;
-        position: relative;
-        bottom: 0;
-        margin-top: 20px;
-    }
-
-    .badge-text .number {
-        font-size: 24px;
-    }
-
-    .job {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .job-info2 {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .job-info2 img {
-        margin-left: 0;
-    }
-
-    .ts-wrapper {
-        padding: 10px 10px 70px;
-    }
-
-    .ts-card {
-        flex: 0 0 260px;
-        padding: 20px 15px;
-    }
-
-    .chart-legend-wrapper {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .chart-container {
-        width: 250px;
-        height: 250px;
-    }
-
-    .legend-container {
-        text-align: center;
-    }
-
-    .social-links img {
-        width: 25px;
-    }
-}
-
-/* Very Small Mobile */
-@media (max-width: 375px) {
-    .hero {
-        padding: 2rem 0.5rem;
-        padding-top: 4rem;
-    }
-
-    .hero h1 {
-        font-size: 1.3rem;
-    }
-
-    .wave {
-        margin-top: 60px;
-    }
-
-    .input1,
-    select {
-        font-size: 16px;
-        margin-top: 9px;
-    }
-
-    .kategori-header h2 {
-        font-size: 24px;
-    }
-
-    .bkk-right h2 {
-        font-size: 1.3rem;
-    }
-
-    .bkk-feature {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .bkk-teacher {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .ts-card {
-        flex: 0 0 240px;
-    }
-
-    .agenda-title {
-        font-size: 14px;
-    }
-
-    .agenda-desc {
-        font-size: 12px;
-    }
-}
-
-/* Height adjustments for mobile */
-@media (max-height: 700px) and (max-width: 767px) {
-    .hero {
-        min-height: auto;
-        padding-top: 5rem;
-    }
-
-    .hero-student img {
-        display: none;
-    }
-
-    .wave {
-        margin-top: 60px;
-    }
-}
-
-/* Orientation specific */
-@media (max-width: 767px) and (orientation: landscape) {
-    .hero {
-        padding-top: 4rem;
-        min-height: auto;
-    }
-
-    .hero-student img {
-        display: none;
-    }
-
-    .container-2 {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .wave {
-        margin-top: 60px;
-    }
-
-    .input1,
-    select {
-        width: 45%;
-        margin-top: 9px;
-    }
-}
-
-/* Print styles */
-@media print {
-    .hero-student,
-    .wave,
-    .social-links,
-    .ts-nav,
-    .agenda-side {
-        display: none;
-    }
-
-    .hero {
-        padding: 2rem 0;
-        color: black;
-        background: white;
-    }
-
-    .kategori {
-        background: white !important;
-        color: black !important;
-        margin-top: 0;
-    }
-
-    .kategori-card {
-        border: 1px solid #ccc;
-    }
-}
+        @media (max-width: 1199px) {
+            .hero {
+                padding: 6rem 4rem;
+                padding-top: 8rem;
+            }
+
+            .hero-student img {
+                display: none;
+            }
+
+            .kategori-header {
+                margin-left: 5rem;
+            }
+
+            .container-4 {
+                max-width: 95%;
+                gap: 15px;
+            }
+
+            .bkk-badge {
+                width: 450px;
+            }
+
+            .wave img {
+                margin-top: -8rem;
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (max-width: 991px) {
+            .hero {
+                padding: 5rem 2rem;
+                padding-top: 7rem;
+                text-align: center;
+            }
+
+            .wave img {
+                margin-top: -8rem;
+            }
+
+            .hero-student {
+                display: none;
+            }
+
+            .hero-student img {
+                width: 300px;
+                margin-top: 0;
+                margin-right: 0;
+            }
+
+            .container-2 {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .input1,
+            select {
+                width: 200px;
+            }
+
+            .kategori-header {
+                margin-left: 2rem;
+                text-align: center;
+            }
+
+            .kategori-header h2,
+            .kategori-header p {
+                text-align: center;
+            }
+
+            .container-4 {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+            }
+
+            .bkk-left .top-img {
+                width: 200px;
+                left: -20px;
+                top: -20px;
+            }
+
+            .bkk-left img.small-img {
+                width: 150px;
+                bottom: -20px;
+                right: 0;
+            }
+
+            .bkk-badge {
+                width: 350px;
+                height: auto;
+                padding: 12px 20px;
+                bottom: -60px;
+            }
+
+            .agenda-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Mobile Landscape */
+        @media (max-width: 767px) {
+            .hero {
+                padding: 4rem 1rem;
+                padding-top: 6rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .wave {
+                margin-top: 60px;
+            }
+
+            .hero-student img {
+                display: none;
+            }
+
+            .container-2 {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .input1,
+            select {
+                width: 100%;
+                max-width: 300px;
+                margin-top: 9px;
+            }
+
+            .search,
+            .daftar {
+                width: 100%;
+                max-width: 300px;
+                margin-left: 0;
+            }
+
+            .wave img {
+                margin-top: -8rem;
+            }
+
+            .kategori {
+                margin-top: -2rem;
+                padding: 40px 15px;
+            }
+
+            .kategori-header {
+                margin-left: 0;
+            }
+
+            .kategori-header h2 {
+                font-size: 28px;
+            }
+
+            .kategori-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .kategori-card {
+                padding: 20px 10px;
+            }
+
+            .kategori-card i {
+                font-size: 24px;
+            }
+
+            .kategori-card span {
+                font-size: 12px;
+            }
+
+            .section-bkk {
+                padding: 40px 0;
+            }
+
+            .bkk-left .top-img,
+            .bkk-left img.small-img {
+                display: none;
+            }
+
+            .bkk-badge {
+                position: relative;
+                width: 100%;
+                bottom: 0;
+                margin-top: 20px;
+            }
+
+            .bkk-right h2 {
+                font-size: 1.5rem;
+            }
+
+            .job-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .job-info {
+                flex-direction: column;
+            }
+
+            .job-info img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .containerprofile img {
+                display: none
+            }
+
+            .steps hr {
+                width: 100% !important;
+            }
+
+            .ts-card {
+                flex: 0 0 280px;
+            }
+
+            .agenda-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .agenda-item img {
+                width: 100%;
+                height: 150px;
+            }
+
+            .agenda-actions {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .agenda-date {
+                justify-self: center;
+            }
+
+            .promo-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .promo-img {
+                justify-self: center;
+                margin-bottom: 0;
+            }
+        }
+
+        /* Mobile Portrait */
+        @media (max-width: 575px) {
+            .hero {
+                padding: 3rem 1rem;
+                padding-top: 5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .wave {
+                margin-top: 60px;
+            }
+
+            .hero-student img {
+                display: none;
+            }
+
+            .kategori-container {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .kategori-card {
+                padding: 25px 15px;
+            }
+
+            .badge {
+                width: 100%;
+                position: relative;
+                bottom: 0;
+                margin-top: 20px;
+            }
+
+            .badge-text .number {
+                font-size: 24px;
+            }
+
+            .job {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .job-info2 {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .job-info2 img {
+                margin-left: 0;
+            }
+
+            .ts-wrapper {
+                padding: 10px 10px 70px;
+            }
+
+            .ts-card {
+                flex: 0 0 260px;
+                padding: 20px 15px;
+            }
+
+            .chart-legend-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .chart-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .legend-container {
+                text-align: center;
+            }
+
+            .social-links img {
+                width: 25px;
+            }
+        }
+
+        /* Very Small Mobile */
+        @media (max-width: 375px) {
+            .hero {
+                padding: 2rem 0.5rem;
+                padding-top: 4rem;
+            }
+
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+
+            .wave {
+                margin-top: 60px;
+            }
+
+            .input1,
+            select {
+                font-size: 16px;
+                margin-top: 9px;
+            }
+
+            .kategori-header h2 {
+                font-size: 24px;
+            }
+
+            .bkk-right h2 {
+                font-size: 1.3rem;
+            }
+
+            .bkk-feature {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .bkk-teacher {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .ts-card {
+                flex: 0 0 240px;
+            }
+
+            .agenda-title {
+                font-size: 14px;
+            }
+
+            .agenda-desc {
+                font-size: 12px;
+            }
+        }
+
+        /* Height adjustments for mobile */
+        @media (max-height: 700px) and (max-width: 767px) {
+            .hero {
+                min-height: auto;
+                padding-top: 5rem;
+            }
+
+            .hero-student img {
+                display: none;
+            }
+
+            .wave {
+                margin-top: 60px;
+            }
+        }
+
+        /* Orientation specific */
+        @media (max-width: 767px) and (orientation: landscape) {
+            .hero {
+                padding-top: 4rem;
+                min-height: auto;
+            }
+
+            .hero-student img {
+                display: none;
+            }
+
+            .container-2 {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .wave {
+                margin-top: 60px;
+            }
+
+            .input1,
+            select {
+                width: 45%;
+                margin-top: 9px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+
+            .hero-student,
+            .wave,
+            .social-links,
+            .ts-nav,
+            .agenda-side {
+                display: none;
+            }
+
+            .hero {
+                padding: 2rem 0;
+                color: black;
+                background: white;
+            }
+
+            .kategori {
+                background: white !important;
+                color: black !important;
+                margin-top: 0;
+            }
+
+            .kategori-card {
+                border: 1px solid #ccc;
+            }
+        }
     </style>
 @endsection
 
 @section('content')
-<div class="hero">
-    <div class="container">
-        <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern1" style="margin-top: -9.6rem; left: 0; position: absolute;">
-        <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern2" style="margin-top:  -9.6rem;  left: 74rem; position: absolute;">
-
-        <h1>Cari Lowongan Kerja</h1>
-
-        <div class="container-2">
-            <div class="input">
-                <input type="text" placeholder="Posisi/Perusahaan" class="input1">
-                <select>
-                    <option selected disabled>Pilih Lokasi</option>
-                    <option value="developer">Jember</option>
-                    <option value="designer">Malang</option>
-                    <option value="marketing">Surabaya</option>
-                    <option value="manager">Sidoarjo</option>
-                </select>
-            </div>
-            <a href="{{ route('lowongan.public') }}" class="search">Cari</a>
-        </div>
-
-        <br>
-        <p>Daftar Sekarang dan dapatkan pekerjaan secepatnya</p>
-        <br>
-        <a href="{{ route('register') }}" class="daftar">Daftar Sekarang</a>
-    </div>
-</div>
-
-<div class="hero-student">
-    <img src="{{ asset('image/hero.png') }}" alt="" class="img-fluid rounded">
-</div>
-<div class="wave">
-    <img src="{{ asset('image/Vector 46.png') }}" alt="" width="100%" class="img-fluid rounded" style="position: relative;">
-
-    <section class="kategori">
-        <div class="kategori-header">
-            <h2>Kategori</h2>
-            <p>Kami menyediakan berbagai kategori perusahaan sesuai bidang anda</p>
-        </div>
-
-        <div class="kategori-container">
-            <div class="kategori-card">
-                <i class="fas fa-clipboard-list"></i>
-                <span>Administrasi</span>
-            </div>
-            <div class="kategori-card">
-                <i class="fas fa-user-cog"></i>
-                <span>Operator</span>
-            </div>
-            <div class="kategori-card">
-                <i class="fas fa-tools"></i>
-                <span>Teknisi</span>
-            </div>
-            <div class="kategori-card">
-                <i class="fas fa-industry"></i>
-                <span>Industri</span>
-            </div>
-            <div class="kategori-card">
-                <i class="fas fa-network-wired"></i>
-                <span>IT / TIK</span>
-            </div>
-            <div class="kategori-card">
-                <i class="fas fa-notes-medical"></i>
-                <span>Kesehatan</span>
-            </div>
-        </div>
-    </section>
-
-    <img src="{{ asset('image/Vector 47.png') }}" alt="" style="margin-top: -2rem;" width="100%" class="img-fluid rounded">
-</div>
-
-<section id="tentang">
-    <section class="section-bkk py-5">
+    <div class="hero">
         <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6 text-center">
-                    <div class="position-relative">
-                        <img src="{{ asset('image/Rectangle 463.png') }}" class="img-fluid rounded shadow mb-3" alt="Tim BKK">
-                        <img src="{{ asset('image/logobkk.jpg') }}" class="position-absolute bottom-0 end-0 rounded shadow" style="width: 120px;" alt="Rapat">
-                        <div class="position-absolute bottom-0 start-0 bg-white shadow rounded d-flex align-items-center p-2">
-                            <i class="fa-solid fa-medal text-primary fs-4 me-2"></i>
-                            <div>
-                                <h5 class="mb-0 fw-bold">100+</h5>
-                                <small class="text-muted">Siswa Unggul</small>
-                            </div>
-                        </div>
-                    </div>
+            {{-- <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern1" style="margin-top: -9.6rem; left: 0; position: absolute;">
+        <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern2" style="margin-top:  -9.6rem;  left: 74rem; position: absolute;"> --}}
+
+            <h1>Cari Lowongan Kerja</h1>
+
+            <div class="container-2">
+                <div class="input">
+                    <input type="text" placeholder="Posisi/Perusahaan" class="input1">
+                    <select>
+                        <option selected disabled>Pilih Lokasi</option>
+                        <option value="developer">Jember</option>
+                        <option value="designer">Malang</option>
+                        <option value="marketing">Surabaya</option>
+                        <option value="manager">Sidoarjo</option>
+                    </select>
                 </div>
-
-                <div class="col-lg-6">
-                    <h2 class="fw-bold mb-3">Tentang BKK</h2>
-                    <p class="text-muted mb-4">
-                        BKK SMKN 6 Jember membantu siswa dan alumni menemukan peluang kerja sesuai kompetensi mereka.
-                        Sebagai penghubung antara sekolah dan dunia industri, BKK menyediakan informasi lowongan, pelatihan,
-                        dan program pengembangan keterampilan untuk mendukung karir lulusan.
-                    </p>
-
-                    <div class="p-4 mb-3 bg-light rounded d-flex align-items-start">
-                        <i class="fa-solid fa-briefcase text-primary fs-3 me-3"></i>
-                        <div>
-                            <h6 class="fw-bold mb-2">Lowongan Kerja Terbaik</h6>
-                            <p class="text-muted small mb-0">
-                                Temukan lowongan kerja terbaru dari perusahaan mitra SMKN 6 Jember sesuai minat dan keahlianmu.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="p-4 mb-3 bg-light rounded d-flex align-items-start">
-                        <i class="fa-solid fa-handshake text-success fs-3 me-3"></i>
-                        <div>
-                            <h6 class="fw-bold mb-2">Relasi Luas</h6>
-                            <p class="text-muted small mb-0">
-                                SMKN 6 Jember memiliki jaringan luas dengan berbagai perusahaan untuk mendukung magang dan
-                                peluang karier siswa.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-end align-items-center mt-4 gap-3">
-                        <div class="d-flex align-items-center">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="rounded-circle me-2" width="50" height="50" alt="Guru">
-                            <div>
-                                <h6 class="fw-bold mb-0">User S.Pd</h6>
-                                <small class="text-muted">Guru BKK</small>
-                            </div>
-                        </div>
-                        <a href="#" class="btn btn-success">
-                            <i class="fa-brands fa-whatsapp me-2"></i> Hubungi Sekarang
-                        </a>
-                    </div>
-                </div>
+                <a href="{{ route('lowongan.public') }}" class="search">Cari</a>
             </div>
+
+            <br>
+            <p>Daftar Sekarang dan dapatkan pekerjaan secepatnya</p>
+            <br>
+            <a href="{{ route('register') }}" class="daftar">Daftar Sekarang</a>
         </div>
-    </section>
-</section>
-
-<br><br><br><br>
-
-<img src="{{ asset('image/Pattern.png') }}" alt="" width="200" style="left: 71.9rem; display: flex; position: absolute; margin-top:-8rem;">
-
-<div class="container-4">
-    <div class="left">
-        <h2 class="fw-bold">Lowongan Pekerjaan</h2>
-        <p>Temukan Lowongan Pekerjaan Terbaru</p>
-
-        @foreach ($lowongan as $job)
-        <div class="job-card">
-            <div class="job-info">
-                <img src="{{ asset($job->perusahaan->logo ?? 'image/Rectangle 444.png') }}" alt="Logo">
-                <div class="job-text">
-                    <h3>{{ $job->judul }} | {{ $job->perusahaan->nama ?? '-' }}</h3>
-                    <p>
-                        {{ $job->perusahaan->nama ?? '-' }} <br>
-                        Posisi: {{ $job->posisi ?? '-' }} <br>
-                        Pendidikan: {{ $job->pendidikan }} <br>
-                        Jenis Pekerjaan: {{ $job->jenis_pekerjaan }} <br>
-                    </p>
-                    <a href="{{ route('lowongan.show', $job->slug) }}" class="btn btn-primary mt-2">
-                        Lihat Detail
-                    </a>
-                </div>
-            </div>
-        </div>
-        @endforeach
     </div>
 
-    <div class="right">
-        <div class="containerprofile">
-            <img src="{{ asset('image/Rectangle 447.png') }}" alt="Gambar Orang">
-            <div class="content">
-                <ul class="steps">
-                    <h3>Alur Pendaftaran Pekerjaan</h3>
-                    <hr style="width: 320px;">
-                    <br>
-                    <li><span class="circle">1</span> Daftar Akun</li>
-                    <li><span class="circle">2</span> Login Akun</li>
-                    <li><span class="circle">3</span> Verifikasi Akun</li>
-                    <li><span class="circle">4</span> Pilih atau cari loker</li>
-                    <li><span class="circle">5</span> Daftar Pekerjaan</li>
-                    <li><span class="circle">6</span> Daftar Ulang</li>
-                </ul>
-            </div>
-        </div>
+    <div class="hero-student">
+        <img src="{{ asset('image/hero.png') }}" alt="" class="img-fluid rounded">
+    </div>
+    <div class="wave">
+        <img src="{{ asset('image/Vector 46.png') }}" alt="" width="100%" class="img-fluid rounded"
+            style="position: relative;">
 
-        <div class="latest">
-            <h3>Lowongan Teratas</h3>
-            @foreach ($lowongan->take(3) as $job)
-            <div class="job">
-                <div class="job-info2">
-                    <p>{{ $job->judul }} | {{ $job->perusahaan->nama ?? '-' }}<br> {{ $job->posisi }}</p>
-                    <a href="{{ route('lowongan.show.public', $job->slug) }}">
-                        <button>Lihat</button>
-                    </a>
+        <section class="kategori">
+            <div class="kategori-header">
+                <h2>Kategori</h2>
+                <p>Kami menyediakan berbagai kategori perusahaan sesuai bidang anda</p>
+            </div>
+
+            <div class="kategori-container">
+                <div class="kategori-card">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Administrasi</span>
+                </div>
+                <div class="kategori-card">
+                    <i class="fas fa-user-cog"></i>
+                    <span>Operator</span>
+                </div>
+                <div class="kategori-card">
+                    <i class="fas fa-tools"></i>
+                    <span>Teknisi</span>
+                </div>
+                <div class="kategori-card">
+                    <i class="fas fa-industry"></i>
+                    <span>Industri</span>
+                </div>
+                <div class="kategori-card">
+                    <i class="fas fa-network-wired"></i>
+                    <span>IT / TIK</span>
+                </div>
+                <div class="kategori-card">
+                    <i class="fas fa-notes-medical"></i>
+                    <span>Kesehatan</span>
                 </div>
             </div>
+        </section>
+
+        <img src="{{ asset('image/Vector 47.png') }}" alt="" style="margin-top: -2rem;" width="100%"
+            class="img-fluid rounded">
+    </div>
+
+    <section id="tentang">
+        <section class="section-bkk py-5">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 text-center">
+                        <div class="position-relative">
+                            <img src="{{ asset('image/Rectangle 463.png') }}" class="img-fluid rounded shadow mb-3"
+                                alt="Tim BKK">
+                            <img src="{{ asset('image/logobkk.jpg') }}"
+                                class="position-absolute bottom-0 end-0 rounded shadow" style="width: 120px;"
+                                alt="Rapat">
+                            <div
+                                class="position-absolute bottom-0 start-0 bg-white shadow rounded d-flex align-items-center p-2">
+                                <i class="fa-solid fa-medal text-primary fs-4 me-2"></i>
+                                <div>
+                                    <h5 class="mb-0 fw-bold">100+</h5>
+                                    <small class="text-muted">Siswa Unggul</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <h2 class="fw-bold mb-3">Tentang BKK</h2>
+                        <p class="text-muted mb-4">
+                            BKK SMKN 6 Jember membantu siswa dan alumni menemukan peluang kerja sesuai kompetensi mereka.
+                            Sebagai penghubung antara sekolah dan dunia industri, BKK menyediakan informasi lowongan,
+                            pelatihan,
+                            dan program pengembangan keterampilan untuk mendukung karir lulusan.
+                        </p>
+
+                        <div class="p-4 mb-3 bg-light rounded d-flex align-items-start">
+                            <i class="fa-solid fa-briefcase text-primary fs-3 me-3"></i>
+                            <div>
+                                <h6 class="fw-bold mb-2">Lowongan Kerja Terbaik</h6>
+                                <p class="text-muted small mb-0">
+                                    Temukan lowongan kerja terbaru dari perusahaan mitra SMKN 6 Jember sesuai minat dan
+                                    keahlianmu.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 mb-3 bg-light rounded d-flex align-items-start">
+                            <i class="fa-solid fa-handshake text-success fs-3 me-3"></i>
+                            <div>
+                                <h6 class="fw-bold mb-2">Relasi Luas</h6>
+                                <p class="text-muted small mb-0">
+                                    SMKN 6 Jember memiliki jaringan luas dengan berbagai perusahaan untuk mendukung magang
+                                    dan
+                                    peluang karier siswa.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end align-items-center mt-4 gap-3">
+                            <div class="d-flex align-items-center">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" class="rounded-circle me-2"
+                                    width="50" height="50" alt="Guru">
+                                <div>
+                                    <h6 class="fw-bold mb-0">User S.Pd</h6>
+                                    <small class="text-muted">Guru BKK</small>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-success">
+                                <i class="fa-brands fa-whatsapp me-2"></i> Hubungi Sekarang
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <br><br><br><br>
+
+    <img src="{{ asset('image/Pattern.png') }}" alt="" width="200"
+        style="left: 71.9rem; display: flex; position: absolute; margin-top:-8rem;">
+
+    <div class="container-4">
+        <div class="left">
+            <h2 class="fw-bold">Lowongan Pekerjaan</h2>
+            <p>Temukan Lowongan Pekerjaan Terbaru</p>
+
+            @foreach ($lowongan as $job)
+                <div class="job-card">
+                    <div class="job-info">
+                        <img src="{{ asset($job->perusahaan->logo ?? 'image/Rectangle 444.png') }}" alt="Logo">
+                        <div class="job-text">
+                            <h3>{{ $job->judul }} | {{ $job->perusahaan->nama ?? '-' }}</h3>
+                            <p>
+                                {{ $job->perusahaan->nama ?? '-' }} <br>
+                                Posisi: {{ $job->posisi ?? '-' }} <br>
+                                Pendidikan: {{ $job->pendidikan }} <br>
+                                Jenis Pekerjaan: {{ $job->jenis_pekerjaan }} <br>
+                            </p>
+                            <a href="{{ route('lowongan.show', $job->slug) }}" class="btn btn-primary mt-2">
+                                Lihat Detail
+                            </a>
+                        </div>
+                    </div>
+                </div>
             @endforeach
         </div>
-    </div>
-</div>
 
-<br><br>
-
-<section class="py-5" style="background: linear-gradient(90deg, #1e3c72, #2a5298); color: white;">
-    <div class="container">
-        <div class="row align-items-center mb-4">
-            <div class="col-md-6 mb-4 mb-md-0">
-                <h6 class="text-uppercase">Perusahaan Mitra SMKN 6 Jember</h6>
-                <h2 class="fw-bold">Kesempatan Magang & Kerja Sama Terbaru</h2>
-                <p>SMKN 6 Jember bekerja sama dengan berbagai perusahaan untuk memberikan siswa dan alumni peluang magang, praktik kerja, dan kerja. Temukan mitra yang sesuai minatmu.</p>
-                <a href="{{ route('perusahaan.public') }}" class="btn">Selengkapnya</a>
-            </div>
-            <div class="col-md-6">
-                <div class="row g-2">
-                    <div class="col-12 col-md-4 mb-3">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body text-center">
-                                <img src="{{ asset('image/mitra1.jpeg') }}" class="mb-2" alt="Logo" width="60">
-                                <h6 class="card-title">MasCitra. Com</h6>
-                                <p class="mb-1"><small>Jember | Software</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-3">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body text-center">
-                                <img src="{{ asset('image/mitra2.png') }}" class="mb-2" alt="Logo" width="60">
-                                <h6 class="card-title">PT Indo Bismar</h6>
-                                <p class="mb-1"><small>Surabaya | Grosir</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-3">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body text-center">
-                                <img src="{{ asset('image/mitra3.png') }}" class="mb-2" alt="Logo" width="60">
-                                <h6 class="card-title">PT OJK Jember</h6>
-                                <p class="mb-1"><small>Jember | Keuangan</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-3">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body text-center">
-                                <img src="{{ asset('image/mitra4.png') }}" class="mb-2" alt="Logo" width="60">
-                                <h6 class="card-title">UBIG</h6>
-                                <p class="mb-1"><small>Malang | Sotware</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-3">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body text-center">
-                                <img src="{{ asset('image/mitra5.png') }}" class="mb-2" alt="Logo" width="60">
-                                <h6 class="card-title">Hummatech</h6>
-                                <p class="mb-1"><small>Malang | Software</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-3">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body text-center">
-                                <img src="{{ asset('image/mitra6.png') }}" class="mb-2" alt="Logo" width="70">
-                                <h6 class="card-title">PT Matahari</h6>
-                                <p class="mb-1"><small>Jember | Ritel</small></p>
-                            </div>
-                        </div>
-                    </div>
+        <div class="right">
+            <div class="containerprofile">
+                <img src="{{ asset('image/Rectangle 447.png') }}" alt="Gambar Orang">
+                <div class="content">
+                    <ul class="steps">
+                        <h3>Alur Pendaftaran Pekerjaan</h3>
+                        <hr style="width: 320px;">
+                        <br>
+                        <li><span class="circle">1</span> Daftar Akun</li>
+                        <li><span class="circle">2</span> Login Akun</li>
+                        <li><span class="circle">3</span> Verifikasi Akun</li>
+                        <li><span class="circle">4</span> Pilih atau cari loker</li>
+                        <li><span class="circle">5</span> Daftar Pekerjaan</li>
+                        <li><span class="circle">6</span> Daftar Ulang</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
 
-<div class="testimoni">
-    <h2>Testimoni ALumni</h2>
-    <p>Yuk intip apa kata alumni tentang BKK</p>
-</div>
-
-<section class="ts-wrapper" id="testimoni-slider">
-    <div class="ts-viewport">
-        <div class="ts-track" role="list">
-            <article class="ts-card left" role="listitem" aria-label="Testimoni 1">
-                <div class="ts-avatar">HD</div>
-                <div class="ts-name">Helena Dwi Hapsari</div>
-                <div class="ts-role">Alumni RPL, Angkatan 2022 · CEO Gojek</div>
-                <div class="ts-stars" aria-label="Rating 5 dari 5">★★★★★ <span class="ts-score">5.0</span></div>
-                <p class="ts-desc">
-                    BKK SMKN 6 Jember sangat membantu saya dalam menemukan pekerjaan pertama saya di bidang IT.
-                    Proses pendaftarannya mudah dan informasi lowongannya lengkap.
-                </p>
-            </article>
-
-            <article class="ts-card active" role="listitem" aria-label="Testimoni 2">
-                <div class="ts-avatar">RD</div>
-                <div class="ts-name">Rizky Dwi</div>
-                <div class="ts-role">Alumni DKV, Angkatan 2021 · Designer Studio X</div>
-                <div class="ts-stars" aria-label="Rating 5 dari 5">★★★★★ <span class="ts-score">5.0</span></div>
-                <p class="ts-desc">
-                    Program BKK memudahkan saya mendapatkan peluang kerja di bidang desain grafis.
-                    Jaringan industrinya luas dan prosesnya rapi.
-                </p>
-            </article>
-
-            <article class="ts-card right" role="listitem" aria-label="Testimoni 3">
-                <div class="ts-avatar">BD</div>
-                <div class="ts-name">Dewi Lestari</div>
-                <div class="ts-role">Alumni BD, Angkatan 2020 · Content Creator</div>
-                <div class="ts-stars" aria-label="Rating 5 dari 5">★★★★★ <span class="ts-score">5.0</span></div>
-                <p class="ts-desc">
-                    Dari pelatihan hingga penempatan kerja di bidang broadcast, semuanya terarah dan efektif.
-                    Terima kasih BKK SMKN 6 Jember!
-                </p>
-            </article>
-
-            <article class="ts-card right" role="listitem" aria-label="Testimoni 4">
-                <div class="ts-avatar">KK</div>
-                <div class="ts-name">Agus Santoso</div>
-                <div class="ts-role">Alumni KKBT, Angkatan 2019 · Technician</div>
-                <div class="ts-stars" aria-label="Rating 5 dari 5">★★★★★ <span class="ts-score">5.0</span></div>
-                <p class="ts-desc">
-                    Rekomendasi banget untuk siswa KKBT yang ingin cepat kerja.
-                    Lowongan yang disediakan sesuai dengan minat dan keahlian teknis.
-                </p>
-            </article>
-        </div>
-
-        <div class="ts-nav">
-            <button class="ts-btn ts-prev" aria-label="Sebelumnya">‹</button>
-            <div class="ts-dots" aria-hidden="true"></div>
-            <button class="ts-btn ts-next" aria-label="Berikutnya">›</button>
-        </div>
-    </div>
-</section>
-
-<section class="tracer-study mt-n4">
-    <h2>Tracer Study</h2>
-    <div class="container">
-        @if ($tracerData->isNotEmpty())
-        <div class="chart-legend-wrapper">
-            <div class="chart-container">
-                <canvas id="tracerChart"></canvas>
-            </div>
-            <div class="legend-container">
-                @foreach ($tracerData as $data)
-                <div class="legend-item">
-                    <div class="legend-color" style="background-color: {{ $colors[$loop->index] ?? '#000' }}"></div>
-                    <p>{{ $data->category }} : <span>{{ $data->value }}</span></p>
-                </div>
+            <div class="latest">
+                <h3>Lowongan Teratas</h3>
+                @foreach ($lowongan->take(3) as $job)
+                    <div class="job">
+                        <div class="job-info2">
+                            <p>{{ $job->judul }} | {{ $job->perusahaan->nama ?? '-' }}<br> {{ $job->posisi }}</p>
+                            <a href="{{ route('lowongan.show.public', $job->slug) }}">
+                                <button>Lihat</button>
+                            </a>
+                        </div>
+                    </div>
                 @endforeach
             </div>
         </div>
-        @else
-        <p>Data not available</p>
-        @endif
     </div>
+
     <br><br>
-    <p>
-        Data ini setiap tahun akan berubah sesuai dengan website ini
-        <a href="https://tracervokasi.kemendikdasmen.go.id/" target="_blank" class="text-blue-600 hover:underline">
-            https://tracervokasi.kemendikdasmen.go.id/
-        </a>.
-    </p>
-</section>
 
-<br><br>
-
-<section class="agenda" aria-labelledby="agenda-title">
-    <div class="agenda-header">
-        <h2 id="agenda-title" class="fw-bold">Berita & Kegiatan</h2>
-    </div>
-    <div class="agenda-grid">
-        <div class="agenda-list">
-            @if ($kegiatan->isEmpty())
-            <div class="agenda-item" style="text-align:center; padding:40px;">
-                <h3 class="agenda-title mb-2">Belum Ada Kegiatan</h3>
-                <p class="agenda-desc">Saat ini belum ada kegiatan atau agenda yang tersedia.</p>
-            </div>
-            @else
-            @foreach ($kegiatan as $item)
-            <article class="agenda-item">
-                <img src="{{ $item->gambar ? asset(str_replace('public/', 'storage/', $item->gambar)) : asset('image/Rectangle 463.png') }}" alt="{{ $item->judul }}">
-                <div class="agenda-body">
-                    <h3 class="agenda-title">{{ $item->judul }}</h3>
-                    <p class="agenda-desc">{{ Str::limit($item->deskripsi, 80) }}</p>
-                    <div class="agenda-actions">
-                        <a href="{{ route('kegiatan.show.public', $item->id) }}" class="btn-primary">Lihat Detail</a>
-                        <span class="agenda-date">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('l, d F Y') }}</span>
+    <section class="py-5" style="background: linear-gradient(90deg, #1e3c72, #2a5298); color: white;">
+        <div class="container">
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h6 class="text-uppercase">Perusahaan Mitra SMKN 6 Jember</h6>
+                    <h2 class="fw-bold">Kesempatan Magang & Kerja Sama Terbaru</h2>
+                    <p>SMKN 6 Jember bekerja sama dengan berbagai perusahaan untuk memberikan siswa dan alumni peluang
+                        magang, praktik kerja, dan kerja. Temukan mitra yang sesuai minatmu.</p>
+                    <a href="{{ route('perusahaan.public') }}" class="btn">Selengkapnya</a>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-2">
+                        <div class="col-12 col-md-4 mb-3">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body text-center">
+                                    <img src="{{ asset('image/mitra1.jpeg') }}" class="mb-2" alt="Logo"
+                                        width="60">
+                                    <h6 class="card-title">MasCitra. Com</h6>
+                                    <p class="mb-1"><small>Jember | Software</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-3">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body text-center">
+                                    <img src="{{ asset('image/mitra2.png') }}" class="mb-2" alt="Logo"
+                                        width="60">
+                                    <h6 class="card-title">PT Indo Bismar</h6>
+                                    <p class="mb-1"><small>Surabaya | Grosir</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-3">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body text-center">
+                                    <img src="{{ asset('image/mitra3.png') }}" class="mb-2" alt="Logo"
+                                        width="60">
+                                    <h6 class="card-title">PT OJK Jember</h6>
+                                    <p class="mb-1"><small>Jember | Keuangan</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-3">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body text-center">
+                                    <img src="{{ asset('image/mitra4.png') }}" class="mb-2" alt="Logo"
+                                        width="60">
+                                    <h6 class="card-title">UBIG</h6>
+                                    <p class="mb-1"><small>Malang | Sotware</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-3">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body text-center">
+                                    <img src="{{ asset('image/mitra5.png') }}" class="mb-2" alt="Logo"
+                                        width="60">
+                                    <h6 class="card-title">Hummatech</h6>
+                                    <p class="mb-1"><small>Malang | Software</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-3">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body text-center">
+                                    <img src="{{ asset('image/mitra6.png') }}" class="mb-2" alt="Logo"
+                                        width="70">
+                                    <h6 class="card-title">PT Matahari</h6>
+                                    <p class="mb-1"><small>Jember | Ritel</small></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </article>
-            @endforeach
-            @endif
-            <a href="{{ route('kegiatan.public') }}" class="btn btn-primary all-agenda">Lihat Semua Agenda</a>
-        </div>
-
-        <aside class="agenda-side">
-            <h5><i class="fas fa-clock me-2"></i> Terbaru</h5>
-            @php $featured = $kegiatan->sortByDesc('created_at')->first(); @endphp
-            @if ($featured)
-            <article class="feature-card">
-                <figure class="feature-media">
-                    <img src="{{ $featured->gambar ? asset(str_replace('public/', 'storage/', $featured->gambar)) : asset('image/Rectangle 511.png') }}" alt="{{ $featured->judul }}">
-                </figure>
-                <div class="feature-body">
-                    <h3 class="feature-title">{{ $featured->judul }}</h3>
-                    <p class="feature-meta">{{ $featured->tipe_kegiatan ?? 'BKK SMKN 6 JEMBER' }}</p>
-                    <a href="{{ route('kegiatan.show.public', $featured->id) }}" class="btn-secondary">Lihat Detail</a>
-                </div>
-            </article>
-            @else
-            <article class="feature-card">
-                <figure class="feature-media">
-                    <img src="{{ asset('image/Rectangle 511.png') }}" alt="Featured Webinar">
-                </figure>
-                <div class="feature-body">
-                    <h3 class="feature-title">Tidak ada berita terbaru</h3>
-                    <p class="feature-meta">BKK SMKN 6 JEMBER</p>
-                </div>
-            </article>
-            @endif
-        </aside>
-    </div>
-</section>
-
-<br>
-
-<section class="contact-section">
-    <h2>Kontak</h2>
-    <p>Hubungi Kami Kapan Saja</p>
-
-    <div class="contact-container">
-        <form class="contact-form">
-            <label for="nama">Nama</label>
-            <input type="text" id="nama" placeholder="Masukkan Nama">
-
-            <label for="alamat">Alamat</label>
-            <input type="text" id="alamat" placeholder="Masukkan Alamat">
-
-            <label for="nohp">No Hp</label>
-            <input type="text" id="nohp" placeholder="Masukkan No HP">
-
-            <label for="pesan">Pesan</label>
-            <textarea id="pesan" rows="4" placeholder="Tulis Pesan..."></textarea>
-
-            <button type="submit">Kirim Pesan</button>
-        </form>
-
-        <div class="contact-info">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1412.5328379938078!2d113.4347124269006!3d-8.155450754436908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd68b08077adae9%3A0x32c15952de1123cb!2sSMK%20Negeri%206%20Jember!5e0!3m2!1sid!2sid!4v1750121694154!5m2!1sid!2sid" width="100%" height="300" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-            <p class="address">
-                <i class="fas fa-map-marker-alt"></i>
-                RCVP+R39, Jl. PB.Sudirman, Tekoan,
-                Tanggul Kulon, Kec. Tanggul, Kabupaten Jember, Jawa Timur 68155
-            </p>
-            <p><b>Hubungi Kami</b></p>
-            <div class="social-links">
-                <a href="" target="_blank">
-                    <img src="{{ asset('image/image 107.png') }}" alt="Facebook">
-                </a>
-                <a href="https://www.facebook.com/smkn1tanggul?locale=id_ID" target="_blank">
-                    <img src="{{ asset('image/image 108.png') }}" alt="Twitter">
-                </a>
-                <a href="https://www.youtube.com/@smknegeri6jember" target="_blank">
-                    <img src="{{ asset('image/image 109.png') }}" alt="Instagram">
-                </a>
             </div>
         </div>
+    </section>
+
+    <div class="testimoni">
+        <h2>Testimoni ALumni</h2>
+        <p>Yuk intip apa kata alumni tentang BKK</p>
     </div>
-</section>
+
+    <section class="ts-wrapper" id="testimoni-slider">
+        <div class="ts-viewport">
+            <div class="ts-track" role="list">
+                <article class="ts-card left" role="listitem" aria-label="Testimoni 1">
+                    <div class="ts-avatar">HD</div>
+                    <div class="ts-name">Helena Dwi Hapsari</div>
+                    <div class="ts-role">Alumni RPL, Angkatan 2022 · CEO Gojek</div>
+                    <div class="ts-stars" aria-label="Rating 5 dari 5">★★★★★ <span class="ts-score">5.0</span></div>
+                    <p class="ts-desc">
+                        BKK SMKN 6 Jember sangat membantu saya dalam menemukan pekerjaan pertama saya di bidang IT.
+                        Proses pendaftarannya mudah dan informasi lowongannya lengkap.
+                    </p>
+                </article>
+
+                <article class="ts-card active" role="listitem" aria-label="Testimoni 2">
+                    <div class="ts-avatar">RD</div>
+                    <div class="ts-name">Rizky Dwi</div>
+                    <div class="ts-role">Alumni DKV, Angkatan 2021 · Designer Studio X</div>
+                    <div class="ts-stars" aria-label="Rating 5 dari 5">★★★★★ <span class="ts-score">5.0</span></div>
+                    <p class="ts-desc">
+                        Program BKK memudahkan saya mendapatkan peluang kerja di bidang desain grafis.
+                        Jaringan industrinya luas dan prosesnya rapi.
+                    </p>
+                </article>
+
+                <article class="ts-card right" role="listitem" aria-label="Testimoni 3">
+                    <div class="ts-avatar">BD</div>
+                    <div class="ts-name">Dewi Lestari</div>
+                    <div class="ts-role">Alumni BD, Angkatan 2020 · Content Creator</div>
+                    <div class="ts-stars" aria-label="Rating 5 dari 5">★★★★★ <span class="ts-score">5.0</span></div>
+                    <p class="ts-desc">
+                        Dari pelatihan hingga penempatan kerja di bidang broadcast, semuanya terarah dan efektif.
+                        Terima kasih BKK SMKN 6 Jember!
+                    </p>
+                </article>
+
+                <article class="ts-card right" role="listitem" aria-label="Testimoni 4">
+                    <div class="ts-avatar">KK</div>
+                    <div class="ts-name">Agus Santoso</div>
+                    <div class="ts-role">Alumni KKBT, Angkatan 2019 · Technician</div>
+                    <div class="ts-stars" aria-label="Rating 5 dari 5">★★★★★ <span class="ts-score">5.0</span></div>
+                    <p class="ts-desc">
+                        Rekomendasi banget untuk siswa KKBT yang ingin cepat kerja.
+                        Lowongan yang disediakan sesuai dengan minat dan keahlian teknis.
+                    </p>
+                </article>
+            </div>
+
+            <div class="ts-nav">
+                <button class="ts-btn ts-prev" aria-label="Sebelumnya">‹</button>
+                <div class="ts-dots" aria-hidden="true"></div>
+                <button class="ts-btn ts-next" aria-label="Berikutnya">›</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="tracer-study mt-n4">
+        <h2>Tracer Study</h2>
+        <div class="container">
+            @if ($tracerData->isNotEmpty())
+                <div class="chart-legend-wrapper">
+                    <div class="chart-container">
+                        <canvas id="tracerChart"></canvas>
+                    </div>
+                    <div class="legend-container">
+                        @foreach ($tracerData as $data)
+                            <div class="legend-item">
+                                <div class="legend-color"
+                                    style="background-color: {{ $colors[$loop->index] ?? '#000' }}"></div>
+                                <p>{{ $data->category }} : <span>{{ $data->value }}</span></p>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @else
+                <p>Data not available</p>
+            @endif
+        </div>
+        <br><br>
+        <p>
+            Data ini setiap tahun akan berubah sesuai dengan website ini
+            <a href="https://tracervokasi.kemendikdasmen.go.id/" target="_blank" class="text-blue-600 hover:underline">
+                https://tracervokasi.kemendikdasmen.go.id/
+            </a>.
+        </p>
+    </section>
+
+    <br><br>
+
+    <section class="agenda" aria-labelledby="agenda-title">
+        <div class="agenda-header">
+            <h2 id="agenda-title" class="fw-bold">Berita & Kegiatan</h2>
+        </div>
+        <div class="agenda-grid">
+            <div class="agenda-list">
+                @if ($kegiatan->isEmpty())
+                    <div class="agenda-item" style="text-align:center; padding:40px;">
+                        <h3 class="agenda-title mb-2">Belum Ada Kegiatan</h3>
+                        <p class="agenda-desc">Saat ini belum ada kegiatan atau agenda yang tersedia.</p>
+                    </div>
+                @else
+                    @foreach ($kegiatan as $item)
+                        <article class="agenda-item">
+                            <img src="{{ $item->gambar ? asset(str_replace('public/', 'storage/', $item->gambar)) : asset('image/Rectangle 463.png') }}"
+                                alt="{{ $item->judul }}">
+                            <div class="agenda-body">
+                                <h3 class="agenda-title">{{ $item->judul }}</h3>
+                                <p class="agenda-desc">{{ Str::limit($item->deskripsi, 80) }}</p>
+                                <div class="agenda-actions">
+                                    <a href="{{ route('kegiatan.show.public', $item->id) }}" class="btn-primary">Lihat
+                                        Detail</a>
+                                    <span
+                                        class="agenda-date">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('l, d F Y') }}</span>
+                                </div>
+                            </div>
+                        </article>
+                    @endforeach
+                @endif
+                <a href="{{ route('kegiatan.public') }}" class="btn btn-primary all-agenda">Lihat Semua Agenda</a>
+            </div>
+
+            <aside class="agenda-side">
+                <h5><i class="fas fa-clock me-2"></i> Terbaru</h5>
+                @php $featured = $kegiatan->sortByDesc('created_at')->first(); @endphp
+                @if ($featured)
+                    <article class="feature-card">
+                        <figure class="feature-media">
+                            <img src="{{ $featured->gambar ? asset(str_replace('public/', 'storage/', $featured->gambar)) : asset('image/Rectangle 511.png') }}"
+                                alt="{{ $featured->judul }}">
+                        </figure>
+                        <div class="feature-body">
+                            <h3 class="feature-title">{{ $featured->judul }}</h3>
+                            <p class="feature-meta">{{ $featured->tipe_kegiatan ?? 'BKK SMKN 6 JEMBER' }}</p>
+                            <a href="{{ route('kegiatan.show.public', $featured->id) }}" class="btn-secondary">Lihat
+                                Detail</a>
+                        </div>
+                    </article>
+                @else
+                    <article class="feature-card">
+                        <figure class="feature-media">
+                            <img src="{{ asset('image/Rectangle 511.png') }}" alt="Featured Webinar">
+                        </figure>
+                        <div class="feature-body">
+                            <h3 class="feature-title">Tidak ada berita terbaru</h3>
+                            <p class="feature-meta">BKK SMKN 6 JEMBER</p>
+                        </div>
+                    </article>
+                @endif
+            </aside>
+        </div>
+    </section>
+
+    <br>
+
+    <section class="contact-section">
+        <h2>Kontak</h2>
+        <p>Hubungi Kami Kapan Saja</p>
+
+        <div class="contact-container">
+            <form class="contact-form">
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" placeholder="Masukkan Nama">
+
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" placeholder="Masukkan Alamat">
+
+                <label for="nohp">No Hp</label>
+                <input type="text" id="nohp" placeholder="Masukkan No HP">
+
+                <label for="pesan">Pesan</label>
+                <textarea id="pesan" rows="4" placeholder="Tulis Pesan..."></textarea>
+
+                <button type="submit">Kirim Pesan</button>
+            </form>
+
+            <div class="contact-info">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1412.5328379938078!2d113.4347124269006!3d-8.155450754436908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd68b08077adae9%3A0x32c15952de1123cb!2sSMK%20Negeri%206%20Jember!5e0!3m2!1sid!2sid!4v1750121694154!5m2!1sid!2sid"
+                    width="100%" height="300" style="border:0; border-radius:8px;" allowfullscreen=""
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <p class="address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    RCVP+R39, Jl. PB.Sudirman, Tekoan,
+                    Tanggul Kulon, Kec. Tanggul, Kabupaten Jember, Jawa Timur 68155
+                </p>
+                <p><b>Hubungi Kami</b></p>
+                <div class="social-links">
+                    <a href="" target="_blank">
+                        <img src="{{ asset('image/image 107.png') }}" alt="Facebook">
+                    </a>
+                    <a href="https://www.facebook.com/smkn1tanggul?locale=id_ID" target="_blank">
+                        <img src="{{ asset('image/image 108.png') }}" alt="Twitter">
+                    </a>
+                    <a href="https://www.youtube.com/@smknegeri6jember" target="_blank">
+                        <img src="{{ asset('image/image 109.png') }}" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 
 
