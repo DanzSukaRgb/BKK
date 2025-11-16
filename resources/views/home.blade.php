@@ -4,8 +4,8 @@
 @section('styles')
     <style>
         .hero {
-            padding: 7rem;
-            padding-top: 10rem;
+            padding: 10rem;
+            /* padding-top: 10rem; */
         }
 
         .hero-student {
@@ -1589,8 +1589,8 @@
 @section('content')
     <div class="hero">
         <div class="container">
-            {{-- <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern1" style="margin-top: -9.6rem; left: 0; position: absolute;">
-        <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern2" style="margin-top:  -9.6rem;  left: 74rem; position: absolute;"> --}}
+            <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern1" style="margin-top: -9.6rem; left: 0; position: absolute;">
+        <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern2" style="margin-top:  -9.6rem;  left: 74rem; position: absolute;">
 
             <h1>Cari Lowongan Kerja</h1>
 
