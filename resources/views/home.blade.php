@@ -1119,7 +1119,9 @@
             color: #2b65f7;
         }
 
-        /* Tablet Landscape & Desktop Kecil */
+
+
+        /* Tablet Landscape dan Desktop Kecil */
         @media (max-width: 1199px) {
             .hero {
                 padding: 6rem 4rem;
@@ -1147,7 +1149,6 @@
                 margin-top: -8rem;
             }
         }
-
 
         /* Tablet Portrait */
         @media (max-width: 991px) {
@@ -1226,104 +1227,99 @@
             }
         }
 
-
-
-        /* ============================================================
-       MOBILE LANDSCAPE
-       (Menggabungkan versi kamu + versi awal tanpa menghapus)
-       ============================================================ */
+        /* Mobile Landscape */
         @media (max-width: 767px) {
-
-            /* Dari kode awal */
             .hero {
-                padding: 4rem 1rem !important;
-                padding-top: 6rem !important;
-                text-align: center;
+                padding: 4rem 1rem;
+                padding-top: 6rem;
             }
 
             .hero h1 {
-                font-size: 1.5rem !important;
-                /* diambil dari kode kamu */
-                line-height: 1.3;
-                margin-bottom: 1rem;
+                font-size: 1.8rem;
             }
 
-            .hero .container {
-                padding: 0 10px;
+            .wave {
+                margin-top: 60px;
+            }
+
+            .hero-student img {
+                display: none;
             }
 
             .container-2 {
                 flex-direction: column;
                 align-items: center;
                 gap: 10px;
-                width: 100%;
-            }
-
-            .containerprofile img {
-                display: none;
             }
 
             .input1,
             select {
-                width: 100% !important;
+                width: 100%;
                 max-width: 300px;
-                /* penggabungan aman */
-                margin: 5px 0 !important;
-                font-size: 16px;
+                margin-top: 9px;
             }
 
             .search,
             .daftar {
-                width: 100% !important;
+                width: 100%;
                 max-width: 300px;
-                margin: 10px 0 !important;
-                padding: 12px !important;
-            }
-
-            /* Fix pattern */
-            .pattern1,
-            .pattern2 {
-                display: none !important;
+                margin-left: 0;
             }
 
             .wave img {
-                margin-top: -4rem !important;
-                width: 100%;
+                margin-top: -8rem;
             }
 
             .kategori {
-                margin-top: -2rem !important;
-                padding: 40px 15px !important;
+                margin-top: -2rem;
+                padding: 40px 15px;
             }
 
             .kategori-header {
-                margin-left: 0 !important;
-                text-align: center;
+                margin-left: 0;
             }
 
             .kategori-header h2 {
-                font-size: 28px !important;
-                /* penggabungan */
+                font-size: 28px;
             }
 
             .kategori-container {
-                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
 
             .kategori-card {
-                padding: 20px 10px !important;
+                padding: 20px 10px;
             }
 
             .kategori-card i {
-                font-size: 24px !important;
+                font-size: 24px;
             }
 
             .kategori-card span {
-                font-size: 12px !important;
+                font-size: 12px;
             }
 
-            /* Tambahan dari kode awal halaman lain */
+            .section-bkk {
+                padding: 40px 0;
+            }
+
+            .bkk-left .top-img,
+            .bkk-left img.small-img {
+                display: none;
+            }
+
+            .bkk-badge {
+                position: relative;
+                width: 100%;
+                bottom: 0;
+                margin-top: 20px;
+            }
+
+            .bkk-right h2 {
+                font-size: 1.5rem;
+            }
+
             .job-card {
                 flex-direction: column;
                 text-align: center;
@@ -1337,6 +1333,18 @@
             .job-info img {
                 width: 80px;
                 height: 80px;
+            }
+
+            .containerprofile img {
+                display: none
+            }
+
+            .steps hr {
+                width: 100% !important;
+            }
+
+            .ts-card {
+                flex: 0 0 280px;
             }
 
             .agenda-item {
@@ -1358,105 +1366,198 @@
                 justify-self: center;
             }
 
+            .promo-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .promo-img {
+                justify-self: center;
+                margin-bottom: 0;
+            }
+
         }
 
-
-
-        /* ============================================================
-       MOBILE PORTRAIT
-       ============================================================ */
+        /* Mobile Portrait */
         @media (max-width: 575px) {
-
             .hero {
-                padding: 3rem 1rem !important;
-                padding-top: 5rem !important;
+                padding: 3rem 1rem;
+                padding-top: 5rem;
             }
 
             .hero h1 {
-                font-size: 1.3rem !important;
+                font-size: 1.5rem;
             }
 
-            .kategori-container {
-                grid-template-columns: 1fr !important;
-                gap: 10px;
+            .wave {
+                margin-top: 60px;
             }
 
-            .containerprofile img {
+            .hero-student img {
                 display: none;
             }
 
-            .input1,
-            select,
-            .search,
-            .daftar {
-                font-size: 14px;
-                padding: 10px !important;
+            .kategori-container {
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
 
             .kategori-card {
                 padding: 25px 15px;
             }
 
+            .badge {
+                width: 100%;
+                position: relative;
+                bottom: 0;
+                margin-top: 20px;
+            }
+
+            .badge-text .number {
+                font-size: 24px;
+            }
+
+            .job {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .job-info2 {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .job-info2 img {
+                margin-left: 0;
+            }
+
+            .ts-wrapper {
+                padding: 10px 10px 70px;
+            }
+
             .ts-card {
                 flex: 0 0 260px;
+                padding: 20px 15px;
+            }
+
+            .chart-legend-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .chart-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .legend-container {
+                text-align: center;
+            }
+
+            .social-links img {
+                width: 25px;
             }
         }
 
-
-
-        /* ============================================================
-       VERY SMALL MOBILE
-       ============================================================ */
+        /* Very Small Mobile */
         @media (max-width: 375px) {
             .hero {
-                padding: 2rem 0.5rem !important;
-                padding-top: 4rem !important;
+                padding: 2rem 0.5rem;
+                padding-top: 4rem;
             }
 
             .hero h1 {
-                font-size: 1.3rem !important;
+                font-size: 1.3rem;
+            }
+
+            .wave {
+                margin-top: 60px;
             }
 
             .input1,
             select {
                 font-size: 16px;
+                margin-top: 9px;
+            }
+
+            .kategori-header h2 {
+                font-size: 24px;
+            }
+
+            .bkk-right h2 {
+                font-size: 1.3rem;
+            }
+
+            .bkk-feature {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .bkk-teacher {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .ts-card {
+                flex: 0 0 240px;
+            }
+
+            .agenda-title {
+                font-size: 14px;
+            }
+
+            .agenda-desc {
+                font-size: 12px;
             }
         }
 
-
-
-        /* ============================================================
-       ORIENTATION LANDSCAPE
-       ============================================================ */
-        @media (max-width: 767px) and (orientation: landscape) {
-
+        /* Height adjustments for mobile */
+        @media (max-height: 700px) and (max-width: 767px) {
             .hero {
-                padding-top: 4rem !important;
                 min-height: auto;
+                padding-top: 5rem;
+            }
+
+            .hero-student img {
+                display: none;
+            }
+
+            .wave {
+                margin-top: 60px;
+            }
+        }
+
+        /* Orientation specific */
+        @media (max-width: 767px) and (orientation: landscape) {
+            .hero {
+                padding-top: 4rem;
+                min-height: auto;
+            }
+
+            .hero-student img {
+                display: none;
             }
 
             .container-2 {
                 flex-direction: row;
                 flex-wrap: wrap;
-                justify-content: center;
+            }
+
+            .wave {
+                margin-top: 60px;
             }
 
             .input1,
             select {
-                width: 48% !important;
-                margin: 5px 1% !important;
-            }
-
-            .search,
-            .daftar {
-                width: 48% !important;
-                margin: 5px 1% !important;
+                width: 45%;
+                margin-top: 9px;
             }
         }
 
-
-
-        /* PRINT */
+        /* Print styles */
         @media print {
 
             .hero-student,
@@ -1489,10 +1590,8 @@
 @section('content')
     <div class="hero">
         <div class="container">
-            <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern1"
-                style="margin-top: -9.6rem; left: 0; position: absolute;">
-            <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern2"
-                style="margin-top:  -9.6rem;  left: 74rem; position: absolute;">
+            <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern1" style="margin-top: -9.6rem; left: 0; position: absolute;">
+        <img src="{{ asset('image/Pattern.png') }}" alt="" width="200" class="pattern2" style="margin-top:  -9.6rem;  left: 74rem; position: absolute;">
 
             <h1>Cari Lowongan Kerja</h1>
 
