@@ -43,6 +43,32 @@
             background-color: var(--light-color);
         }
 
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+            height: 70px;
+        }
+
+        .navbar-brand {
+            color: #1e62d0 !important;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+        }
+
+        .nav-link.active {
+            color: #1e62d0 !important;
+            font-weight: 600;
+        }
+
+        main {
+            padding-top: 70px;
+            min-height: calc(100vh - 70px);
+        }
+
         .section-title1:after {
             content: '';
             display: block;
@@ -52,6 +78,7 @@
             margin: 1.25rem auto 0;
             border-radius: 2px;
         }
+
 
         /* Hero Section */
         .hero-section {
@@ -1353,6 +1380,23 @@
             .gallery-grid {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
+
+            .navbar-collapse {
+                background: white;
+                margin-top: 10px;
+                border-radius: 8px;
+                padding: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-link {
+                padding: 10px 15px !important;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .nav-link:last-child {
+                border-bottom: none;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1458,76 +1502,91 @@
 </head>
 
 <body>
-   <nav class="navbar navbar-expand-lg navbar-light" style="z-index: 1050;">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('image/logosmk (1).png') }}" alt="logo" class="logo"> BKK SMKN 6 JEMBER
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#tentang">Profil</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('perusahaan.public') }}">Perusahaan</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('kegiatan.public') }}">Kegiatan</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('lowongan.public') }}">Lowongan</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Kontak</a></li>
-
-                @guest
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <img src="{{ asset('image/logosmk (1).png') }}" alt="logo" class="logo">
+                BKK SMKN 6 JEMBER
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}"
+                            href="{{ route('home') }}">Beranda</a>
                     </li>
-                @else
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ Auth::user()->name }}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-                            {{-- Link ke Dashboard sesuai role --}}
-                            @if(Auth::user()->role === 'admin')
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('dashboard') }}">
-                                        <i class="fas fa-user-tie me-2"></i> Admin
-                                    </a>
-                                </li>
-                            @elseif(Auth::user()->role === 'perusahaan')
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('perusahaan.dashboard') }}">
-                                        <i class="fas fa-building me-2"></i> Perusahaan
-                                    </a>
-                                </li>
-                            @elseif(Auth::user()->role === 'alumni')
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('alumni.dashboard') }}">
-                                        <i class="fas fa-user me-2"></i> Alumni
-                                    </a>
-                                </li>
-                            @endif
-
-                            {{-- Logout --}}
-                            <li>
-                                <a class="dropdown-item" href="#"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-out-alt me-2"></i> Logout
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}#tentang">Profil</a>
                     </li>
-                @endguest
-            </ul>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('perusahaan*') ? 'active' : '' }}"
+                            href="{{ route('perusahaan.public') }}">Perusahaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('kegiatan*') ? 'active' : '' }}"
+                            href="{{ route('kegiatan.public') }}">Kegiatan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('lowongan*') ? 'active' : '' }}"
+                            href="{{ route('lowongan.public') }}">Lowongan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('contact*') ? 'active' : '' }}"
+                            href="{{ route('contact') }}">Kontak</a>
+                    </li>
+
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                    @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                @if (Auth::user()->role === 'admin')
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                            <i class="fas fa-user-tie me-2"></i> Admin Dashboard
+                                        </a>
+                                    </li>
+                                @elseif(Auth::user()->role === 'perusahaan')
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('perusahaan.dashboard') }}">
+                                            <i class="fas fa-building me-2"></i> Perusahaan Dashboard
+                                        </a>
+                                    </li>
+                                @elseif(Auth::user()->role === 'alumni')
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('alumni.dashboard') }}">
+                                            <i class="fas fa-user me-2"></i> Alumni Dashboard
+                                        </a>
+                                    </li>
+                                @endif
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="fas fa-sign-out-alt me-2"></i> Logout
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-
+    </nav>
 
     <main>
         @yield('content')
@@ -1535,7 +1594,8 @@
 
     <footer class="footer">
         <div>
-            <img src="{{ asset('image/logosmk (1).png') }}" alt="BKKBISA Logo" class="footer-logo" width="50"> BKK SMKN 6 JEMBER
+            <img src="{{ asset('image/logosmk (1).png') }}" alt="BKKBISA Logo" class="footer-logo" width="50"> BKK
+            SMKN 6 JEMBER
             <p>BKK SMKN 6 Jember merupakan platform penyedia informasi lowongan pekerjaan berbasis online</p>
             <div class="social">
                 <a href="https://www.facebook.com/smkn1tanggul?locale=id_ID"><i class="fab fa-facebook"></i></a>
@@ -1549,9 +1609,9 @@
         <div>
             <h3>Opsi</h3>
             <ul>
-                <li><a href="{{route('perusahaan.public')}}">Daftar Perusahaan</a></li>
-                <li><a href="{{route('lowongan.public')}}">Daftar Lowongan</a></li>
-                <li><a href="{{route('kegiatan.public')}}">Kegiatan</a></li>
+                <li><a href="{{ route('perusahaan.public') }}">Daftar Perusahaan</a></li>
+                <li><a href="{{ route('lowongan.public') }}">Daftar Lowongan</a></li>
+                <li><a href="{{ route('kegiatan.public') }}">Kegiatan</a></li>
             </ul>
         </div>
         <div>
@@ -1565,14 +1625,13 @@
         <div>
             <h3>Akun</h3>
             <ul>
-                <li><a href="{{route('register')}}">Register</a></li>
-                <li><a href="{{route('login')}}">Login</a></li>
+                <li><a href="{{ route('register') }}">Register</a></li>
+                <li><a href="{{ route('login') }}">Login</a></li>
             </ul>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
