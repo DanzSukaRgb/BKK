@@ -3,9 +3,6 @@
 @section('content')
 <br>
 <br>
-<br>
-<br>
-<br>
 <div class="container mt-4">
     <!-- Header Section -->
     <div class="row mb-4">

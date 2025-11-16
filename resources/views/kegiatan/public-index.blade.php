@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="kegiatan-page">
+<div class="kegiatan-page" style="margin-top: 3px;">
     <!-- Hero Section -->
     <section class="hero-section bg-primary text-white py-4 py-lg-5">
         <div class="container">
