@@ -2034,7 +2034,8 @@
         <p>
             Data ini setiap tahun akan berubah sesuai dengan website ini
             <a href="https://tracervokasi.kemendikdasmen.go.id/" target="_blank" class="text-blue-600 hover:underline">
-                https://tracervokasi.kemendikdasmen.go.id/
+                https://tracervokasi.kemendikdasmen. <br>
+                go.id/
             </a>.
         </p>
     </section>
