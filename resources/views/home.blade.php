@@ -1225,6 +1225,20 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
+              .contact-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .contact-form,
+    .contact-info {
+        width: 80%;
+    }
+
+    .contact-section h2 {
+        font-size: 2rem;
+    }
         }
 
         /* Mobile Landscape */
@@ -1375,6 +1389,15 @@
                 justify-self: center;
                 margin-bottom: 0;
             }
+               .contact-form,
+    .contact-info {
+        width: 90%;
+    }
+
+    .social-links img {
+        width: 30px;
+        height: 30px;
+    }
 
         }
 
@@ -1459,6 +1482,34 @@
             .social-links img {
                 width: 25px;
             }
+
+    .contact-section {
+        padding: 40px 15px;
+    }
+
+    .contact-section h2 {
+        font-size: 1.7rem;
+    }
+
+    .contact-container {
+        gap: 25px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .contact-form button {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .social-links img {
+        width: 28px;
+        height: 28px;
+    }
         }
 
         /* Very Small Mobile */
@@ -1512,6 +1563,23 @@
             .agenda-desc {
                 font-size: 12px;
             }
+
+    .contact-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 18px;
+    }
+
+    .contact-form button {
+        font-size: 0.9rem;
+    }
+
+    .social-links img {
+        width: 24px;
+        height: 24px;
+    }
         }
 
         /* Height adjustments for mobile */
