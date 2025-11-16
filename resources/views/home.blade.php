@@ -1126,469 +1126,472 @@
            ============================== */
 
         /* Tablet Landscape dan Desktop Kecil */
-        @media (max-width: 1199px) {
-            .hero {
-                padding: 6rem 4rem;
-                padding-top: 8rem;
-            }
-
-            .hero-student img {
-                display: none;
-            }
-
-            .kategori-header {
-                margin-left: 5rem;
-            }
-
-            .container-4 {
-                max-width: 95%;
-                gap: 15px;
-            }
-
-            .bkk-badge {
-                width: 450px;
-            }
-
-            .wave img {
-                margin-top: -8rem;
-            }
-        }
-
-        /* Tablet Portrait */
-        @media (max-width: 991px) {
-            .hero {
-                padding: 5rem 2rem;
-                padding-top: 7rem;
-                text-align: center;
-            }
-
-            .wave img {
-                margin-top: -8rem;
-            }
-
-            .hero-student {
-                display: none;
-            }
-
-            .hero-student img {
-                width: 300px;
-                margin-top: 0;
-                margin-right: 0;
-            }
-
-            .container-2 {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .input1,
-            select {
-                width: 200px;
-            }
-
-            .kategori-header {
-                margin-left: 2rem;
-                text-align: center;
-            }
-
-            .kategori-header h2,
-            .kategori-header p {
-                text-align: center;
-            }
-
-            .container-4 {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .left,
-            .right {
-                width: 100%;
-            }
-
-            .bkk-left .top-img {
-                width: 200px;
-                left: -20px;
-                top: -20px;
-            }
-
-            .bkk-left img.small-img {
-                width: 150px;
-                bottom: -20px;
-                right: 0;
-            }
-
-            .bkk-badge {
-                width: 350px;
-                height: auto;
-                padding: 12px 20px;
-                bottom: -60px;
-            }
-
-            .agenda-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-        }
-
-        /* Mobile Landscape */
-        @media (max-width: 767px) {
-            .hero {
-                padding: 4rem 1rem;
-                padding-top: 6rem;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .wave {
-                margin-top: 60px;
-            }
-
-            .hero-student img {
-                display: none;
-            }
-
-            .container-2 {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .input1,
-            select {
-                width: 100%;
-                max-width: 300px;
-                margin-top: 9px;
-            }
-
-            .search,
-            .daftar {
-                width: 100%;
-                max-width: 300px;
-                margin-left: 0;
-            }
-
-            .wave img {
-                margin-top: -8rem;
-            }
-
-            .kategori {
-                margin-top: -2rem;
-                padding: 40px 15px;
-            }
-
-            .kategori-header {
-                margin-left: 0;
-            }
-
-            .kategori-header h2 {
-                font-size: 28px;
-            }
-
-            .kategori-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .kategori-card {
-                padding: 20px 10px;
-            }
-
-            .kategori-card i {
-                font-size: 24px;
-            }
-
-            .kategori-card span {
-                font-size: 12px;
-            }
-
-            .section-bkk {
-                padding: 40px 0;
-            }
-
-            .bkk-left .top-img,
-            .bkk-left img.small-img {
-                display: none;
-            }
-
-            .bkk-badge {
-                position: relative;
-                width: 100%;
-                bottom: 0;
-                margin-top: 20px;
-            }
-
-            .bkk-right h2 {
-                font-size: 1.5rem;
-            }
-
-            .job-card {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-
-            .job-info {
-                flex-direction: column;
-            }
-
-            .job-info img {
-                width: 80px;
-                height: 80px;
-            }
-
-            .containerprofile img {
-                display: none
-            }
-
-            .steps hr {
-                width: 100% !important;
-            }
-
-            .ts-card {
-                flex: 0 0 280px;
-            }
-
-            .agenda-item {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .agenda-item img {
-                width: 100%;
-                height: 150px;
-            }
-
-            .agenda-actions {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .agenda-date {
-                justify-self: center;
-            }
-
-            .promo-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .promo-img {
-                justify-self: center;
-                margin-bottom: 0;
-            }
-        }
-
-        /* Mobile Portrait */
-        @media (max-width: 575px) {
-            .hero {
-                padding: 3rem 1rem;
-                padding-top: 5rem;
-            }
-
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .wave {
-                margin-top: 60px;
-            }
-
-            .hero-student img {
-                display: none;
-            }
-
-            .kategori-container {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .kategori-card {
-                padding: 25px 15px;
-            }
-
-            .badge {
-                width: 100%;
-                position: relative;
-                bottom: 0;
-                margin-top: 20px;
-            }
-
-            .badge-text .number {
-                font-size: 24px;
-            }
-
-            .job {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-
-            .job-info2 {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .job-info2 img {
-                margin-left: 0;
-            }
-
-            .ts-wrapper {
-                padding: 10px 10px 70px;
-            }
-
-            .ts-card {
-                flex: 0 0 260px;
-                padding: 20px 15px;
-            }
-
-            .chart-legend-wrapper {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-
-            .chart-container {
-                width: 250px;
-                height: 250px;
-            }
-
-            .legend-container {
-                text-align: center;
-            }
-
-
-            .social-links img {
-                width: 25px;
-            }
-        }
-
-        /* Very Small Mobile */
-        @media (max-width: 375px) {
-            .hero {
-                padding: 2rem 0.5rem;
-                padding-top: 4rem;
-            }
-
-            .hero h1 {
-                font-size: 1.3rem;
-            }
-
-            .wave {
-                margin-top: 60px;
-            }
-
-            .input1,
-            select {
-                font-size: 16px;
-                margin-top: 9px;
-            }
-
-            .kategori-header h2 {
-                font-size: 24px;
-            }
-
-            .bkk-right h2 {
-                font-size: 1.3rem;
-            }
-
-            .bkk-feature {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-
-            .bkk-teacher {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .ts-card {
-                flex: 0 0 240px;
-            }
-
-            .agenda-title {
-                font-size: 14px;
-            }
-
-            .agenda-desc {
-                font-size: 12px;
-            }
-        }
-
-        /* Height adjustments for mobile */
-        @media (max-height: 700px) and (max-width: 767px) {
-            .hero {
-                min-height: auto;
-                padding-top: 5rem;
-            }
-
-            .hero-student img {
-                display: none;
-            }
-
-            .wave {
-                margin-top: 60px;
-            }
-        }
-
-        /* Orientation specific */
-        @media (max-width: 767px) and (orientation: landscape) {
-            .hero {
-                padding-top: 4rem;
-                min-height: auto;
-            }
-
-            .hero-student img {
-                display: none;
-            }
-
-            .container-2 {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-
-            .wave {
-                margin-top: 60px;
-            }
-
-            .input1,
-            select {
-                width: 45%;
-                margin-top: 9px;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-
-            .hero-student,
-            .wave,
-            .social-links,
-            .ts-nav,
-            .agenda-side {
-                display: none;
-            }
-
-            .hero {
-                padding: 2rem 0;
-                color: black;
-                background: white;
-            }
-
-            .kategori {
-                background: white !important;
-                color: black !important;
-                margin-top: 0;
-            }
-
-            .kategori-card {
-                border: 1px solid #ccc;
-            }
-        }
+       /* ==============================
+   RESPONSIVE STYLES ONLY
+   Tambahkan di bagian paling bawah styles section
+   ============================== */
+
+/* Tablet Landscape dan Desktop Kecil */
+@media (max-width: 1199px) {
+    .hero {
+        padding: 6rem 4rem;
+        padding-top: 8rem;
+    }
+
+    .hero-student img {
+        display: none;
+    }
+
+    .kategori-header {
+        margin-left: 5rem;
+    }
+
+    .container-4 {
+        max-width: 95%;
+        gap: 15px;
+    }
+
+    .bkk-badge {
+        width: 450px;
+    }
+
+    .wave img {
+        margin-top: -8rem;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 991px) {
+    .hero {
+        padding: 5rem 2rem;
+        padding-top: 7rem;
+        text-align: center;
+    }
+
+    .wave img {
+        margin-top: -8rem;
+    }
+
+    .hero-student {
+        display: none;
+    }
+
+    .hero-student img {
+        width: 300px;
+        margin-top: 0;
+        margin-right: 0;
+    }
+
+    .container-2 {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .input1,
+    select {
+        width: 200px;
+    }
+
+    .kategori-header {
+        margin-left: 2rem;
+        text-align: center;
+    }
+
+    .kategori-header h2,
+    .kategori-header p {
+        text-align: center;
+    }
+
+    .container-4 {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+    }
+
+    .bkk-left .top-img {
+        width: 200px;
+        left: -20px;
+        top: -20px;
+    }
+
+    .bkk-left img.small-img {
+        width: 150px;
+        bottom: -20px;
+        right: 0;
+    }
+
+    .bkk-badge {
+        width: 350px;
+        height: auto;
+        padding: 12px 20px;
+        bottom: -60px;
+    }
+
+    .agenda-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Mobile Landscape */
+@media (max-width: 767px) {
+    .hero {
+        padding: 4rem 1rem;
+        padding-top: 6rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .wave {
+        margin-top: 60px;
+    }
+
+    .hero-student img {
+        display: none;
+    }
+
+    .container-2 {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .input1,
+    select {
+        width: 100%;
+        max-width: 300px;
+        margin-top: 9px;
+    }
+
+    .search,
+    .daftar {
+        width: 100%;
+        max-width: 300px;
+        margin-left: 0;
+    }
+
+    .wave img {
+        margin-top: -8rem;
+    }
+
+    .kategori {
+        margin-top: -2rem;
+        padding: 40px 15px;
+    }
+
+    .kategori-header {
+        margin-left: 0;
+    }
+
+    .kategori-header h2 {
+        font-size: 28px;
+    }
+
+    .kategori-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .kategori-card {
+        padding: 20px 10px;
+    }
+
+    .kategori-card i {
+        font-size: 24px;
+    }
+
+    .kategori-card span {
+        font-size: 12px;
+    }
+
+    .section-bkk {
+        padding: 40px 0;
+    }
+
+    .bkk-left .top-img,
+    .bkk-left img.small-img {
+        display: none;
+    }
+
+    .bkk-badge {
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        margin-top: 20px;
+    }
+
+    .bkk-right h2 {
+        font-size: 1.5rem;
+    }
+
+    .job-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .job-info {
+        flex-direction: column;
+    }
+
+    .job-info img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .containerprofile img {
+        display: none
+    }
+
+    .steps hr {
+        width: 100% !important;
+    }
+
+    .ts-card {
+        flex: 0 0 280px;
+    }
+
+    .agenda-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .agenda-item img {
+        width: 100%;
+        height: 150px;
+    }
+
+    .agenda-actions {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .agenda-date {
+        justify-self: center;
+    }
+
+    .promo-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .promo-img {
+        justify-self: center;
+        margin-bottom: 0;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 575px) {
+    .hero {
+        padding: 3rem 1rem;
+        padding-top: 5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .wave {
+        margin-top: 60px;
+    }
+
+    .hero-student img {
+        display: none;
+    }
+
+    .kategori-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .kategori-card {
+        padding: 25px 15px;
+    }
+
+    .badge {
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        margin-top: 20px;
+    }
+
+    .badge-text .number {
+        font-size: 24px;
+    }
+
+    .job {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .job-info2 {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .job-info2 img {
+        margin-left: 0;
+    }
+
+    .ts-wrapper {
+        padding: 10px 10px 70px;
+    }
+
+    .ts-card {
+        flex: 0 0 260px;
+        padding: 20px 15px;
+    }
+
+    .chart-legend-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .chart-container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .legend-container {
+        text-align: center;
+    }
+
+    .social-links img {
+        width: 25px;
+    }
+}
+
+/* Very Small Mobile */
+@media (max-width: 375px) {
+    .hero {
+        padding: 2rem 0.5rem;
+        padding-top: 4rem;
+    }
+
+    .hero h1 {
+        font-size: 1.3rem;
+    }
+
+    .wave {
+        margin-top: 60px;
+    }
+
+    .input1,
+    select {
+        font-size: 16px;
+        margin-top: 9px;
+    }
+
+    .kategori-header h2 {
+        font-size: 24px;
+    }
+
+    .bkk-right h2 {
+        font-size: 1.3rem;
+    }
+
+    .bkk-feature {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .bkk-teacher {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ts-card {
+        flex: 0 0 240px;
+    }
+
+    .agenda-title {
+        font-size: 14px;
+    }
+
+    .agenda-desc {
+        font-size: 12px;
+    }
+}
+
+/* Height adjustments for mobile */
+@media (max-height: 700px) and (max-width: 767px) {
+    .hero {
+        min-height: auto;
+        padding-top: 5rem;
+    }
+
+    .hero-student img {
+        display: none;
+    }
+
+    .wave {
+        margin-top: 60px;
+    }
+}
+
+/* Orientation specific */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero {
+        padding-top: 4rem;
+        min-height: auto;
+    }
+
+    .hero-student img {
+        display: none;
+    }
+
+    .container-2 {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .wave {
+        margin-top: 60px;
+    }
+
+    .input1,
+    select {
+        width: 45%;
+        margin-top: 9px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .hero-student,
+    .wave,
+    .social-links,
+    .ts-nav,
+    .agenda-side {
+        display: none;
+    }
+
+    .hero {
+        padding: 2rem 0;
+        color: black;
+        background: white;
+    }
+
+    .kategori {
+        background: white !important;
+        color: black !important;
+        margin-top: 0;
+    }
+
+    .kategori-card {
+        border: 1px solid #ccc;
+    }
+}
     </style>
 @endsection
 
