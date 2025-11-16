@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-12 col-lg-8 text-center text-lg-start">
                     <h1 class="display-5 display-lg-4 fw-bold mb-3">Daftar Kegiatan BKK</h1>
-                    <p class="lead mb-4">Tempertemukan peluang dengan bakat - Temukan kegiatan terbaru dari Bursa Kerja Khusus kami</p>
+                    <p class="lead mb-4">Pertemukan peluang dengan bakat - Temukan kegiatan terbaru dari Bursa Kerja Khusus kami</p>
                     <div class="d-flex justify-content-center justify-content-lg-start gap-3">
                         <a href="#kegiatan-list" class="btn btn-light btn-lg px-3 px-lg-4">
                             <i class="fas fa-calendar-alt me-2"></i> Jelajahi Kegiatan

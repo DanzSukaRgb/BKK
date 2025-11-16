@@ -9,6 +9,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
     <title>BKK | SMKN 6 JEMBER</title>
@@ -1631,6 +1633,12 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdownElements = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'));
+            dropdownElements.map(function (el) {
+                return new bootstrap.Dropdown(el);
+            });
+        });
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
