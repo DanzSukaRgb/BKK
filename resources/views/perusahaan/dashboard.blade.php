@@ -119,7 +119,7 @@
                 <div class="gradient-card">
                     <div class="card-body">
                         <h5 class="card-title"><i class="fas fa-file-alt"></i>Lamaran Masuk</h5>
-                        <p class="display-6">45</p>
+                        <p class="display-6">{{ $lamaranCount}}</p>
                     </div>
                 </div>
             </div>

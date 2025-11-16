@@ -17,6 +17,7 @@ class HomeController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(6); // <- ganti get() dengan paginate()
         $lowonganCount = Lowongan::count();
+
         $kegiatan = KegiatanBkk::orderBy('tanggal', 'desc')
             ->take(3)
             ->get();

@@ -97,7 +97,7 @@
         <div class="col-md-6">
             <div class="gradient-card w-100">
                 <h5 class="card-title"><i class="fas fa-briefcase"></i>Lowongan Tersedia</h5>
-                <p class="display-6">15</p>
+                <p class="display-6">{{$lowonganCount}}</p>
             </div>
         </div>
 
@@ -105,7 +105,7 @@
         <div class="col-md-6">
             <div class="gradient-card w-100">
                 <h5 class="card-title"><i class="fas fa-envelope"></i>Jumlah Lamaran</h5>
-                <p class="display-6">3</p>
+                <p class="display-6">{{$lamaranCount}}</p>
             </div>
         </div>
     </div>

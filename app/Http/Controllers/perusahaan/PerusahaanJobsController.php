@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Http\Controllers\Perusahaan;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lowongan;
+use App\Models\Lamaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -19,9 +21,15 @@ class PerusahaanJobsController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
+        // Hitung jumlah lowongan
         $lowonganCount = Lowongan::where('perusahaan_id', $perusahaan->id)->count();
 
-        return view('layouts.perusahaan.lowongan.index', compact('lowongans', 'lowonganCount'));
+        // Hitung jumlah lamaran terkait lowongan perusahaan
+        $lamaranCount = Lamaran::whereHas('lowongan', function($query) use ($perusahaan) {
+            $query->where('perusahaan_id', $perusahaan->id);
+        })->count();
+
+        return view('layouts.perusahaan.lowongan.index', compact('lowongans', 'lowonganCount','lamaranCount'));
     }
 
     // Form tambah lowongan
@@ -47,13 +55,13 @@ class PerusahaanJobsController extends Controller
             'kuota'            => 'required|integer|min:1',
         ]);
 
-        $data                  = $request->all();
+        $data = $request->all();
         $data['slug']          = Str::slug($request->judul) . '-' . Str::random(6);
         $data['status']        = 'Aktif';
         $data['user_id']       = Auth::id();
         $data['perusahaan_id'] = Auth::user()->perusahaan_id;
 
-        // Skill diubah menjadi array
+        // Skill diubah menjadi array jika ada
         $data['skill_dibutuhkan'] = $request->skill_dibutuhkan
             ? array_map('trim', explode(',', $request->skill_dibutuhkan))
             : [];
@@ -123,6 +131,8 @@ class PerusahaanJobsController extends Controller
 
         return redirect()->route('perusahaan.jobs.index')->with('success', 'Lowongan berhasil dihapus.');
     }
+
+    // Dashboard perusahaan
     public function dashboard()
     {
         $user       = Auth::user();
@@ -130,7 +140,10 @@ class PerusahaanJobsController extends Controller
 
         // Hitung jumlah lowongan aktif perusahaan
         $lowonganCount = Lowongan::where('perusahaan_id', $perusahaan->id)->count();
+        $lamaranCount = Lamaran::whereHas('lowongan', function($query) use ($perusahaan) {
+                $query->where('perusahaan_id', $perusahaan->id);
+            })->count();
 
-        return view('perusahaan.dashboard', compact('perusahaan', 'lowonganCount'));
+        return view('perusahaan.dashboard', compact('perusahaan', 'lowonganCount','lamaranCount'));
     }
 }

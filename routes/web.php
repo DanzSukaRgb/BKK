@@ -103,6 +103,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     // CRUD Lamaran Admin
     Route::prefix('lamaran')->group(function () {
         Route::get('/', [LamaranController::class, 'index'])->name('lamaran.index');
+        Route::post('/{id}', [LamaranController::class, 'store'])->name('lamaran.store');
         Route::get('/{lamaran}', [LamaranController::class, 'show'])->name('lamaran.show');
         Route::delete('/{lamaran}', [LamaranController::class, 'destroy'])->name('lamaran.destroy');
         Route::get('/download-cv/{alumni}', [LamaranController::class, 'downloadCv'])->name('lamaran.download-cv');
@@ -144,15 +145,18 @@ Route::prefix('admin/alumni')->middleware(['auth', 'admin'])->group(function () 
 });
 
 
-Route::prefix('lamaran')->group(function () {
-    Route::get('/', [LamaranController::class, 'index'])->name('lamaran.index');
-    Route::get('/create', [LamaranController::class, 'create'])->name('lamaran.create'); // <-- ini yang hilang
-    Route::post('/', [LamaranController::class, 'store'])->name('lamaran.store');       // untuk menyimpan data baru
-    Route::get('/{lamaran}', [LamaranController::class, 'show'])->name('lamaran.show');
-    Route::delete('/{lamaran}', [LamaranController::class, 'destroy'])->name('lamaran.destroy');
-    Route::get('/download-cv/{alumni}', [LamaranController::class, 'downloadCv'])->name('lamaran.download-cv');
-});
 
+Route::prefix('perusahaan/lamaran')->middleware(['auth', 'perusahaan'])->group(function () {
+    Route::get('/', [LamaranController::class, 'index'])->name('perusahaan.lamaran.index');
+    Route::get('/create', [LamaranController::class, 'create'])->name('perusahaan.lamaran.create');
+    Route::post('/{id}', [LamaranController::class, 'store'])->name('perusahaan.lamaran.store');
+    Route::get('/{lamaran}', [LamaranController::class, 'show'])->name('perusahaan.lamaran.show');
+    Route::get('/{lamaran}/edit', [LamaranController::class, 'edit'])->name('perusahaan.lamaran.edit');
+    Route::put('/{lamaran}', [LamaranController::class, 'update'])->name('perusahaan.lamaran.update');
+    Route::delete('/{lamaran}', [LamaranController::class, 'destroy'])->name('perusahaan.lamaran.destroy');
+    Route::get('/download/{lamaran}', [LamaranController::class, 'downloadDokumen'])->name('perusahaan.lamaran.download');
+
+});
 // -----------------------------
 // Perusahaan routes (authenticated + lowongan)
 // -----------------------------
@@ -161,7 +165,7 @@ Route::prefix('perusahaan')->middleware(['auth', 'perusahaan'])->group(function 
     Route::get('/dashboard', [PerusahaanController::class, 'dashboard'])->name('perusahaan.dashboard');
     Route::get('/profile', [PerusahaanController::class, 'profile'])->name('perusahaan.profile');
     Route::put('/profile', [PerusahaanController::class, 'updateProfile'])->name('perusahaan.profile.update');
-    Route::get('/lamaran', [PerusahaanController::class, 'myLamaran'])->name('perusahaan.lamaran');
+    // Route::get('/lamaran', [PerusahaanController::class, 'myLamaran'])->name('perusahaan.lamaran');
 
     // ---- CRUD Lowongan ----
     Route::prefix('lowongan')->group(function(){

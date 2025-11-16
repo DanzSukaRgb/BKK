@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.perusahaan.admin')
 
 @section('content')
 <div class="container py-5">
@@ -7,7 +7,7 @@
             <h1 class="fw-bold">Detail Lamaran</h1>
         </div>
         <div class="col-md-6 text-end">
-            <a href="{{ route('lamaran.index') }}" class="btn btn-outline-secondary">
+            <a href="{{ route('perusahaan.lamaran.index') }}" class="btn btn-outline-secondary">
                 <i class="fas fa-arrow-left me-2"></i> Kembali ke Daftar Lamaran
             </a>
         </div>
@@ -36,7 +36,7 @@
                     @if($lamaran->alumni->cv)
                         <p>
                             <strong>CV:</strong>
-                            <a href="{{ route('lamaran.download-cv', $lamaran->alumni_id) }}" class="btn btn-sm btn-secondary">
+                            <a href="{{ route('perusahaan.lamaran.download', $lamaran->id) }}" class="btn btn-sm btn-secondary">
                                 <i class="fas fa-download me-2"></i> Download CV
                             </a>
                         </p>
@@ -82,10 +82,10 @@
         </div>
         <div class="card-footer bg-white">
             <div class="btn-group">
-                <a href="{{ route('lamaran.edit', $lamaran->id) }}" class="btn btn-warning" style="border-radius: 5px;">
+                <a href="{{ route('perusahaan.lamaran.edit', $lamaran->id) }}" class="btn btn-warning" style="border-radius: 5px;">
                     <i class="fas fa-edit me-2"></i> Edit
                 </a>
-                <form action="{{ route('lamaran.destroy', $lamaran->id) }}" method="POST" class="d-inline" style="margin-left: 10px">
+                <form action="{{ route('perusahaan.lamaran.destroy', $lamaran->id) }}" method="POST" class="d-inline" style="margin-left: 10px">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus lamaran ini?')">

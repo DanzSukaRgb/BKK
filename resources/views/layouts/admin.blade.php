@@ -545,14 +545,6 @@
         <i class="fas fa-building"></i>
         <span>Kelola Perusahaan</span>
       </a>
-      <a href="{{ route('lowongan.index') }}" class="nav-link {{ request()->routeIs('lowongan.*') ? 'active' : '' }}" @click="isMobileSidebarOpen = false">
-        <i class="fas fa-briefcase"></i>
-        <span>Kelola Lowongan</span>
-      </a>
-      <a href="{{ route('lamaran.index') }}" class="nav-link {{ request()->routeIs('lamaran.*') ? 'active' : '' }}" @click="isMobileSidebarOpen = false">
-        <i class="fas fa-file-alt"></i>
-        <span>Kelola Lamaran</span>
-      </a>
       <a href="{{ route('kegiatan.index') }}" class="nav-link {{ request()->routeIs('kegiatan.*') ? 'active' : '' }}" @click="isMobileSidebarOpen = false">
         <i class="fas fa-calendar-alt"></i>
         <span>Kelola Kegiatan</span>
@@ -606,14 +598,6 @@
       <a href="{{ route('admin.tracer.import.form') }}" class="nav-link {{ request()->routeIs('tracer*') ? 'active' : '' }}">
       <i class="fas fa-file-import"></i>
         <span>Import Data</span>
-      </a>
-      <a href="{{ route('lowongan.index') }}" class="nav-link {{ request()->routeIs('lowongan.*') ? 'active' : '' }}">
-        <i class="fas fa-briefcase"></i>
-        <span>Kelola Lowongan</span>
-      </a>
-      <a href="{{ route('lamaran.index') }}" class="nav-link {{ request()->routeIs('lamaran.*') ? 'active' : '' }}">
-        <i class="fas fa-file-alt"></i>
-        <span>Kelola Lamaran</span>
       </a>
       <a href="{{ route('kegiatan.index') }}" class="nav-link {{ request()->routeIs('kegiatan.*') ? 'active' : '' }}">
         <i class="fas fa-calendar-alt"></i>

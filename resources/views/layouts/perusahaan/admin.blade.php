@@ -213,7 +213,7 @@
     <div class="sidebar-menu">
       <a href="{{ route('perusahaan.dashboard') }}" class="nav-link {{ request()->routeIs('perusahaan.dashboard') ? 'active' : '' }}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
       <a href="{{route('perusahaan.jobs.index')}}" class="nav-link {{ request()->routeIs('perusahaan.lowongan.create') ? 'active' : '' }}"><i class="fas fa-plus"></i>Tambah Lowongan</a>
-      <a href="" class="nav-link {{ request()->routeIs('perusahaan.lamaran') ? 'active' : '' }}"><i class="fas fa-file-alt"></i>Lamaran</a>
+      <a href="{{route('perusahaan.lamaran.index')}}" class="nav-link {{ request()->routeIs('perusahaan.lamaran.index') ? 'active' : '' }}"><i class="fas fa-file-alt"></i>Lamaran</a>
       <a href="{{route('perusahaan.profile.index')}}" class="nav-link {{ request()->routeIs('perusahaan.profile.index') ? 'active' : '' }}"><i class="fas fa-user"></i>Profil</a>
     </div>
   </aside>

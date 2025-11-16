@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Lamaran;
 use App\Models\Lowongan;
 use App\Models\Perusahaan;
 use Illuminate\Http\Request;
@@ -118,9 +119,16 @@ class PerusahaanController extends Controller
         $user       = Auth::user();
         $perusahaan = $user->perusahaan;
 
+        // Jumlah lowongan perusahaan
         $lowonganCount = Lowongan::where('perusahaan_id', $perusahaan->id)->count();
 
-        return view('perusahaan.dashboard', compact('perusahaan', 'lowonganCount'));
-    }
+        // Jumlah lamaran masuk ke lowongan perusahaan
+        $lamaranCount = Lamaran::whereIn('lowongan_id', function ($query) use ($perusahaan) {
+            $query->select('id')
+                ->from('lowongan')
+                ->where('perusahaan_id', $perusahaan->id);
+        })->count();
 
+        return view('perusahaan.dashboard', compact('perusahaan', 'lowonganCount', 'lamaranCount'));
+    }
 }

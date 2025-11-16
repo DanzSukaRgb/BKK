@@ -11,16 +11,23 @@ use Illuminate\Support\Facades\Storage;
 
 class LamaranController extends Controller
 {
+    // Daftar lamaran untuk perusahaan
     public function index()
     {
+        $user = auth()->user();
+
         $lamaran = Lamaran::with(['alumni', 'lowongan'])
+            ->whereHas('lowongan', function ($query) use ($user) {
+                $query->where('perusahaan_id', $user->perusahaan_id);
+            })
             ->latest()
             ->filter(request(['status', 'lowongan_id']))
             ->paginate(10);
 
-        return view('lamaran.index', compact('lamaran'));
+        return view('layouts.perusahaan.lamaran.index', compact('lamaran'));
     }
 
+    // Membuat lamaran baru (untuk alumni)
     public function create()
     {
         $alumni = Alumni::where('user_id', Auth::id())->firstOrFail();
@@ -29,9 +36,10 @@ class LamaranController extends Controller
             ->orderBy('judul')
             ->get();
 
-        return view('lamaran.create', compact('alumni', 'lowongan'));
+        return view('layouts.perusahaan.lamaran.create', compact('alumni', 'lowongan'));
     }
 
+    // Menyimpan lamaran baru (untuk alumni)
     public function store(Request $request, $id)
     {
         $request->validate([
@@ -41,6 +49,7 @@ class LamaranController extends Controller
         ]);
 
         $lowongan = Lowongan::findOrFail($id);
+
         if ($lowongan->status !== 'Aktif' || $lowongan->tanggal_tutup < now()) {
             return back()->with('error', 'Lowongan ini sudah tidak menerima lamaran.');
         }
@@ -69,22 +78,32 @@ class LamaranController extends Controller
         return redirect()->back()->with('success', 'Lamaran berhasil dikirim.');
     }
 
+    // Menampilkan detail lamaran
     public function show(Lamaran $lamaran)
     {
+        $this->authorizePerusahaan($lamaran);
         $lamaran->load(['alumni', 'lowongan']);
-        return view('lamaran.show', compact('lamaran'));
+        return view('layouts.perusahaan.lamaran.show', compact('lamaran'));
     }
 
+    // Edit lamaran (ubah status / catatan)
     public function edit(Lamaran $lamaran)
     {
-        $lowongan = Lowongan::orderBy('judul')->get();
-        return view('lamaran.edit', compact('lamaran', 'lowongan'));
+        $this->authorizePerusahaan($lamaran);
+        $lowongan = Lowongan::where('perusahaan_id', auth()->user()->perusahaan_id)
+            ->orderBy('judul')
+            ->get();
+
+        return view('layouts.perusahaan.lamaran.edit', compact('lamaran', 'lowongan'));
     }
 
+    // Update lamaran (ubah status / catatan)
     public function update(Request $request, Lamaran $lamaran)
     {
+        $this->authorizePerusahaan($lamaran);
+
         $request->validate([
-            'status' => 'required|in:Menunggu,Diterima,Ditolak',
+            'status' => 'required|in:Menunggu,Diterima,Ditolak,Interview,Diproses',
             'catatan' => 'nullable|string',
         ]);
 
@@ -93,23 +112,27 @@ class LamaranController extends Controller
             'catatan' => $request->catatan,
         ]);
 
-        return redirect()->route('lamaran.index')
+        return redirect()->route('perusahaan.lamaran.index')
             ->with('success', 'Status lamaran berhasil diperbarui');
     }
 
+    // Hapus lamaran
     public function destroy(Lamaran $lamaran)
     {
-        // Delete associated file
-        Storage::disk('public')->delete($lamaran->dokumen);
+        $this->authorizePerusahaan($lamaran);
 
+        Storage::disk('public')->delete($lamaran->dokumen);
         $lamaran->delete();
 
-        return redirect()->route('lamaran.index')
+        return redirect()->route('perusahaan.lamaran.index')
             ->with('success', 'Lamaran berhasil dihapus');
     }
 
+    // Download dokumen lamaran
     public function downloadDokumen(Lamaran $lamaran)
     {
+        $this->authorizePerusahaan($lamaran);
+
         if (!Storage::disk('public')->exists($lamaran->dokumen)) {
             abort(404);
         }
@@ -118,5 +141,13 @@ class LamaranController extends Controller
             $lamaran->dokumen,
             'Lamaran_' . $lamaran->alumni->nama_lengkap . '_' . $lamaran->lowongan->judul . '.' . pathinfo($lamaran->dokumen, PATHINFO_EXTENSION)
         );
+    }
+
+    // Helper: validasi akses perusahaan
+    private function authorizePerusahaan(Lamaran $lamaran)
+    {
+        if ($lamaran->lowongan->perusahaan_id !== auth()->user()->perusahaan_id) {
+            abort(403, 'Anda tidak berhak mengakses lamaran ini.');
+        }
     }
 }

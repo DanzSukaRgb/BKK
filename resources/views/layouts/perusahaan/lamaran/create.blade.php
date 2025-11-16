@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.perusahaan.admin')
 
 @section('content')
 <div class="container">
@@ -9,22 +9,8 @@
                     <h2>Tambah Lamaran Baru</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.lamaran.store') }}" method="POST">
+                    <form action="{{ route('perusahaan.lamaran.store', auth()->user()->perusahaan->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="mb-3">
-                            <label for="alumni_id" class="form-label">Alumni *</label>
-                            <select class="form-select @error('alumni_id') is-invalid @enderror" id="alumni_id" name="alumni_id" required>
-                                <option value="">Pilih Alumni</option>
-                                @foreach($alumni as $item)
-                                    <option value="{{ $item->id }}" {{ old('alumni_id') == $item->id ? 'selected' : '' }}>
-                                        {{ $item->nama_lengkap }} ({{ $item->nisn }})
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('alumni_id')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
                         <div class="mb-3">
                             <label for="lowongan_id" class="form-label">Lowongan *</label>
                             <select class="form-select @error('lowongan_id') is-invalid @enderror" id="lowongan_id" name="lowongan_id" required>
@@ -39,14 +25,25 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
-                            <label for="surat_lamaran" class="form-label">Surat Lamaran *</label>
-                            <input type="text" class="form-control @error('surat_lamaran') is-invalid @enderror" id="surat_lamaran" name="surat_lamaran" value="{{ old('surat_lamaran') }}" required>
-                            @error('surat_lamaran')
+                            <label for="pesan" class="form-label">Pesan / Surat Lamaran *</label>
+                            <textarea class="form-control @error('pesan') is-invalid @enderror" id="pesan" name="pesan" rows="4" required>{{ old('pesan') }}</textarea>
+                            @error('pesan')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        <div class="mb-3">
+                            <label for="dokumen" class="form-label">Upload Dokumen (PDF/DOC) *</label>
+                            <input type="file" class="form-control @error('dokumen') is-invalid @enderror" id="dokumen" name="dokumen" required>
+                            @error('dokumen')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a href="{{ route('perusahaan.lamaran.index') }}" class="btn btn-secondary">Batal</a>
                     </form>
                 </div>
             </div>
