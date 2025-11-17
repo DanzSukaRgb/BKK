@@ -56,8 +56,9 @@ class User extends Authenticatable
 
     public function perusahaan()
 {
-    return $this->belongsTo(Perusahaan::class);
+    return $this->hasOne(Perusahaan::class, 'user_id', 'id');
 }
+
 
 
 }
