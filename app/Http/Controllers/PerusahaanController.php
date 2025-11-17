@@ -119,13 +119,11 @@ class PerusahaanController extends Controller
         $user       = Auth::user();
         $perusahaan = $user->perusahaan;
 
-        if (! $perusahaan) {
-            return redirect()->route('perusahaan.create')
-                ->with('error', 'Data perusahaan belum ditemukan. Silakan lengkapi profil perusahaan Anda.');
-        }
-
+        // Jumlah lowongan perusahaan
         $lowonganCount = Lowongan::where('perusahaan_id', $perusahaan->id)->count();
-        $lamaranCount  = Lamaran::whereIn('lowongan_id', function ($query) use ($perusahaan) {
+
+        // Jumlah lamaran masuk ke lowongan perusahaan
+        $lamaranCount = Lamaran::whereIn('lowongan_id', function ($query) use ($perusahaan) {
             $query->select('id')
                 ->from('lowongan')
                 ->where('perusahaan_id', $perusahaan->id);

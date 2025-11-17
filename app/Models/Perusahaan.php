@@ -1,15 +1,16 @@
 <?php
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Perusahaan extends Model
 {
     use HasFactory;
 
-    protected $table    = 'perusahaan';
+    protected $table = 'perusahaan';
     protected $fillable = [
         'user_id',
         'nama',
@@ -25,9 +26,9 @@ class Perusahaan extends Model
     ];
 
     // Relasi dengan User
-    public function perusahaan()
+    public function user()
     {
-        return $this->hasOne(Perusahaan::class, 'user_id', 'id');
+        return $this->belongsTo(User::class);
     }
 
     // Relasi dengan Lowongan
@@ -40,7 +41,7 @@ class Perusahaan extends Model
     protected function logo(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => $value ? asset('storage/' . $value) : asset('images/default-company.png'),
+            get: fn ($value) => $value ? asset('storage/' . $value) : asset('images/default-company.png'),
         );
     }
 
@@ -54,8 +55,8 @@ class Perusahaan extends Model
     public function scopeSearch($query, $keyword)
     {
         return $query->where('nama', 'like', "%$keyword%")
-            ->orWhere('industri', 'like', "%$keyword%")
-            ->orWhere('alamat', 'like', "%$keyword%");
+                    ->orWhere('industri', 'like', "%$keyword%")
+                    ->orWhere('alamat', 'like', "%$keyword%");
     }
 
 }

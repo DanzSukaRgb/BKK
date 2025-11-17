@@ -50,15 +50,14 @@ class User extends Authenticatable
     // Cek apakah user adalah perusahaan
     public function isPerusahaan()
     {
-        return $this->role === 'perusahaan';
+        return $this->role === 'perusahaan';z
     }
     // app/Models/User.php
 
     public function perusahaan()
 {
-    return $this->hasOne(Perusahaan::class, 'user_id', 'id');
+    return $this->belongsTo(Perusahaan::class);
 }
-
 
 
 }
