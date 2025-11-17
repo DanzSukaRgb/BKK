@@ -1685,7 +1685,7 @@
     </div>
 
     <div class="hero-student">
-        <img src="{{ asset('image/hero.png') }}" alt="" class="img-fluid rounded">
+        <img src="{{ asset('image/siswi.png') }}" alt="" class="img-fluid rounded" style="width:500px;">
     </div>
     <div class="wave">
         <img src="{{ asset('image/Vector 46.png') }}" alt="" width="100%" class="img-fluid rounded"
