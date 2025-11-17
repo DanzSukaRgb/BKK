@@ -114,21 +114,25 @@ class PerusahaanController extends Controller
             ->findOrFail($id);
         return view('perusahaan.publicShow', compact('perusahaan'));
     }
-    public function dashboard()
+   public function dashboard()
     {
-        $user       = Auth::user();
-        $perusahaan = $user->perusahaan;
+    $user = Auth::user();
+    $perusahaan = $user->perusahaan;
 
-        // Jumlah lowongan perusahaan
-        $lowonganCount = Lowongan::where('perusahaan_id', $perusahaan->id)->count();
-
-        // Jumlah lamaran masuk ke lowongan perusahaan
-        $lamaranCount = Lamaran::whereIn('lowongan_id', function ($query) use ($perusahaan) {
-            $query->select('id')
-                ->from('lowongan')
-                ->where('perusahaan_id', $perusahaan->id);
-        })->count();
-
-        return view('perusahaan.dashboard', compact('perusahaan', 'lowonganCount', 'lamaranCount'));
+    if (!$perusahaan) {
+        return redirect()->route('perusahaan.profile')
+            ->with('error', 'Anda belum memiliki data perusahaan. Silakan lengkapi profil perusahaan terlebih dahulu.');
     }
+
+    $lowonganCount = Lowongan::where('perusahaan_id', $perusahaan->id)->count();
+
+    $lamaranCount = Lamaran::whereIn('lowongan_id', function ($query) use ($perusahaan) {
+        $query->select('id')
+            ->from('lowongan')
+            ->where('perusahaan_id', $perusahaan->id);
+    })->count();
+
+    return view('perusahaan.dashboard', compact('perusahaan', 'lowonganCount', 'lamaranCount'));
+}
+
 }
