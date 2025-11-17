@@ -120,7 +120,7 @@ class PerusahaanController extends Controller
     $perusahaan = $user->perusahaan;
 
     if (!$perusahaan) {
-        return redirect()->route('perusahaan.profile')
+        return redirect()->route('perusahaan.profile.index')
             ->with('error', 'Anda belum memiliki data perusahaan. Silakan lengkapi profil perusahaan terlebih dahulu.');
     }
 
