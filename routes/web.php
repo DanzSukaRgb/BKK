@@ -29,7 +29,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::prefix('lowongan')->group(function () {
     Route::get('/', [LowonganController::class, 'publicIndex'])->name('lowongan.public');
     Route::get('/{slug}', [LowonganController::class, 'publicShow'])->name('lowongan.show.public');
-}); 
+});
 
 Route::prefix('kegiatan')->group(function () {
     Route::get('/', [KegiatanBkkController::class, 'publicIndex'])->name('kegiatan.public');
@@ -197,9 +197,9 @@ Route::prefix('perusahaan')->group(function () {
 // DASHBOARD ALUMNI
 // ===============================
 
-Route::get('/alumni/dashboard', function () {
-    return view('alumni.dashboard');
-})->name('alumni.dashboard');
+// Route::get('/alumni/dashboard', function () {
+//     return view('alumni.dashboard');
+// })->name('alumni.dashboard');
 Route::middleware(['auth', 'alumni'])->prefix('alumni')->group(function () {
 
     Route::get('/dashboard', [DashboardAlumniController::class, 'index'])
