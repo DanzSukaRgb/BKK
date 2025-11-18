@@ -29,7 +29,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::prefix('lowongan')->group(function () {
     Route::get('/', [LowonganController::class, 'publicIndex'])->name('lowongan.public');
     Route::get('/{slug}', [LowonganController::class, 'publicShow'])->name('lowongan.show.public');
-});
+}); 
 
 Route::prefix('kegiatan')->group(function () {
     Route::get('/', [KegiatanBkkController::class, 'publicIndex'])->name('kegiatan.public');
